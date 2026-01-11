@@ -1,0 +1,683 @@
+%{{{PREAMBLE
+\documentclass[a4paper,twoside,12pt,openany]{report}
+
+\usepackage[pdftex]{graphicx}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[british]{babel}
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+
+
+%custom
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{fontawesome5}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{xparse}
+\usepackage{verbatim}
+\usepackage{mathtools}
+
+\usepackage{xcolor}
+
+
+%symbols
+\usepackage{xparse} % for better argument parsing
+\usepackage{xcolor}
+\usepackage{amsmath}
+
+
+% helper macro: checks whether an item is in a comma-separated list
+\usepackage{etoolbox}
+
+
+
+
+\usepackage{typearea}
+
+% Divide your \newtheorem commands into groups
+% Comment out the necessary commands
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newtheorem{proposition}{Proposition}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem{condition}{Condition}
+\newtheorem{problem}{Problem}
+\newtheorem{example}{Example}
+
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+\newtheorem{note}{Note}
+\newtheorem{claim}{Claim}
+
+\usepackage{newtxtext}
+\usepackage{newtxmath}
+
+\begin{document}
+%{{{CUSTOM COMMANDS
+\newcommand\bbigcirc{\scalebox{1.5}{$\bigcirc$}}
+\newcommand\bsubseteq{\scalebox{1.7}{$\subseteq$}}
+\newcommand\bequals{\scalebox{2}{$=$}}
+\newcommand\bbigcap{\scalebox{1.5}{$\bigcap$}}
+\newcommand\bbigcup{\scalebox{1.5}{$\bigcup$}}
+\newcommand{\mvs}{\mathfrak{M}}
+\newcommand{\inv}{^{-1}}
+\newcommand{\alphaset}{\underline{\alpha}}
+\newcommand{\betaset}{\underline{\beta}}
+\newcommand{\gammaset}{\underline{\gamma}}
+\newcommand{\deltaset}{\underline{\delta}}
+\newcommand{\piset}{\underline{\pi}}
+\newcommand{\phiset}{\underline{\phi}}
+\newcommand{\solarr}{\mathbf{s}}
+\newcommand{\solperm}{\acute{\solarr}}
+\newcommand{\conjl}[2]{\searrow^#1_#2\ }
+\newcommand{\comml}[2]{\nearrow\kern-1em\searrow^#1_#2\ }
+\newcommand{\conjh}[2]{\scalebox{1.37}{$\conjl #1 #2$}}
+\newcommand{\commh}[2]{\scalebox{1.37}{$\comml #1 #2$}}
+%\newcommand{\orbit}[1]{\text{\(#1\)\kern-0.95em \raisebox{-0.3em}{\scalebox{1.4}{\(\circlearrowright\) } } } }
+%\newcommand{\orbit}[1]{\overset{
+
+%\newcommand{\orbit}[1]{%
+%  \mathord{%
+%    \hbox{%
+%      \ooalign{%
+%		  \hfil$\displaystyle #1$\hfil\cr
+%        \hfil\raisebox{-0.6ex}{\smash{\scalebox{1.4}{$\circlearrowright$}% }}\hfil\cr
+%      }%
+%    }%
+%  }%
+%}
+\newcommand{\orbith}[2]{%
+  \mathord{%
+    \hbox{%
+      \ooalign{%
+		\hfil$\displaystyle \overset{#1}{#2}$\hfil\cr
+		\hfil\raisebox{-0.8ex}{\smash{\scalebox{1.8}{$\circlearrowright$}}{}}\hfil\cr
+      }%
+    }%
+  }%
+}
+\newcommand{\orbitl}[2]{%
+  \mathord{%
+    \hbox{%
+      \ooalign{%
+		\hfil$\displaystyle \overset{#1}{#2}$\hfil\cr
+		\hfil\raisebox{-0.8ex}{\smash{\scalebox{1.6}{$\circlearrowright$}}{}}\hfil\cr
+      }%
+    }%
+  }%
+}
+
+
+\newcommand{\gameboard}[1][1,2,3,4,5,6]{%
+  \def\vals{#1}%
+  \expandafter\gameboardhelper\vals
+}
+
+\newcommand{\gameboardhelper}[6]{%
+\setlength{\fboxrule}{2pt}
+  \boxed{
+    \begin{matrix}
+      \mathbf{#1} & \mathbf{#2} & \mathbf{#3} \\
+      \mathbf{#4} & \mathbf{#5} & \mathbf{#6}
+    \end{matrix}
+  }
+}
+%}}}
+
+
+\begin{titlepage}
+\begin{flushleft}
+\includegraphics[width=0.8\columnwidth]{MDU_logo_English.eps}
+\end{flushleft}
+
+\vspace{25mm}
+
+\centering{\large\textsf{PROJECT IN MATHEMATICS}}
+
+\vspace{4cm}
+
+% Write your title here
+\centering{\large{\textbf{\textsf{The Title of the Thesis}} }}
+
+\vspace{1cm}
+
+\centering{\large\textsf{by}}
+
+\vspace{1cm}
+
+% write your name(s) here
+\centering{\large{\textit{\textsf{Adrian Swande}} }}
+
+\vspace{1cm}
+
+\centering{\large\textsf{MMA291~--- Project in Mathematics}}
+
+\vspace{4cm}
+
+\centering{\large\textbf{\textsf{DIVISION OF MATHEMATICS AND PHYSICS} }}
+
+\centering{\textsf{MÄLARDALEN UNIVERSITY}}
+
+\centering{\textsf{SE-721 23 VÄSTERÅS, SWEDEN}}
+
+\end{titlepage}
+
+\begin{titlepage}
+\begin{flushleft}
+\includegraphics[width=0.8\columnwidth]{MDU_logo_English.eps}
+\end{flushleft}
+
+\bigskip\hrule\bigskip
+
+\noindent MMA291~--- Project in Mathematics
+
+\bigskip
+
+\noindent{\small\emph{Date of presentation}:}
+
+% Write the date of your presentation here
+\noindent{XX June 2026}
+
+\bigskip
+
+\noindent{\small\emph{Project name}:}
+
+% Write your title here
+\noindent{The Title of the Thesis}
+
+\bigskip
+
+\noindent{\small\emph{Author}:}
+
+% Write your name(s) here
+\noindent{Adrian Swande}
+
+\bigskip
+
+\noindent{\small\emph{Version}: 1}
+
+\noindent{\today}
+
+\bigskip
+
+\noindent{\small\emph{Supervisor}:}
+
+% Write the name(s) of your supervisor(s) here:
+\noindent{Peder Thompson}
+
+\bigskip
+
+
+\noindent{\small\emph{Examiner}:}
+
+% Write the name of your examiner here:
+\noindent{To be determined}
+
+\bigskip
+
+\noindent{\small\emph{Comprising}:}
+
+\noindent{7.5 ECTS credits}
+
+\bigskip\hrule
+
+\end{titlepage}
+%}}}
+
+\begin{abstract}
+Under construction.
+\end{abstract}
+
+\chapter*{Acknowledgements}\addcontentsline{toc}{chapter}{Acknowledgements}
+
+Under construction.
+
+\tableofcontents
+
+% uncomment the next line, if you have figures
+%\listoffigures
+
+% uncomment the next line, if you have tables
+%\listoftables
+
+\chapter{Introduction}
+
+
+% uncomment the next two lines if you use BiBTeX
+%\bibliographystyle{plain}
+%\bibliography{filename}
+
+% Comment out the next line, if you have an appendix
+%\appendix
+
+% write your appendix here
+
+%{{{PRELIMINARIES
+\chapter{Preliminaries}
+%{{{GROUPS
+
+\section{Groups}
+
+\begin{definition}[Group]
+	In mathematics, a \emph{group} \(G\) denotes a set of elements \(\left\{a,b,c,\cdots \right\}\) and an accompanying binary operator \(*\), together satisfying the following conditions:
+	\begin{enumerate}
+		\item \textit{Closure}: For every ordered pair of elements in the group, the binary product thereof (as defined by the binary operator) is also an element of that group; \(\forall a,b\in G\ \left(a*b=c\in G\right)\).
+		\item \textit{Associativity}: The order wherein ordered pairs of elements are evaluated has no consequence on the restulting product; \(\forall a,b,c\in G\ \left((a*b)*c = a*(b*c)\right)\).
+		\item \textit{Existence of Identity}: There exists in the group an \textit{identity} element, the omission of which from any expression containing any other element or elements has no consequence on the evaluation of that expression; \(\exists e\in G\ \forall a\in G\ (e*a=a*e=a)\).
+		\item \textit{Existence of Unit}: Each element in the group has its own \textit{inverse}, who's product therewith evalutes to the identity; \(\forall a\in G\ \exists b\in G\ (a*b=b*a=e)\), where \(e\) is the identity.
+	\end{enumerate}
+\end{definition}
+
+\begin{definition}[Commutativity]
+	Let \(G\) be a group. Then it is \emph{commutative} (or \emph{Abelian}) if \(\forall a,b\in\mathbb{G}\ (a*b=b*a)\).
+\end{definition}
+
+The integers \(\mathbb{Z}=\left\{\cdots,-2,-1,0,1,2,\cdots\right\}\) together with \textit{addition} constitutes an Abelian group with \(0\) acting as its identity (since \(\forall a\in \mathbb{Z}\ \left(0+a=a+0=a\right)\)). The negative numbers exist as the inverses of the positives, and vice versa.
+%The inverse of any element \(x\in\mathbb{Z}\) is \(-x\), since \(x+(-x)=0\).
+We know addition is associative, and since \(\mathbb{Z}\) is infinite in each direction, we will never find a pair of elements therein whose sum is not also an element therein. This group can also be expressed as additively \textit{generated} by the element \(1\), since \(1\) and its inverse \(-1\) together with \(+\) can express the whole group. This generative definition is denoted \(G=\left(\left\langle\left\{ 1 \right\}\right\rangle,+\right)=\left(\mathbb{Z},+\right)\). The group generated by \(2\) -- to give another example -- is the group of all \textit{even} integers.
+
+\begin{definition}[Cyclicity]
+	A group which can be generated by a single element is called a \emph{cyclic} group.
+\end{definition}
+
+When the operator is given implicitly, a cyclic group with the generator \(g\) can be written as \(\langle g\rangle\).
+
+\begin{definition}[Subgroup]
+	%A \textit{subgroup} \(H\) is a subset of a group \(G\) under an operation \(*\) if \(H\) is also a group under \(*\).
+	Let \(G\) be a group under a binary operator \(*\). Then \(H\subset G\) is a \emph{subgroup} of \(G\) if \(H\) is also a group under \(*\).
+\end{definition}
+%}}}
+%{{{PERMUTATIONS
+
+\section{Permutations}
+
+\begin{definition}[Permutation]
+	A \emph{permutation} \(\pi\) of the set \(A\) is a bijective map \(\pi:A\to A\).
+\end{definition}
+
+We write \(\pi^n\) for a permutation \(\pi\) to denote \(\pi\circ\cdots\circ\pi\) where \(\pi\) is composed with itself \(n\in\mathbb{N}\) times. \(\pi^{-n}\) denotes the composition \(\pi\inv\circ\cdots\circ\pi\inv\) where the inverse \(\pi\inv\) is composed with itself \(n\in\mathbb{N}\) times. The permutation \(\pi^0\) always equals the identity.
+
+\begin{definition}[Permutation Group]
+	A \emph{permutation group} on a set \(A\) is a group of permutations of \(A\) under composition.
+\end{definition}
+
+\begin{definition}[Support]
+	The \emph{support} \(\piset\) of a permutation \(\pi\) of \(A\) is the set \(\left\{a\in A \,\middle|\, \pi(a)\neq a\right\}\).
+%Note that if \(\piset=\emptyset\), then \(\pi\) equals the identity.
+\end{definition}
+
+A permutation whoose support is the empty set equals the identity. We say that a permutation \(\pi\) of \(A\) \textit{fixes} an element \(a\in A\) if \(a\notin\piset\).
+
+\begin{definition}[Orbit]
+	%The \emph{orbit} \(G\cdot a\) of an element \(a\) in a permutation group \(G\) is the set \(\left\{b\in A \,\middle|\, \phi(a)=b,\, \phi\in\left(\langle\{\pi\}\rangle,\circ\right)\right\}\), or, in other terms, \(\orbit{a}=\left\{b\in A \,\middle|\, \pi^n(a)=b,\, n\in\mathbb{N}\right\}\).
+	%The \emph{orbit} \(\orbit[a \pi]\) of an element \(a\in A\) in a permutation \(\pi\) of \(A\) is the set \(\left\{b\in A \,\middle|\, \phi(a)=b,\, \phi\in\left(\langle\{\pi\}\rangle,\circ\right)\right\}\), or, in other terms, \(\orbit{a}=\left\{b\in A \,\middle|\, \pi^n(a)=b,\, n\in\mathbb{N}\right\}\).
+	%The \emph{orbit} \(\orbitl a \pi\) of an element \(a\in A\) under a permutation \(\pi\) of \(A\) is the set \(\left\{b\in A \,\middle|\, \phi(a)=b,\, \phi\in\left(\langle\{\pi\}\rangle,\circ\right)\right\}\). The orbit \(\orbith a G\) -- where \(G\) is a permutation group on \(A\) -- is the union of all orbits of \(a\) in the group: \(\left\{b\in A \,\middle|\, b\in\orbitl a \pi,\, \pi\in G\right\}\).
+	The \emph{orbit} \(\orbitl a \pi\) of an element \(a\in A\) under a permutation \(\pi\) of \(A\) is the set \(\left\{b\in A \,\middle|\, \phi(a)=b,\, \phi\in \langle\pi\rangle \right\}\). The orbit \(\orbith a G\) -- where \(G\) is a permutation group on \(A\) -- is the union 
+	\(\underset{\pi\in G}\bbigcup\orbitl a \pi\) 
+	%\(\left\{b\in A \,\middle|\, b\in\orbitl a \pi,\, \pi\in G\right\}\)
+	of the orbits of \(a\) under each permutation in the group -- or put differently: \(\orbith a G = \left\{\pi(a) \,\middle|\, \pi\in G \right\}\).
+\end{definition}
+
+%Herefrom follows the equality \(\forall a\in A \ \forall\pi\in G \ \left( \underset{b\in\orbitl a \pi}\bequals \orbitl b \pi \right)\) and \(\forall a\in A \ \left( \underset{b\in\orbith a G}\bequals \orbith b G \right)\) where \(G\) is a permutation group on \(A\).
+Herefrom follows that \(b\in\orbitl a \pi \Leftrightarrow a\in\orbitl b \pi\) and \(b\in\orbith a G \Leftrightarrow a\in\orbith b G\).
+\begin{definition}[Cycle]
+	A \emph{cycle} is a permutation \(\pi\) such that 
+	\(\forall a,b\in \piset\ \exists\ \phi\in\langle\pi\rangle\left(\phi(a)=b\right)\).
+	%\(\forall a,b\in \piset\ \exists\ n\in\mathbb{Z}\left(\pi^n(a)=b\right)\).
+	
+	%\(\forall a,b\in \piset\ \left(\exists\phi\in(\langle\{\pi\}\rangle,\circ)\ \left(\phi(a)=b\right)\right)\).
+%Note that if \(\piset=\emptyset\), then \(\pi\) equals the identity.
+\end{definition}
+
+Since the support of the identity is the empty set, the identity also a cycle.
+
+\begin{definition}[Transposition]
+	a \emph{transposition} is a cycle \(\pi\) where \(|\piset|=2\).
+\end{definition}
+
+\color{red}
+\begin{lemma}
+	%Each permutation \(\pi\) can be expressed as a composition of cycles \(\pi_1\circ\pi_2\circ\cdots\) where \(\text{Dom}(\pi_1)=\text{Dom}(\pi_2)=\cdots=\text{Dom}(\pi)\) and \(\piset_i\cap\piset_j=\emptyset\) for \(i\neq j\).
+	Let \(\pi\) be a permutation of a set \(A\). Then there exists a family \((\pi_i)_{i\in I}\) of cycles on \(A\) with pairwise disjoint supports such that \(\forall a\in A\ \exists i\in I \  \left( a\in\piset_i \wedge \pi_i(a)=\pi(a) \wedge \pi_j(a)=a \wedge i\neq j \right)\).
+\end{lemma}
+
+\begin{proof}
+	Take any element \(a\in A\). Define the first cycle \(\pi_1\) with \(\forall n\in\mathbb{Z}\  \left( \pi_1^n(a)=\pi(a) \wedge b\notin\orbith a {\pi_1} \Rightarrow \pi_1(b)=b \right)\). Then \(\piset_1=\orbitl a \pi\).
+	Let \(a_{k+1}\in A\setminus\underset{i\in \{1,\cdots,k\}}\bbigcup\piset_i\) where \(k\in\mathbb{N}\) and each \(\pi_i\) is defined in the same way as \(\pi_1\) for each \(a_i\). Then \(\piset_{k+1}\)
+
+	%Let \(a_k\in A\) where \(k\in\mathbb{N}\) and \(a_{k}\in A\setminus\underset{i\in \{1,\cdots,k-1}\bbigcup\piset_i\) where each \(\pi_k\) is defined in the same way as \(\pi_1\). Then 
+
+	%\(a_{k}\in A\setminus\underset{i\in \{1,\cdots,k-1}\bbigcup\piset_i\)
+
+	%while \(\piset\neq\underset{i\in I}\bbigcup\piset_i\)
+	%For each element \(a\in A\), let the orbit \(\orbitl a \pi\) constitute 
+	%For every element \(a\in A\), there is a string of elements defined by \(\left\{b\in A \,\middle|\, n\in\mathbb{N},\, \pi^n(a)=b,\, \phi\in\left(\rangle\right) \right\}\)
+	%Let \(a_1\in A\). If \(\pi(a_1)=a_1\), then there is a cycle on \(\{a_1\}\) in \(\pi\). If \(\pi(a_1)\neq a_1\), write \(\pi(a_1)=a_2\). Since \(pi\) is bijective, \(a_2\) cannot map to itself, so it must either map to a new element or back to \(a_1\), wherefrom would follow that there is a cycle on \(\{a_1,a_2\}\) in \(\pi\). Otherwise write \(\pi(a_2)=a_3, \cdots,\pi(a_i)=a_{i+1}\), continuing indefinitely until \(\pi(a_n)=a_1\) for some \(n\), in which case the set whereon the cycle operates is infinite. Continue like this until each element in \(A\) has found its cycle.
+\end{proof}
+\color{black}
+%Any permutation can herefore be written as a set of pairwise disjoint cycles, commonly called \textit{cycle notation}. The permutation \((a,b,c)(d,e)\)
+In \textit{cycle notation}, the fact above is used to express permutations in a convenient way. Here, each cycle in the expressed permutation is written as a parenthesized list of elements. 
+For example, the permutation \((a,b,c)(d,e)\) maps \(a\mapsto b\), \(b\mapsto c\) and \(c\mapsto a\), as well as \(d\mapsto e\) and \(e\mapsto d\). Note that this permutation is the same as the permutation \((c,a,b)(e,d)\), but not the same as \((a,c,b)(d,e)\).
+%For example, the permutation \((a,b,c)(d,e)\) maps \(a\) to \(b\), \(b\) to \(c\) and \(c\) back to \(a\), as well as \(d\) to \(e\) and \(e\) to back to \(d\). Note that this permutation is the same as the permutation \((c,a,b)(e,d)\), but not the same as \((a,c,b)(d,e)\).
+
+In this text, permutations containing symbols or numbers with multiple digits will be written with dividing commas, whilst permutations containing exclusively the numbers 0 through 9 will be written therewithout -- for example \((1234)=(1,2,3,4)\).
+
+Further, when talking about permutation groups in this text, the operator \(\circ\) will be implicit, and omitted from expressions. As an example, take \(\pi\circ\phi=\pi\phi\).
+
+%\begin{example}
+%\end{example}
+%}}}
+%}}}
+%{{{PROPERTIES OF PERMUTATION GROUPS
+\chapter{Properties of Permutation Groups}
+
+Herein, all lowercase geek letters are implied to be elements in a permutation group \(G\) on \(A\).
+%and belong to the same permutation group \(G\).
+Elements of \(A\) are represented by lowercase latin characters.
+
+\begin{definition}[Conjugate]
+	The \emph{conjugate} \(\conjl\alpha \beta\) of \(\beta\) by \(\alpha\) is the composition \(\alpha\inv\beta\alpha\).
+\end{definition}
+
+\begin{definition}[Commutator]
+	The \emph{commutator} \(\comml \alpha \beta\) of \(\alpha\) and \(\beta\) is the composition \(\beta\inv\alpha\inv\beta\alpha\).
+\end{definition}
+
+These two constructions -- though they can seem arbitrary at first -- have interesting and useful properties when working within groups -- specifically when the supports of their two permutations share elements.
+
+In the trivial case where they share no element, the permutations commute, so the conjugate of \(\alpha\) and \(\beta\) is \(\beta\), and the commutator thereof is the identity; \(\alpha \cap \beta = \emptyset\) implies that \(\alpha\inv \beta\alpha=\beta \) and \(\beta\inv \alpha\inv \beta\alpha = e\).
+
+\begin{lemma}
+	Let 
+	%\(\alpha\) and \(\beta\) where 
+	\(\alphaset\cap\betaset=\{c\}\). Then \(\conjl\alpha\beta=\left(\alpha\inv(c),\beta(c),\beta^2(c),\cdots,\beta\inv(c)\right)\). FOR EACH ORBIT!!!!!!
+\end{lemma}
+
+\begin{proof}
+	%For each \(\alpha^k(c)\) where \(k\in\left\{0,\cdots,\left|\orbitl c \alpha\right|\right-2\}\), \(\conjl \alpha \beta\left(\alpha^k(c)\right)=\alpha^k(c)\), since permutations which share no supportive elements commute and \(\alpha\left(\alpha^k(c)\right)\notin\{c\}\cup\betaset\). The element \(\alpha\inv(c)\)
+	%For each \(a\in\langle\alpha\rangle\setminus\left\{\alpha\inv(c)\right\}\), \(\pi\)
+	For each \(b\in\alphaset\setminus\left\{\alpha\inv(c)\right\}\), \(\alpha(b)\notin\betaset\). Since \(\beta\alpha(b)=\alpha(b)\), the conjugate can be rewritten for \(b\): \(\alpha\inv\beta\alpha(b)=\alpha\inv\alpha(b)=b\). In the case of \(\alpha\inv(c)\), \(\alpha\inv\beta\alpha\alpha\inv(c)=\alpha\inv\beta(c)=\beta(c)\), since \(\beta(c)\notin\alphaset\Rightarrow\alpha\inv\beta(c)=\beta(c)\). For each \(d\in\betaset\setminus\left\{\beta\inv(c), c\right\}\), \(d,\beta(d)\notin\alphaset\), so \(\alpha\inv\beta\alpha(d)=\beta(d)\). Lastly, \(\beta\inv(c)\) maps to \(\alpha\inv\beta\alpha\beta\inv(c)=\alpha\inv\beta\beta\inv(c)=\alpha\inv(c)\). This gives the function 
+	\begin{equation}\label{conj}
+		\conjl \alpha \beta (x) = \left\{
+				\begin{array}{cl}
+					x & : \ x\in\alphaset\setminus\left\{\alpha\inv(c)\right\} \\
+					\beta(c) & : \ x=\alpha\inv(c) \\
+					\beta(x) & : \ x\in\betaset\setminus\left\{\beta\inv(c), c\right\} \\
+					\alpha\inv(c) & : \ x=\beta\inv(c)
+				\end{array}
+			\right.
+	\end{equation}
+	which, in cycle notation, is written \(\left(\alpha\inv(c),\beta(c),\beta^2(c),\cdots,\beta\inv(c)\right)\).
+\end{proof}
+
+Note that if \(\beta\) is a transposition, then \(\beta=\left(c,\beta(c)\right)\) and \(\beta(c)=\beta\inv(c)\). Thus 
+%Note that if \(\left|\orbith c \beta \right|=2\), then \(\beta_k=\left(c,\beta(c)\right)\) where \(c\in\betaset_k\) and \(\beta(c)=\beta\inv(c)\), so
+\begin{align*}
+	\conjl \alpha \beta (x) &= \left\{
+				\begin{array}{cl}
+					x & : \ x\in\alphaset\setminus\left\{\alpha\inv(c)\right\} \\
+					\beta(c) & : \ x=\alpha\inv(c) \\
+					\beta(x) & : \ x\in\emptyset \\
+					\alpha\inv(c) & : \ x=\beta\inv(c) \\
+				\end{array}
+			\right. \\
+	&= \left\{
+				\begin{array}{cl}
+					x & : \ x\in\alphaset\setminus\left\{\alpha\inv(c)\right\} \\
+					\beta(c) & : \ x=\alpha\inv(c) \\
+					\alpha\inv(c) & : \ x=\beta(c) \\
+				\end{array}
+			\right. \\
+\end{align*}
+and the conjugate is always \(\left(\alpha\inv(c),\beta(c)\right)\).
+
+
+\begin{lemma}
+	Let 
+	%\(\alpha\) and \(\beta\) where 
+	\(\alphaset\cap\betaset=\{c\}\). Then \(\comml\alpha \beta=\left(c,\beta\inv(c),\alpha\inv(c)\right)\).
+\end{lemma}
+
+\begin{proof}
+	Using (\ref{conj}) from the previous lemma,
+	\begin{align*}
+		\comml\alpha\beta(x) = \beta\inv\conjl\alpha\beta(x)
+			&= \left\{
+					\begin{array}{cl}
+						\beta\inv(x) & : \ x\in\alphaset\setminus\left\{\alpha\inv(c)\right\} \\
+						\beta\inv\beta(c) & : \ x=\alpha\inv(c) \\
+						\beta\inv\beta(x) & : \ x\in\betaset\setminus\left\{\beta\inv(c), c\right\} \\
+						\beta\inv\alpha\inv(c) & : \ x=\beta\inv(c) \\
+					\end{array}
+				\right. \\
+			&= \left\{
+					\begin{array}{cl}
+						x & : \ x\in\alphaset\setminus\left\{\alpha\inv(c), c\right\} \\
+						\beta\inv(x) & : \ x=c \\
+						c & : \ x=\alpha\inv(c) \\
+						x & : \ x\in\betaset\setminus\left\{\beta\inv(c), c\right\} \\
+						\alpha\inv(c) & : \ x=\beta\inv(c) \\
+					\end{array}
+				\right. \\
+			&= \left\{
+					\begin{array}{cl}
+						x & : \ x\in (\alphaset\cup\betaset) \setminus\left\{\alpha\inv(c), \beta\inv(c), c\right\} \\
+						c & : \ x=\alpha\inv(c) \\
+						\alpha\inv(c) & : \ x=\beta\inv(c) \\
+						\beta\inv(c) & : \ x=c \\
+					\end{array}
+				\right. \\
+			&=\left(c,\beta\inv(c),\alpha\inv(c)\right).
+	\end{align*}
+\end{proof}
+
+%\begin{lemma}
+%	Let \(H\) be a group where \(\forall\alpha,\beta\in H\ \left( \left|\alphaset\cap\betaset\right|\leq 1 \right)\). Then \(H=\langle \mathfrak{G} \rangle\) where \(\forall \pi\in\mathfrak{G}\ \left(\left|\orbitl a \pi\right|=3\wedge a\in\piset\right)\).
+%\end{lemma}
+
+%\color{red}
+\begin{lemma}
+	Let \(\alpha\) and \(\beta\) where \(\alphaset\cap\betaset = \left\{c_1,\cdots,c_n\right\}, n\geq 2\) and 
+	\(\alpha^{k}\left(c_1\right)=\beta^{k}\left(c_1\right)\) for all \(k\in\left\{0,\cdots,n-1\right\}\).
+	%\(\alpha^{k-1}\left(c_1\right)=\beta^{k-1}\left(c_1\right)\) for all \(k\in\left\{1,\cdots,n\right\}\).
+	Then \(\conjl \alpha \beta = \left(\right)\).
+\end{lemma}
+
+\begin{proof}
+	Let \(b\in\alphaset\setminus\left\{\alpha\inv(c_1),c_1,\cdots,c_{n-1}\right\}\), then the conjugation fixes \(b\). Note that if \(\alpha\) and \(\beta\) only share two elements, then \(c_1=c_{n-1}\). \(c_{n-1}\) maps to \(\beta(c_n)\) and \(\forall i\in\left\{1,\cdots,n-2\right\}\ \left( c_i\mapsto c_{i+1} \right)\) given that \(n\geq 3\). Each \(g\in\betaset\setminus\left\{\beta\inv(c_1),c_1,\cdots,c_{n}\right\}\) map to \(\beta(g)\). Lastly, \(\alpha\inv(c_1)\mapsto c_1\) and \(\beta\inv(c_1)\mapsto\alpha\inv(c_1)\). This yields the function 
+	\begin{align}
+		\conjl \alpha \beta (x) &= \left\{
+				\begin{array}{cl}
+					x & : \ x\in\alphaset\setminus\left\{\alpha\inv(c_1),c_1,\cdots,c_{n-1}\right\} \\
+					c_1 & : \ x=\alpha\inv(c_1) \\
+					c_{i+1} & : \ i\in\{1,\cdots,n-2\}  \wedge n\geq 3\\
+					\beta(c_n) & : \ x=c_{n-1} \\
+					\beta(x) & : \ x\in\betaset\setminus\left\{\beta\inv(c_1),c_1,\cdots,c_{n}\right\} \\
+					\alpha\inv(c_1) & : \ x=\beta\inv(c_1) \\
+				\end{array}
+			\right. \\
+				&= \left(\alpha\inv(c_1),c_1,\cdots,c_{n-1},\beta(c_n),\cdots,\beta\inv(c_1)\right).
+	\end{align}
+					%\alpha(x) & : \ x\in\left\{\alpha\inv(c_1),c_1,\cdots,c_{n-2}\right\} \wedge n\geq 3 \\
+	%For \(d\in\betaset\setminus\left\{\beta\inv(c_1)\right\}\cup\left\{\alpha\inv(c_1),c_1,\cdots,c_{n-2}\right\}\), \(d\mapsto\beta(d)\).
+	%Let \(b\in\alphaset\setminus\left\{c_{n-1}\right\}\), then \(b\mapsto b\). In the case of \(c_{n-1}\), \(\alpha\inv\beta\alpha(c_{n-1})=\alpha\inv\beta(c_n)=\beta(c_{n})\).
+	%For each \(d\in\betaset\setminus\left\{\beta\inv(c_1),c_1,\cdots,c_{n-1}\right\}\), \(d\mapsto\beta(d)\).
+	%Lastly, \(\beta\inv(c_1)\) maps to \(\alpha\inv\beta\alpha\beta\inv(c_1)=\alpha\inv\beta\beta\inv(c_1)=\alpha\inv(c_1)\). This gives the function 
+	%\begin{equation}
+	%	\conjl \alpha \beta (x) = \left\{
+	%			\begin{array}{cl}
+	%				x & : \ x\in (\alphaset\setminus\{c_{n-1}\}) \\
+	%				\beta\inv(c_n) & : \ x=c_{n-1} \\
+	%				\beta(x) & : \ x\in\betaset\setminus\left\{\beta\inv(c_1),c_1,\cdots,c_{n-1}\right\} \\
+	%				\alpha\inv(c_1) & : \ x=\beta\inv(c_1)
+	%			\end{array}
+	%		\right.
+	%\end{equation}
+	%which equals \(\left(c_{n-1},\beta\inv(c_n)\right)\).
+\end{proof}
+
+\begin{lemma}
+	Let \(\alpha\) and \(\beta\) where \(\alphaset\cap\betaset = \left\{c_1,\cdots,c_n\right\}, n\geq 2\) and \(\alpha^{k-1}\left(c_1\right)=\beta^{k-1}\left(c_1\right)\) for all \(k\in\left\{1,\cdots,n\right\}\). Then \(\comml \alpha \beta = \left(\alpha\inv(c),\beta\inv(c)\right)\left(c_{n-1},c_n\right)\).
+\end{lemma}
+
+\begin{proof}
+	\begin{equation}
+	\delta(x) = \beta\inv\gamma(x) = \left\{
+			\begin{array}{cl}
+				x & : \ x\in (\alphaset\cup\betaset) \setminus\left\{\alpha\inv(c), \beta\inv(c), c_{n-1}, c_n \right\} \\
+				\beta\inv(c) & : \ x=\alpha\inv(c) \\
+				\alpha\inv(c) & : \ x=\beta\inv(c) \\
+				c_n & : \ x=c_{n-1} \\
+				c_{n-1} & : \ x=c_n
+			\end{array}
+		\right.
+	\end{equation}
+\end{proof}
+\color{black}
+%}}}
+
+
+\chapter{The \(2\times 3\) Game}
+
+
+The ``\(2\times 3\) game'' is a simple puzzle with six tiles in a grid of numbers and a set of allowed moves which permute them. The goal of the game is to sort the grid into a ``solved'' state from some scrambled state.
+\[
+	\gameboard[5 4 2 3 6 1]
+	\overset{\text{Move}_1}\longrightarrow
+	\cdots
+	\overset{\text{Move}_n}\longrightarrow
+	\gameboard[1 2 3 4 5 6]
+\]
+
+Formally, the game can be and will be hereafter modelled as follows. Let \(G:=\left(\langle \mvs\rangle,\circ\right) \) be a group compositionally generated by the set of moves \(\mvs := \left\{ (123), (456), (14) \right\}\), named \(U=(123)\) for \textit{upper row}, \(L=(456)\) for \textit{lower row} and \(S=(14)\) for \textit{side flip}. A \textit{problem} is a permutation \(p\in G\), and a \textit{solution} thereto is a vector \(\solarr\in\mvs^\ast\) such that \[\overset{1}{\underset{i=n}{\bbigcirc}} \solarr_i=\solarr_n\circ \solarr_{n-1}\circ \cdots \circ \solarr_1=p\] where \(n\) denotes the length of \(\solarr\). Note that \(\solarr\) may include the implicitly given inverses of the group generators. Hereafter, \(\overset{1}{\underset{i=n}{\bbigcirc}} \solarr_i\) will be written as \(\solperm\).
+
+The size of the group \(|G|\) is \(720\), which shows that \(G=S_6\), since \(|S_6|=720\). This fact can also be proven in the following way. Each transposition beteen the upper and lower row can be found with the nested conjugate
+\begin{align*}
+T_1(x,y)
+%	&= (U^{x-1}L^{y-3-1})(S)(U^{x-1}L^{y-3-1})^{-1} \\
+	&= \left(L^{-y+3+1}\right)\inv\left(\left(U^{-x+1}\right)\inv\left(S\right)\left(U^{-x+1}\right)\right)\left(L^{-y+3+1}\right) \\
+	%&= U^{-x+1}(L^{-y+3+1})\inv(S)(U^{-x+1}L^{-y+3+1}) \\
+	%&= ((L^{-y+4})\inv(U^{-x+1})\inv)(S)(U^{-x+1}L^{-y+4}) \\
+	%&= (L^{-(-y+4)}U^{-(-x+1)})(S)(U^{-x+1}L^{-y+4}) \\
+    &= L^{y-4}U^{x-1}SU^{-x+1}L^{-y+4} \\
+    &= L^{y-1}U^{x-1}SU^{-x+1}L^{-y+1},
+\end{align*}
+where \(x\in\{1,2,3\}\) and \(y\in\{4,5,6\}\).
+As an example, let \(p=(26)\). Then
+%Since \(2\) belongs to the upper row and \(6\) belongs to the lower row, \(T_1\) is appropriate here:
+\begin{align*}
+T_1(2,6)
+    &= L^{6-1}U^{2-1}SU^{-2+1}L^{-6+1} \\
+    &= L^{5}U^{1}SU^{-1}L^{-5} \\
+	&= (456)^{5}(123)^{1}(14)(123)^{-1}(456)^{-5} \\
+	&= (465)(123)(14)(132)(456) \\
+	&= (465)(24)(456) \\
+	&= (2,6).
+\end{align*}
+This gives -- after some reductions -- the solution \(\solarr=\left(L,U\inv,S,U,L\inv\right)\) visualized below.
+\begin{align*}
+	& \gameboard[1 6 3 4 5 2]
+	\overset{L}\longrightarrow
+	\gameboard[1 6 3 2 4 5]
+	\overset{U\inv}\longrightarrow
+	\gameboard[6 3 1 2 4 5] \\
+	\overset{S}\longrightarrow
+	& \gameboard[2 3 1 6 4 5]
+	\overset{U}\longrightarrow
+	\gameboard[1 2 3 6 4 5]
+	\overset{L\inv}\longrightarrow
+	\gameboard[1 2 3 4 5 6]
+\end{align*}
+
+
+
+
+
+
+
+Each transposition beteen elements on the same row can be found with the nested conjugate
+\begin{align*}
+T_2(x,y,R)
+	&= \Bigl((R^{-x+1})\inv(S)(R^{-x+1})\Bigl)\inv\Bigl((R^{-y+1})\inv(S)(R^{-y+1})\Bigl)\Bigl((R^{-x+1})\inv(S)(R^{-x+1})\Bigl) \\
+	&= (R^{x-1}SR^{-x+1})\inv(R^{y-1}SR^{-y+1})(R^{x-1}SR^{-x+1}) \\
+%	&= (R^{-(x-1)}S\inv R^{-(-x+1)})(R^{y-1}SR^{-y+1})(R^{x-1}SR^{-x+1}) \\
+	&= (R^{-(-x+1)}S\inv R^{-(x-1)})(R^{y-1}SR^{-y+1})(R^{x-1}SR^{-x+1}) \\
+	&= (R^{x-1}SR^{-x+1})(R^{y-1}SR^{-y+1})(R^{x-1}SR^{-x+1}) \\
+	&= R^{x-1}SR^{-x+1}R^{y-1}SR^{-y+1}R^{x-1}SR^{-x+1} \\
+%	&= R^{-x+1}SR^{x+y-2}SR^{x-y}SR^{-x+1} \\
+	&= R^{x-1}SR^{-x+y}SR^{x-y}SR^{-x+1}
+\end{align*}
+where \(x,y \in R\) and \(R\in \mvs\setminus \{S\}\).
+As an example, let \(p=(23)\). Since \(2\) and \(3\) belong to the upper row, \(R\) is set to \(U\):
+\begin{align*}
+T_2(2,3,U)
+	&= U^{2-1}SU^{-2+3}SU^{2-3}SU^{-2+1} \\
+	&= U^{1}SU^{1}SU^{-1}SU^{-1} \\
+	&= (123)(14)(123)(14)(123)^{-1}(14)(123)^{-1} \\
+	&= (123)(14)(123)(14)(132)(14)(132) \\
+	&= (123)(14)(24)(14)(132) \\
+	&= (123)(12)(132) \\
+	&= (23).
+\end{align*}
+This gives the solution \(\solarr=\left(U\inv,S,U\inv,S,U,S,U\right)\) visualized below.
+\begin{align*}
+	& \gameboard[1 3 2 4 5 6]
+	\overset{U\inv}\longrightarrow
+	\gameboard[3 2 1 4 5 6]
+	\overset{S}\longrightarrow
+	\gameboard[4 2 1 3 5 6]
+	\overset{U\inv}\longrightarrow
+	\gameboard[2 1 4 3 5 6] \\
+	\overset{S}\longrightarrow
+	& \gameboard[3 1 4 2 5 6]
+	\overset{U}\longrightarrow
+	\gameboard[4 3 1 2 5 6]
+	\overset{S}\longrightarrow
+	\gameboard[2 3 1 4 5 6]
+	\overset{U}\longrightarrow
+	\gameboard[1 2 3 4 5 6]
+\end{align*}
+%{{{ OLD EXAMPLE
+\begin{comment}
+As an example, let \(p=(13)\). Since both \(1\) and \(3\) belong to the upper row, \(R\) is set to \(U\):
+\begin{align*}
+T_2(1,3,U)
+	&= U^{1-1}SU^{-1+3}SU^{1-3}SU^{-1+1} \\
+	&= U^{0}SU^{2}SU^{-2}SU^{0} \\
+	&= SU^{2}SU^{-2}S \\
+	&= (14)(123)^{2}(14)(123)^{-2}(14) \\
+	&= (14)(132)(14)(123)(14) \\
+	&= (14)(34)(14) \\
+	&= (13)
+\end{align*}
+This gives the solution \(\solarr=\left(S,U,S,U,U,S\right)\) visualized below.
+\begin{align*}
+	& \gameboard[3 2 1 4 5 6]
+	\overset{S}\longrightarrow
+	\gameboard[4 2 1 3 5 6]
+	\overset{U}\longrightarrow
+	\gameboard[1 4 2 3 5 6]
+	\overset{S}\longrightarrow \\
+	& \gameboard[3 4 2 1 5 6]
+	\overset{U^2}\longrightarrow
+	\gameboard[4 2 3 1 5 6]
+	\overset{S}\longrightarrow
+	\gameboard[1 2 3 4 5 6]
+\end{align*}
+\end{comment}
+%}}}
+
+Since a transposition of any two elements herein can be composed using the generators in \(\mvs\) -- in other words, since the group \(G\) includes every transposition of the elements 1 through 6 -- it follows that the group must include every permutation on the six elements, and thereby equal \(S_6\).
+
+\end{document}

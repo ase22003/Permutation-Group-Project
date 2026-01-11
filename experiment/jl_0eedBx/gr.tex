@@ -1,0 +1,139 @@
+\documentclass[tikz]{standalone}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Math}
+\usetikzlibrary{arrows}
+\usetikzlibrary{graphs}
+\usetikzlibrary{graphdrawing}
+
+% from: https://tex.stackexchange.com/questions/453132/fresh-install-of-tl2018-no-tikz-graph-drawing-libraries-found
+\usepackage{luacode}
+\begin{luacode*}
+	function pgf_lookup_and_require(name)
+	local sep = package.config:sub(1,1)
+	local function lookup(name)
+	local sub = name:gsub('%.',sep)  
+	if kpse.find_file(sub, 'lua') then
+	require(name)
+	elseif kpse.find_file(sub, 'clua') then
+	collectgarbage('stop') 
+	require(name)
+	collectgarbage('restart')
+	else
+	return false
+	end
+	return true
+	end
+	return
+	lookup('pgf.gd.' .. name .. '.library') or
+	lookup('pgf.gd.' .. name) or
+	lookup(name .. '.library') or
+	lookup(name) 
+	end
+\end{luacode*}
+
+\usegdlibrary{layered}
+\begin{document}
+\begin{tikzpicture}[]
+\graph [layered layout, , ] {
+1/"()" [draw, rounded corners, fill=green!10],
+2/"(1 2 3)" [draw, rounded corners, fill=green!10],
+3/"(2 3 4)" [draw, rounded corners, fill=green!10],
+4/"(1 4)" [draw, rounded corners, fill=green!10],
+5/"(1 4 2 3)" [draw, rounded corners, fill=green!10],
+6/"(1 2 3 4)" [draw, rounded corners, fill=green!10],
+7/"(1 3 4 2)" [draw, rounded corners, fill=green!10],
+8/"(1 3 2 4)" [draw, rounded corners, fill=green!10],
+9/"(2 4)" [draw, rounded corners, fill=green!10],
+10/"(1 3 2)" [draw, rounded corners, fill=green!10],
+11/"(1 4 2)" [draw, rounded corners, fill=green!10],
+12/"(1 4 3)" [draw, rounded corners, fill=green!10],
+13/"(1 2)(3 4)" [draw, rounded corners, fill=green!10],
+14/"(1 3 4)" [draw, rounded corners, fill=green!10],
+15/"(1 2 4 3)" [draw, rounded corners, fill=green!10],
+16/"(1 3)" [draw, rounded corners, fill=green!10],
+17/"(2 3)" [draw, rounded corners, fill=green!10],
+18/"(1 2)" [draw, rounded corners, fill=green!10],
+19/"(1 4)(2 3)" [draw, rounded corners, fill=green!10],
+20/"(1 2 4)" [draw, rounded corners, fill=green!10],
+21/"(1 3)(2 4)" [draw, rounded corners, fill=green!10],
+22/"(2 4 3)" [draw, rounded corners, fill=green!10],
+23/"(1 4 3 2)" [draw, rounded corners, fill=green!10],
+24/"(3 4)" [draw, rounded corners, fill=green!10],
+;
+1 -> [thick,blue,] 2;
+1 -> [thick,red,] 3;
+1 -> [thick,green,] 4;
+2 -> [thick,green,] 6;
+2 -> [thick,blue,] 10;
+2 -> [thick,red,] 21;
+3 -> [thick,green,] 5;
+3 -> [thick,blue,] 13;
+3 -> [thick,red,] 22;
+4 -> [thick,green,] 1;
+4 -> [thick,blue,] 5;
+4 -> [thick,red,] 6;
+5 -> [thick,green,] 3;
+5 -> [thick,red,] 15;
+5 -> [thick,blue,] 23;
+6 -> [thick,green,] 2;
+6 -> [thick,blue,] 7;
+6 -> [thick,red,] 8;
+7 -> [thick,green,] 21;
+7 -> [thick,red,] 23;
+7 -> [thick,blue,] 24;
+8 -> [thick,red,] 4;
+8 -> [thick,blue,] 9;
+8 -> [thick,green,] 10;
+9 -> [thick,green,] 11;
+9 -> [thick,blue,] 15;
+9 -> [thick,red,] 24;
+10 -> [thick,blue,] 1;
+10 -> [thick,green,] 8;
+10 -> [thick,red,] 11;
+11 -> [thick,green,] 9;
+11 -> [thick,blue,] 12;
+11 -> [thick,red,] 13;
+12 -> [thick,red,] 2;
+12 -> [thick,blue,] 19;
+12 -> [thick,green,] 24;
+13 -> [thick,red,] 10;
+13 -> [thick,blue,] 14;
+13 -> [thick,green,] 15;
+14 -> [thick,blue,] 3;
+14 -> [thick,green,] 16;
+14 -> [thick,red,] 19;
+15 -> [thick,blue,] 8;
+15 -> [thick,green,] 13;
+15 -> [thick,red,] 16;
+16 -> [thick,red,] 5;
+16 -> [thick,green,] 14;
+16 -> [thick,blue,] 17;
+17 -> [thick,red,] 9;
+17 -> [thick,blue,] 18;
+17 -> [thick,green,] 19;
+18 -> [thick,red,] 7;
+18 -> [thick,blue,] 16;
+18 -> [thick,green,] 20;
+19 -> [thick,blue,] 11;
+19 -> [thick,green,] 17;
+19 -> [thick,red,] 20;
+20 -> [thick,red,] 14;
+20 -> [thick,green,] 18;
+20 -> [thick,blue,] 21;
+21 -> [thick,green,] 7;
+21 -> [thick,red,] 12;
+21 -> [thick,blue,] 22;
+22 -> [thick,red,] 1;
+22 -> [thick,blue,] 20;
+22 -> [thick,green,] 23;
+23 -> [thick,blue,] 4;
+23 -> [thick,red,] 18;
+23 -> [thick,green,] 22;
+24 -> [thick,blue,] 6;
+24 -> [thick,green,] 12;
+24 -> [thick,red,] 17;
+};
+
+\end{tikzpicture}
+
+\end{document}
