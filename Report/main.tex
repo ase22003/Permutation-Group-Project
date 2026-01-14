@@ -275,7 +275,7 @@ Under construction.
 		\item \textit{Closure}: For every ordered pair of elements in the group, the binary product thereof (as defined by the binary operator) is also an element of that group; \(\forall a,b\in G\ \left(a*b=c\in G\right)\).
 		\item \textit{Associativity}: The order wherein ordered pairs of elements are evaluated has no consequence on the restulting product; \(\forall a,b,c\in G\ \left((a*b)*c = a*(b*c)\right)\).
 		\item \textit{Existence of Identity}: There exists in the group an \textit{identity} element, the omission of which from any expression containing any other element or elements has no consequence on the evaluation of that expression; \(\exists e\in G\ \forall a\in G\ (e*a=a*e=a)\).
-		\item \textit{Existence of Unit}: Each element in the group has its own \textit{inverse}, who's product therewith evalutes to the identity; \(\forall a\in G\ \exists b\in G\ (a*b=b*a=e)\), where \(e\) is the identity.
+		\item \textit{Existence of Inverse}: Each element in the group has its own \textit{inverse}, who's product therewith evalutes to the identity; \(\forall a\in G\ \exists b\in G\ (a*b=b*a=e)\), where \(e\) is the identity.
 	\end{enumerate}
 \end{definition}
 
@@ -331,6 +331,7 @@ A permutation whoose support is the empty set equals the identity. We say that a
 
 %Herefrom follows the equality \(\forall a\in A \ \forall\pi\in G \ \left( \underset{b\in\orbitl a \pi}\bequals \orbitl b \pi \right)\) and \(\forall a\in A \ \left( \underset{b\in\orbith a G}\bequals \orbith b G \right)\) where \(G\) is a permutation group on \(A\).
 Herefrom follows that \(b\in\orbitl a \pi \Leftrightarrow a\in\orbitl b \pi\) and \(b\in\orbith a G \Leftrightarrow a\in\orbith b G\).
+
 \begin{definition}[Cycle]
 	A \emph{cycle} is a permutation \(\pi\) such that 
 	\(\forall a,b\in \piset\ \exists\ \phi\in\langle\pi\rangle\left(\phi(a)=b\right)\).
@@ -365,6 +366,7 @@ Since the support of the identity is the empty set, the identity also a cycle.
 	%For every element \(a\in A\), there is a string of elements defined by \(\left\{b\in A \,\middle|\, n\in\mathbb{N},\, \pi^n(a)=b,\, \phi\in\left(\rangle\right) \right\}\)
 	%Let \(a_1\in A\). If \(\pi(a_1)=a_1\), then there is a cycle on \(\{a_1\}\) in \(\pi\). If \(\pi(a_1)\neq a_1\), write \(\pi(a_1)=a_2\). Since \(pi\) is bijective, \(a_2\) cannot map to itself, so it must either map to a new element or back to \(a_1\), wherefrom would follow that there is a cycle on \(\{a_1,a_2\}\) in \(\pi\). Otherwise write \(\pi(a_2)=a_3, \cdots,\pi(a_i)=a_{i+1}\), continuing indefinitely until \(\pi(a_n)=a_1\) for some \(n\), in which case the set whereon the cycle operates is infinite. Continue like this until each element in \(A\) has found its cycle.
 \end{proof}
+
 \color{black}
 %Any permutation can herefore be written as a set of pairwise disjoint cycles, commonly called \textit{cycle notation}. The permutation \((a,b,c)(d,e)\)
 In \textit{cycle notation}, the fact above is used to express permutations in a convenient way. Here, each cycle in the expressed permutation is written as a parenthesized list of elements. 
@@ -374,6 +376,17 @@ For example, the permutation \((a,b,c)(d,e)\) maps \(a\mapsto b\), \(b\mapsto c\
 In this text, permutations containing symbols or numbers with multiple digits will be written with dividing commas, whilst permutations containing exclusively the numbers 0 through 9 will be written therewithout -- for example \((1234)=(1,2,3,4)\).
 
 Further, when talking about permutation groups in this text, the operator \(\circ\) will be implicit, and omitted from expressions. As an example, take \(\pi\circ\phi=\pi\phi\).
+
+\begin{lemma}
+	Let \(G\) be a permutation group on \(A\). Then \(G\) is non-commutative if there are two permutations \(\alpha,\beta\in G\) such that they share an element \(c\in\alphaset\cap\betaset\) where \(\alpha_c\neq\beta_c,\, \alphaset_c=\orbitl c \alpha,\, \betaset_c = \orbith c \beta\) and \(\left|\alpha_c\right|\geq 3\).
+	%Let \(G\) be a permutation group on \(A\). Then \(G\) is non-commutative if there exists two permutations \(\alpha,\beta\in G\) such that one thereof contains an orbit of length \(\geq 3\) wherein is included an element present in the support of the other permutation; \(\exists \alpha,\beta\in G \ \left(\alpha\neq\beta \wedge \exits \left(\right)\right)\)
+\end{lemma}
+
+\color{red}
+\begin{proof}
+	Take the two permutations \((123)\) and \((34)\). Then \((123)(34)=(1234)\) and \((34)(123)=(1243)\). Since \((123)(34)\neq(34)(123)\), the two permutations do not commute under composition, wherefrom follows that the permutation group wherein these two are included is non-commutative (or non-Abelian). THIS IS NOT A PROOF!!!
+\end{proof}
+\color{black}
 
 %\begin{example}
 %\end{example}
@@ -398,10 +411,11 @@ These two constructions -- though they can seem arbitrary at first -- have inter
 
 In the trivial case where they share no element, the permutations commute, so the conjugate of \(\alpha\) and \(\beta\) is \(\beta\), and the commutator thereof is the identity; \(\alpha \cap \beta = \emptyset\) implies that \(\alpha\inv \beta\alpha=\beta \) and \(\beta\inv \alpha\inv \beta\alpha = e\).
 
+\color{red}
 \begin{lemma}
 	Let 
 	%\(\alpha\) and \(\beta\) where 
-	\(\alphaset\cap\betaset=\{c\}\). Then \(\conjl\alpha\beta=\left(\alpha\inv(c),\beta(c),\beta^2(c),\cdots,\beta\inv(c)\right)\). FOR EACH ORBIT!!!!!!
+	\(\alphaset\cap\betaset=\{c\}\). Then \(\conjl\alpha\beta=\left(\alpha\inv(c),\beta(c),\beta^2(c),\cdots,\beta\inv(c)\right)\). TRUE FOR CYCLES!!!!!
 \end{lemma}
 
 \begin{proof}
