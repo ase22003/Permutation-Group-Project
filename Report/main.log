@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.6.28)  14 JAN 2026 11:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.6.28)  18 JAN 2026 19:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1012,10 +1012,22 @@ MS/ntxsy/m/n/12 2 \U/ntxsym/m/n/12 Z  []$\T1/ntxtlf/m/n/12 .
 
 [6] [7]
 Chapter 3.
+
+Overfull \hbox (7.80354pt too wide) in paragraph at lines 443--444
+\OML/ntxmi/m/it/12 d; ^^L\LMS/ntxsy/m/n/12 ¹\OML/ntxmi/m/it/12 d\LMS/ntxsy/m/n/
+12 º \U/ntxmia/m/it/12 8 []$\T1/ntxtlf/m/n/12 , so $[] \LMS/ntxsy/m/n/12 ¹\OML/
+ntxmi/m/it/12 d\LMS/ntxsy/m/n/12 º \U/ntxmia/m/it/12 = \OML/ntxmi/m/it/12 ^^L\L
+MS/ntxsy/m/n/12 ¹\OML/ntxmi/m/it/12 d\LMS/ntxsy/m/n/12 º$\T1/ntxtlf/m/n/12 . La
+stly, $\OML/ntxmi/m/it/12 ^^L[]\LMS/ntxsy/m/n/12 ¹\OML/ntxmi/m/it/12 c\LMS/ntxs
+y/m/n/12 º$ \T1/ntxtlf/m/n/12 maps to $[] \LMS/ntxsy/m/n/12 ¹\OML/ntxmi/m/it/12
+ c\LMS/ntxsy/m/n/12 º \U/ntxmia/m/it/12 = [] \LMS/ntxsy/m/n/12 ¹\OML/ntxmi/m/it
+/12 c\LMS/ntxsy/m/n/12 º \U/ntxmia/m/it/12 =
+ []
+
 [8
 
 ]
-Overfull \hbox (7.09026pt too wide) in paragraph at lines 512--513
+Overfull \hbox (7.09026pt too wide) in paragraph at lines 534--535
 \T1/ntxtlf/m/n/12 only share two ele-ments, then $\OML/ntxmi/m/it/12 c[] \U/ntx
 mia/m/it/12 = \OML/ntxmi/m/it/12 c[]$\T1/ntxtlf/m/n/12 . $\OML/ntxmi/m/it/12 c[
 ]$ \T1/ntxtlf/m/n/12 maps to $\OML/ntxmi/m/it/12 ^^L\LMS/ntxsy/m/n/12 ¹\OML/ntx
@@ -1026,9 +1038,9 @@ ML/ntxmi/m/it/12 i \LMS/ntxsy/m/n/12 2 []  []$
 [9] [10]
 Chapter 4.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 8.8pt on input line 571.
+(Font)              scaled to size 8.8pt on input line 593.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 6.6pt on input line 571.
+(Font)              scaled to size 6.6pt on input line 593.
 
 Underfull \vbox (badness 6268) has occurred while \output is active []
 
@@ -1048,7 +1060,7 @@ Here is how much of TeX's memory you used:
  44490 multiletter control sequences out of 15000+600000
  651332 words of font info for 146 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 108i,15n,107p,859b,287s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 108i,15n,107p,859b,289s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/newtx/NewTXMI.pfb></usr/sha
 re/texlive/texmf-dist/fonts/type1/public/newtx/NewTXMI7.pfb></usr/share/texmf/f
 onts/type1/public/tex-gyre/qhvb.pfb></usr/share/texmf/fonts/type1/public/tex-gy
@@ -1059,7 +1071,7 @@ f-dist/fonts/type1/public/newtx/txmiaX.pfb></usr/share/texlive/texmf-dist/fonts
 /newtx/txsys.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/newtx/ztmb.p
 fb></usr/share/texlive/texmf-dist/fonts/type1/public/newtx/ztmr.pfb></usr/share
 /texlive/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
-Output written on main.pdf (16 pages, 270719 bytes).
+Output written on main.pdf (16 pages, 272255 bytes).
 PDF statistics:
  132 PDF objects out of 1000 (max. 8388607)
  85 compressed objects within 1 object stream

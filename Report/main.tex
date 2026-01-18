@@ -377,14 +377,33 @@ In this text, permutations containing symbols or numbers with multiple digits wi
 
 Further, when talking about permutation groups in this text, the operator \(\circ\) will be implicit, and omitted from expressions. As an example, take \(\pi\circ\phi=\pi\phi\).
 
-\begin{lemma}
-	Let \(G\) be a permutation group on \(A\). Then \(G\) is non-commutative if there are two permutations \(\alpha,\beta\in G\) such that they share an element \(c\in\alphaset\cap\betaset\) where \(\alpha_c\neq\beta_c,\, \alphaset_c=\orbitl c \alpha,\, \betaset_c = \orbith c \beta\) and \(\left|\alpha_c\right|\geq 3\).
-	%Let \(G\) be a permutation group on \(A\). Then \(G\) is non-commutative if there exists two permutations \(\alpha,\beta\in G\) such that one thereof contains an orbit of length \(\geq 3\) wherein is included an element present in the support of the other permutation; \(\exists \alpha,\beta\in G \ \left(\alpha\neq\beta \wedge \exits \left(\right)\right)\)
-\end{lemma}
+%\begin{lemma}
+%	Let \(G\) be a permutation group on \(A\). Then \(G\) is non-commutative if there are two permutations \(\alpha,\beta\in G\) such that they share an element \(c\in\alphaset\cap\betaset\) where \(\alpha_c\neq\beta_c,\, \alphaset_c=\orbitl c \alpha,\, \betaset_c = \orbith c \beta\) and \(\left|\alpha_c\right|\geq 3\).
+%	%Let \(G\) be a permutation group on \(A\). Then \(G\) is non-commutative if there exists two permutations \(\alpha,\beta\in G\) such that one thereof contains an orbit of length \(\geq 3\) wherein is included an element present in the support of the other permutation; \(\exists \alpha,\beta\in G \ \left(\alpha\neq\beta \wedge \exits \left(\right)\right)\)
+%\end{lemma}
+%
+%\color{red}
+%\begin{proof}
+%	Take the two permutations \((123)\) and \((34)\). Then \((123)(34)=(1234)\) and \((34)(123)=(1243)\). Since \((123)(34)\neq(34)(123)\), the two permutations do not commute under composition, wherefrom follows that the permutation group wherein these two are included is non-commutative (or non-Abelian). THIS IS NOT A PROOF!!!
+%\end{proof}
+%\color{black}
 
 \color{red}
+\begin{lemma}
+	%Let \(\alpha\) and \(\beta\) be permutations of \(A\). Then \(\alpha\) and \(\beta\) do not commute if and only if there is an element \(c\in\alphaset\cap\betaset\) where \(\alpha_c\neq\beta_c,\, \alphaset_c=\orbitl c \alpha,\, \betaset_c = \orbith c \beta\) and \(\left|\alpha_c\right|\geq 3\).
+	Let \(\alpha\) and \(\beta\) be permutations of \(A\). Then \(\alpha\) and \(\beta\) do not commute if and only if there is an element \(c\in\alphaset\cap\betaset\) where \(\alpha_c\neq\beta_c\), \(\alphaset_c=\orbitl c \alpha\), \(\betaset_c = \orbith c \beta\). WHAT ABOUT INVERSES???
+\end{lemma}
+
 \begin{proof}
-	Take the two permutations \((123)\) and \((34)\). Then \((123)(34)=(1234)\) and \((34)(123)=(1243)\). Since \((123)(34)\neq(34)(123)\), the two permutations do not commute under composition, wherefrom follows that the permutation group wherein these two are included is non-commutative (or non-Abelian). THIS IS NOT A PROOF!!!
+	%%Let \(c\) be as defined above. Then \(\alpha_c\circ\beta_c(c)=\beta_c\circ\alpha_c(c)\Rightarrow\)
+	%%Let none of the constituting cycles of two permutations \(\alpha\) and \(\beta\) of \(A\) share elements. Then 
+	%Let \(\alpha\) and \(\beta\) be permutations of \(A\) whose constituting cycles share no elements. Then 
+	%%\(\forall \alpha_i\in C_{\alpha} \ \forall \beta_j\in C_{\beta} \ \forall a\in A\ \left( \neg \left( \alpha_i(a)\neq a \wedge \beta_j(a)\neq a \right) \right)\)
+	%\(\forall \alpha_i\in C_{\alpha} \ \forall \beta_j\in C_{\beta} \ \forall a\in A\ \left( \alpha_i(a)=a \vee \beta_j(a)=a \right)\)
+	%, where \(C_\alpha\) and \(C_\beta\) are sets containing the cycles of \(\alpha\) and \(\beta\) respectively. Thus both \(\left(\alpha\circ\beta\right)(a)\) and \(\left(\beta\circ\alpha\right)(a)\) evaluate to either \(\alpha(a)\), \(\beta(a)\) or \(a\) for each \(a\in A\). If \(\alphaset\) and \(\betaset\) share an element \(c\), and \(\)
+	Let \(\alpha\) and \(\beta\) be permutations of \(A\) and \(\alphaset\cap\betaset=\emptyset\). Then \(\forall b\in A\ \left( \alpha(b)=b \vee \beta(b)=b \right)\). Thus for each \(b\in A\) both \(\left(\alpha\circ\beta\right)(b)\) and \(\left(\beta\circ\alpha\right)(b)\) evaluate to the same expression, which will be either \(\alpha(b)\), \(\beta(b)\) or \(b\). If \(\alphaset\) and \(\betaset\) share an element \(c\) and \(\alpha_c=\beta_c\) where \(\alpha_c\) and \(\beta_c\) are the cycles of \(\alpha\) and \(\beta\) wherein \(c\) occurs, then \(\alpha_c\circ\beta_c=\beta_c\circ\alpha_c\) whilst the other cycles of \(\alpha\) and \(\beta\) commute (as noted above).
+	%If, however, \(\alpha_c\neq\beta_c\), then \(\alpha(c)\neq\beta(c)\) and thus \(\left(\alpha\circ\beta\right)(c)=\beta(c)\neq\left(\beta\circ\alpha\right)(c)=\alpha(c)\), since \(\beta(c)\notin\alphaset\) and \(\alpha(c)\notin\betaset\).
+	If, however, there is an element \(c\in\alpha\cap\beta\) such that \(\alpha(c)\neq\beta(c)\), then \(\alpha_c\neq\beta_c\) and \(\left(\alpha\circ\beta\right)(c)=\beta(c)\neq\left(\beta\circ\alpha\right)(c)=\alpha(c)\), NOT TRUE!!!!! since \(\beta(c)\notin\alphaset\) and \(\alpha(c)\notin\betaset\).
 \end{proof}
 \color{black}
 
@@ -393,7 +412,8 @@ Further, when talking about permutation groups in this text, the operator \(\cir
 %}}}
 %}}}
 %{{{PROPERTIES OF PERMUTATION GROUPS
-\chapter{Properties of Permutation Groups}
+%\chapter{Properties of Permutation Groups}
+\chapter{The Conjugates and Commutators of Permutations}
 
 Herein, all lowercase geek letters are implied to be elements in a permutation group \(G\) on \(A\).
 %and belong to the same permutation group \(G\).
@@ -411,17 +431,16 @@ These two constructions -- though they can seem arbitrary at first -- have inter
 
 In the trivial case where they share no element, the permutations commute, so the conjugate of \(\alpha\) and \(\beta\) is \(\beta\), and the commutator thereof is the identity; \(\alpha \cap \beta = \emptyset\) implies that \(\alpha\inv \beta\alpha=\beta \) and \(\beta\inv \alpha\inv \beta\alpha = e\).
 
-\color{red}
 \begin{lemma}
 	Let 
 	%\(\alpha\) and \(\beta\) where 
-	\(\alphaset\cap\betaset=\{c\}\). Then \(\conjl\alpha\beta=\left(\alpha\inv(c),\beta(c),\beta^2(c),\cdots,\beta\inv(c)\right)\). TRUE FOR CYCLES!!!!!
+	\(\alphaset\cap\betaset=\{c\}\). Then the cycle of \(\conjl\alpha\beta\) wherein \(c\) occurs has the form \(\left(\alpha\inv(c),\beta(c),\beta^2(c),\cdots,\beta\inv(c)\right)\).
 \end{lemma}
 
 \begin{proof}
 	%For each \(\alpha^k(c)\) where \(k\in\left\{0,\cdots,\left|\orbitl c \alpha\right|\right-2\}\), \(\conjl \alpha \beta\left(\alpha^k(c)\right)=\alpha^k(c)\), since permutations which share no supportive elements commute and \(\alpha\left(\alpha^k(c)\right)\notin\{c\}\cup\betaset\). The element \(\alpha\inv(c)\)
 	%For each \(a\in\langle\alpha\rangle\setminus\left\{\alpha\inv(c)\right\}\), \(\pi\)
-	For each \(b\in\alphaset\setminus\left\{\alpha\inv(c)\right\}\), \(\alpha(b)\notin\betaset\). Since \(\beta\alpha(b)=\alpha(b)\), the conjugate can be rewritten for \(b\): \(\alpha\inv\beta\alpha(b)=\alpha\inv\alpha(b)=b\). In the case of \(\alpha\inv(c)\), \(\alpha\inv\beta\alpha\alpha\inv(c)=\alpha\inv\beta(c)=\beta(c)\), since \(\beta(c)\notin\alphaset\Rightarrow\alpha\inv\beta(c)=\beta(c)\). For each \(d\in\betaset\setminus\left\{\beta\inv(c), c\right\}\), \(d,\beta(d)\notin\alphaset\), so \(\alpha\inv\beta\alpha(d)=\beta(d)\). Lastly, \(\beta\inv(c)\) maps to \(\alpha\inv\beta\alpha\beta\inv(c)=\alpha\inv\beta\beta\inv(c)=\alpha\inv(c)\). This gives the function 
+	For each \(b\in\alphaset\setminus\left\{\alpha\inv(c)\right\}\), \(\alpha(b)\notin\betaset\). Since \(\beta\alpha(b)=\alpha(b)\), the conjugate can be rewritten for \(b\): \(\left(\alpha\inv\beta\alpha\right)(b)=\left(\alpha\inv\alpha\right)(b)=b\). In the case of \(\alpha\inv(c)\), \(\left(\alpha\inv\beta\alpha\alpha\inv\right)(c)=\left(\alpha\inv\beta\right)(c)=\beta(c)\), since \(\beta(c)\notin\alphaset\Rightarrow\left(\alpha\inv\beta\right)(c)=\beta(c)\). For each \(d\in\betaset\setminus\left\{\beta\inv(c), c\right\}\), \(d,\beta(d)\notin\alphaset\), so \(\left(\alpha\inv\beta\alpha\right)(d)=\beta(d)\). Lastly, \(\beta\inv(c)\) maps to \(\left(\alpha\inv\beta\alpha\beta\inv\right)(c)=\left(\alpha\inv\beta\beta\inv\right)(c)=\alpha\inv(c)\). This gives the function 
 	\begin{equation}\label{conj}
 		\conjl \alpha \beta (x) = \left\{
 				\begin{array}{cl}
@@ -432,9 +451,10 @@ In the trivial case where they share no element, the permutations commute, so th
 				\end{array}
 			\right.
 	\end{equation}
-	which, in cycle notation, is written \(\left(\alpha\inv(c),\beta(c),\beta^2(c),\cdots,\beta\inv(c)\right)\).
+	which, in cycle notation, is written \(\left(\alpha\inv(c),\beta(c),\beta^2(c),\cdots,\beta\inv(c)\right)\cdots\).
 \end{proof}
 
+%\begin{remark}
 Note that if \(\beta\) is a transposition, then \(\beta=\left(c,\beta(c)\right)\) and \(\beta(c)=\beta\inv(c)\). Thus 
 %Note that if \(\left|\orbith c \beta \right|=2\), then \(\beta_k=\left(c,\beta(c)\right)\) where \(c\in\betaset_k\) and \(\beta(c)=\beta\inv(c)\), so
 \begin{align*}
@@ -453,8 +473,10 @@ Note that if \(\beta\) is a transposition, then \(\beta=\left(c,\beta(c)\right)\
 					\alpha\inv(c) & : \ x=\beta(c) \\
 				\end{array}
 			\right. \\
+	&= \left(\alpha\inv(c),\beta(c)\right).
 \end{align*}
-and the conjugate is always \(\left(\alpha\inv(c),\beta(c)\right)\).
+%and the conjugate is the transposition \(\left(\alpha\inv(c),\beta(c)\right)\).
+%\end{remark}
 
 
 \begin{lemma}
@@ -500,7 +522,7 @@ and the conjugate is always \(\left(\alpha\inv(c),\beta(c)\right)\).
 %	Let \(H\) be a group where \(\forall\alpha,\beta\in H\ \left( \left|\alphaset\cap\betaset\right|\leq 1 \right)\). Then \(H=\langle \mathfrak{G} \rangle\) where \(\forall \pi\in\mathfrak{G}\ \left(\left|\orbitl a \pi\right|=3\wedge a\in\piset\right)\).
 %\end{lemma}
 
-%\color{red}
+\color{red}
 \begin{lemma}
 	Let \(\alpha\) and \(\beta\) where \(\alphaset\cap\betaset = \left\{c_1,\cdots,c_n\right\}, n\geq 2\) and 
 	\(\alpha^{k}\left(c_1\right)=\beta^{k}\left(c_1\right)\) for all \(k\in\left\{0,\cdots,n-1\right\}\).
