@@ -388,24 +388,37 @@ Further, when talking about permutation groups in this text, the operator \(\cir
 %\end{proof}
 %\color{black}
 
-\color{red}
-\begin{lemma}
-	%Let \(\alpha\) and \(\beta\) be permutations of \(A\). Then \(\alpha\) and \(\beta\) do not commute if and only if there is an element \(c\in\alphaset\cap\betaset\) where \(\alpha_c\neq\beta_c,\, \alphaset_c=\orbitl c \alpha,\, \betaset_c = \orbith c \beta\) and \(\left|\alpha_c\right|\geq 3\).
-	Let \(\alpha\) and \(\beta\) be permutations of \(A\). Then \(\alpha\) and \(\beta\) do not commute if and only if there is an element \(c\in\alphaset\cap\betaset\) where \(\alpha_c\neq\beta_c\), \(\alphaset_c=\orbitl c \alpha\), \(\betaset_c = \orbith c \beta\). WHAT ABOUT INVERSES???
-\end{lemma}
-
-\begin{proof}
+%\color{red}
+%\begin{lemma}
+%	%Let \(\alpha\) and \(\beta\) be permutations of \(A\). Then \(\alpha\) and \(\beta\) do not commute if and only if there is an element \(c\in\alphaset\cap\betaset\) where \(\alpha_c\neq\beta_c,\, \alphaset_c=\orbitl c \alpha,\, \betaset_c = \orbith c \beta\) and \(\left|\alpha_c\right|\geq 3\).
+%	Let \(\alpha\) and \(\beta\) be permutations of \(A\). Then \(\alpha\) and \(\beta\) do not commute if and only if there is an element \(c\in\alphaset\cap\betaset\) where \(\alpha_c\neq\beta_c\), \(\alphaset_c=\orbitl c \alpha\), \(\betaset_c = \orbith c \beta\). WHAT ABOUT INVERSES???
+%\end{lemma}
+%
+%\begin{proof}
 	%%Let \(c\) be as defined above. Then \(\alpha_c\circ\beta_c(c)=\beta_c\circ\alpha_c(c)\Rightarrow\)
 	%%Let none of the constituting cycles of two permutations \(\alpha\) and \(\beta\) of \(A\) share elements. Then 
 	%Let \(\alpha\) and \(\beta\) be permutations of \(A\) whose constituting cycles share no elements. Then 
 	%%\(\forall \alpha_i\in C_{\alpha} \ \forall \beta_j\in C_{\beta} \ \forall a\in A\ \left( \neg \left( \alpha_i(a)\neq a \wedge \beta_j(a)\neq a \right) \right)\)
-	%\(\forall \alpha_i\in C_{\alpha} \ \forall \beta_j\in C_{\beta} \ \forall a\in A\ \left( \alpha_i(a)=a \vee \beta_j(a)=a \right)\)
+%	%\(\forall \alpha_i\in C_{\alpha} \ \forall \beta_j\in C_{\beta} \ \forall a\in A\ \left( \alpha_i(a)=a \vee \beta_j(a)=a \right)\)
 	%, where \(C_\alpha\) and \(C_\beta\) are sets containing the cycles of \(\alpha\) and \(\beta\) respectively. Thus both \(\left(\alpha\circ\beta\right)(a)\) and \(\left(\beta\circ\alpha\right)(a)\) evaluate to either \(\alpha(a)\), \(\beta(a)\) or \(a\) for each \(a\in A\). If \(\alphaset\) and \(\betaset\) share an element \(c\), and \(\)
-	Let \(\alpha\) and \(\beta\) be permutations of \(A\) and \(\alphaset\cap\betaset=\emptyset\). Then \(\forall b\in A\ \left( \alpha(b)=b \vee \beta(b)=b \right)\). Thus for each \(b\in A\) both \(\left(\alpha\circ\beta\right)(b)\) and \(\left(\beta\circ\alpha\right)(b)\) evaluate to the same expression, which will be either \(\alpha(b)\), \(\beta(b)\) or \(b\). If \(\alphaset\) and \(\betaset\) share an element \(c\) and \(\alpha_c=\beta_c\) where \(\alpha_c\) and \(\beta_c\) are the cycles of \(\alpha\) and \(\beta\) wherein \(c\) occurs, then \(\alpha_c\circ\beta_c=\beta_c\circ\alpha_c\) whilst the other cycles of \(\alpha\) and \(\beta\) commute (as noted above).
+%	Let \(\alpha\) and \(\beta\) be permutations of \(A\) and \(\alphaset\cap\betaset=\emptyset\). Then \(\forall b\in A\ \left( \alpha(b)=b \vee \beta(b)=b \right)\). Thus for each \(b\in A\) both \(\left(\alpha\circ\beta\right)(b)\) and \(\left(\beta\circ\alpha\right)(b)\) evaluate to the same expression, which will be either \(\alpha(b)\), \(\beta(b)\) or \(b\). If \(\alphaset\) and \(\betaset\) share an element \(c\) and \(\alpha_c=\beta_c\) where \(\alpha_c\) and \(\beta_c\) are the cycles of \(\alpha\) and \(\beta\) wherein \(c\) occurs, then \(\alpha_c\circ\beta_c=\beta_c\circ\alpha_c\) whilst the other cycles of \(\alpha\) and \(\beta\) commute (as noted above).
 	%If, however, \(\alpha_c\neq\beta_c\), then \(\alpha(c)\neq\beta(c)\) and thus \(\left(\alpha\circ\beta\right)(c)=\beta(c)\neq\left(\beta\circ\alpha\right)(c)=\alpha(c)\), since \(\beta(c)\notin\alphaset\) and \(\alpha(c)\notin\betaset\).
+%	If, however, there is an element \(c\in\alpha\cap\beta\) such that \(\alpha(c)\neq\beta(c)\), then \(\alpha_c\neq\beta_c\) and \(\left(\alpha\circ\beta\right)(c)=\beta(c)\neq\left(\beta\circ\alpha\right)(c)=\alpha(c)\), NOT TRUE!!!!! since \(\beta(c)\notin\alphaset\) and \(\alpha(c)\notin\betaset\).
+%\end{proof}
+%\color{black}
+
+%\color{red}
+\begin{lemma}
+	Let \(\alpha\) and \(\beta\) be permutations of \(A\). Then \(\alpha\) and \(\beta\) do not commute if and only if there is an element \(c\in\alphaset\cap\betaset\) where the cycles of \(\alpha\) and \(\beta\) wherein \(c\) is contained are neither equal nor each other's inverses.
+\end{lemma}
+
+\begin{proof}
+	Let \(\alpha\) and \(\beta\) be permutations of \(A\) and \(\alphaset\cap\betaset=\emptyset\). Then \(\forall b\in A\ \left( \alpha(b)=b \vee \beta(b)=b \right)\). Thus for each \(b\in A\) both \(\left(\alpha\circ\beta\right)(b)\) and \(\left(\beta\circ\alpha\right)(b)\) evaluate to the same expression, which will be either \(\alpha(b)\), \(\beta(b)\) or \(b\). If \(\alphaset\) and \(\betaset\) share an element \(c\) and \(\alpha_c=\beta_c\) where \(\alpha_c\) and \(\beta_c\) are the cycles of \(\alpha\) and \(\beta\) wherein \(c\) occurs, then \(\alpha_c\circ\beta_c=\beta_c\circ\alpha_c\) whilst the other cycles of \(\alpha\) and \(\beta\) commute (as noted above).
+	If \(\alpha_c=\beta_c\inv\), then the cycles neutralize each other \(\alpha_c\circ\beta_c=\beta_c\circ\alpha_c=e\).
 	If, however, there is an element \(c\in\alpha\cap\beta\) such that \(\alpha(c)\neq\beta(c)\), then \(\alpha_c\neq\beta_c\) and \(\left(\alpha\circ\beta\right)(c)=\beta(c)\neq\left(\beta\circ\alpha\right)(c)=\alpha(c)\), NOT TRUE!!!!! since \(\beta(c)\notin\alphaset\) and \(\alpha(c)\notin\betaset\).
 \end{proof}
 \color{black}
+
 
 %\begin{example}
 %\end{example}
