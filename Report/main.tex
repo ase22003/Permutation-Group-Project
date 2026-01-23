@@ -344,7 +344,7 @@ Herefrom follows that \(b\in\orbitl a \pi \Leftrightarrow a\in\orbitl b \pi\) an
 Since the support of the identity is the empty set, the identity also a cycle.
 
 \begin{definition}[Transposition]
-	a \emph{transposition} is a cycle \(\pi\) where \(|\piset|=2\).
+	A \emph{transposition} is a cycle \(\pi\) where \(|\piset|=2\).
 \end{definition}
 
 \color{red}
@@ -412,7 +412,7 @@ In this text, permutations containing symbols or numbers with multiple digits wi
 
 \begin{proof}
 	Let \(\alpha\) and \(\beta\) be permutations of \(A\) and \(\alphaset\cap\betaset=\emptyset\). Then \(\forall b\in A\ \left( \alpha(b)=b \vee \beta(b)=b \right)\). Thus for each \(b\in A\) both \(\left(\alpha\circ\beta\right)(b)\) and \(\left(\beta\circ\alpha\right)(b)\) evaluate to the same expression, which will be either \(\alpha(b)\), \(\beta(b)\) or \(b\).
-	A permutation always commutes with itself, so if \(\alpha_c=\beta_c\) for some \(c\in\alphaset\cap\betaset\) -- where \(\alpha_c\) and \(\beta_c\) are the cycles of \(\alpha\) and \(\beta\) wherein \(c\) occurs -- then \(\alpha_c\circ\beta_c=\beta_c\circ\alpha\). If each cycle in \(\alpha\) and \(\beta\) commute, so do they.
+	A permutation always commutes with itself, so if \(\alpha_c=\beta_c\) for some \(c\in\alphaset\cap\betaset\) -- where \(\alpha_c\) and \(\beta_c\) are the cycles of \(\alpha\) and \(\beta\) wherein \(c\) occurs -- then \(\alpha_c\circ\beta_c=\beta_c\circ\alpha_c\). If each cycle in \(\alpha\) and \(\beta\) commute, so do they.
 	%A permutation always commutes with itself, so if \(\forall c\in\alphaset\cap\betaset\ \left(\alpha_c=\beta_c\right)\), then \(\forall c\in\alphaset\cap\betaset\ \left(\alpha_c\circ\beta_c=\beta_c\circ\alpha\right)\), where \(\alpha_c\) and \(\beta_c\) are the cycles of \(\alpha\) and \(\beta\) wherein \(c\) occurs. If each cycle in \(\alpha\) and \(\beta\) commute, so do they.
 	%Let \(\pi\) be a permutation, then it's cycles are disjoint. For each 
 	%Since the support of a cycle within a permutation is disjoint with every other such support therein, 
@@ -464,7 +464,7 @@ These two constructions -- though they can seem arbitrary at first -- have inter
 
 In the trivial case where they share no element, the permutations commute, so the conjugate of \(\alpha\) and \(\beta\) is \(\beta\), and the commutator thereof is the identity; \(\alpha \cap \beta = \emptyset\) implies that \(\alpha\inv \beta\alpha=\beta \) and \(\beta\inv \alpha\inv \beta\alpha = e\).
 
-\begin{lemma}
+\begin{lemma}\label{lmconj}
 	Let 
 	%\(\alpha\) and \(\beta\) where 
 	\(\alphaset\cap\betaset=\{c\}\). Then the cycle of \(\conjl\alpha\beta\) wherein \(c\) occurs has the form \(\left(\alpha\inv(c),\beta(c),\beta^2(c),\cdots,\beta\inv(c)\right)\).
@@ -487,9 +487,13 @@ In the trivial case where they share no element, the permutations commute, so th
 	which, in cycle notation, is written \(\left(\alpha\inv(c),\beta(c),\beta^2(c),\cdots,\beta\inv(c)\right)\cdots\).
 \end{proof}
 
-%\begin{remark}
-Note that if \(\beta\) is a transposition, then \(\beta=\left(c,\beta(c)\right)\) and \(\beta(c)=\beta\inv(c)\). Thus 
+\begin{corollary}
+%Note that if \(\beta\) is a transposition, then \(\beta=\left(c,\beta(c)\right)\) and \(\beta(c)=\beta\inv(c)\). Thus 
 %Note that if \(\left|\orbith c \beta \right|=2\), then \(\beta_k=\left(c,\beta(c)\right)\) where \(c\in\betaset_k\) and \(\beta(c)=\beta\inv(c)\), so
+	If \(\beta\) is a transposition, then so is  \(\conjl \alpha \beta\).
+\end{corollary}
+\begin{proof}
+	If \(\beta\) is a transposition, then \(\beta=\left(c,\beta(c)\right)\) and \(\beta(c)=\beta\inv(c)\). Using (\ref{conj}) we get 
 \begin{align*}
 	\conjl \alpha \beta (x) &= \left\{
 				\begin{array}{cl}
@@ -509,7 +513,7 @@ Note that if \(\beta\) is a transposition, then \(\beta=\left(c,\beta(c)\right)\
 	&= \left(\alpha\inv(c),\beta(c)\right).
 \end{align*}
 %and the conjugate is the transposition \(\left(\alpha\inv(c),\beta(c)\right)\).
-%\end{remark}
+\end{proof}
 
 
 \begin{lemma}
@@ -519,7 +523,7 @@ Note that if \(\beta\) is a transposition, then \(\beta=\left(c,\beta(c)\right)\
 \end{lemma}
 
 \begin{proof}
-	Using (\ref{conj}) from the previous lemma,
+	Using (\ref{conj}) from Lemma \ref{lmconj}, we get 
 	\begin{align*}
 		\comml\alpha\beta(x) = \beta\inv\conjl\alpha\beta(x)
 			&= \left\{

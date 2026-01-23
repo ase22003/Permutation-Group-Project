@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.6.28)  22 JAN 2026 19:37
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.6.28)  23 JAN 2026 19:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -647,6 +647,12 @@ LaTeX Info: Redefining \textsw on input line 47.
 LaTeX Info: Redefining \textssc on input line 48.
 LaTeX Info: Redefining \textulc on input line 49.
 )
+! Interruption.
+<argument> \sustyle 
+                    
+l.335    \DeclareRobustCommand{\sustyle}
+                                        {%
+? 
 \tx@sixem=\dimen269
 \tx@y=\dimen270
 \tx@x=\dimen271
@@ -662,8 +668,7 @@ LaTeX Info: Redefining \textulc on input line 49.
 \tx@dimBB=\dimen281
 \tx@dimC=\dimen282
 LaTeX Info: Redefining \oldstylenums on input line 893.
-)
-(/usr/share/texlive/texmf-dist/tex/latex/newtx/newtxmath.sty
+) (/usr/share/texlive/texmf-dist/tex/latex/newtx/newtxmath.sty
 Package: newtxmath 2023/11/05 v1.732
 
 `newtxmath' v1.732, 2023/11/05 Math macros based originally on txfonts (msharpe
@@ -1027,7 +1032,7 @@ y/m/n/12 º$ \T1/ntxtlf/m/n/12 maps to $[] \LMS/ntxsy/m/n/12 ¹\OML/ntxmi/m/it/12
 [8
 
 ]
-Overfull \hbox (7.09026pt too wide) in paragraph at lines 567--568
+Overfull \hbox (7.09026pt too wide) in paragraph at lines 571--572
 \T1/ntxtlf/m/n/12 only share two ele-ments, then $\OML/ntxmi/m/it/12 c[] \U/ntx
 mia/m/it/12 = \OML/ntxmi/m/it/12 c[]$\T1/ntxtlf/m/n/12 . $\OML/ntxmi/m/it/12 c[
 ]$ \T1/ntxtlf/m/n/12 maps to $\OML/ntxmi/m/it/12 ^^L\LMS/ntxsy/m/n/12 ¹\OML/ntx
@@ -1038,9 +1043,9 @@ ML/ntxmi/m/it/12 i \LMS/ntxsy/m/n/12 2 []  []$
 [9] [10]
 Chapter 4.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 8.8pt on input line 626.
+(Font)              scaled to size 8.8pt on input line 630.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 6.6pt on input line 626.
+(Font)              scaled to size 6.6pt on input line 630.
 
 Underfull \vbox (badness 6268) has occurred while \output is active []
 
@@ -1054,10 +1059,10 @@ L3 programming layer <2020/03/25>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 22903 strings out of 476139
- 434903 string characters out of 5794454
+ 22906 strings out of 476139
+ 434973 string characters out of 5794454
  1951975 words of memory out of 5000000
- 44492 multiletter control sequences out of 15000+600000
+ 44495 multiletter control sequences out of 15000+600000
  651332 words of font info for 146 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  108i,15n,107p,859b,289s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1071,7 +1076,7 @@ f-dist/fonts/type1/public/newtx/txmiaX.pfb></usr/share/texlive/texmf-dist/fonts
 /newtx/txsys.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/newtx/ztmb.p
 fb></usr/share/texlive/texmf-dist/fonts/type1/public/newtx/ztmr.pfb></usr/share
 /texlive/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
-Output written on main.pdf (16 pages, 272523 bytes).
+Output written on main.pdf (16 pages, 272839 bytes).
 PDF statistics:
  132 PDF objects out of 1000 (max. 8388607)
  85 compressed objects within 1 object stream
