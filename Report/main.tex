@@ -348,10 +348,10 @@ Since the support of the identity is the empty set, the identity also a cycle.
 \end{definition}
 
 \color{red}
-\begin{lemma}
+\begin{theorem}
 	%Each permutation \(\pi\) can be expressed as a composition of cycles \(\pi_1\circ\pi_2\circ\cdots\) where \(\text{Dom}(\pi_1)=\text{Dom}(\pi_2)=\cdots=\text{Dom}(\pi)\) and \(\piset_i\cap\piset_j=\emptyset\) for \(i\neq j\).
 	Let \(\pi\) be a permutation of a set \(A\). Then there exists a family \((\pi_i)_{i\in I}\) of cycles on \(A\) with pairwise disjoint supports such that \(\forall a\in A\ \exists i\in I \  \left( a\in\piset_i \wedge \pi_i(a)=\pi(a) \wedge \pi_j(a)=a \wedge i\neq j \right)\).
-\end{lemma}
+\end{theorem}
 
 \begin{proof}
 	Take any element \(a\in A\). Define the first cycle \(\pi_1\) with \(\forall n\in\mathbb{Z}\  \left( \pi_1^n(a)=\pi(a) \wedge b\notin\orbith a {\pi_1} \Rightarrow \pi_1(b)=b \right)\). Then \(\piset_1=\orbitl a \pi\).
@@ -374,8 +374,6 @@ For example, the permutation \((a,b,c)(d,e)\) maps \(a\mapsto b\), \(b\mapsto c\
 %For example, the permutation \((a,b,c)(d,e)\) maps \(a\) to \(b\), \(b\) to \(c\) and \(c\) back to \(a\), as well as \(d\) to \(e\) and \(e\) to back to \(d\). Note that this permutation is the same as the permutation \((c,a,b)(e,d)\), but not the same as \((a,c,b)(d,e)\).
 
 In this text, permutations containing symbols or numbers with multiple digits will be written with dividing commas, whilst permutations containing exclusively the numbers 0 through 9 will be written therewithout -- for example \((1234)=(1,2,3,4)\).
-
-Further, when talking about permutation groups in this text, the operator \(\circ\) will be implicit, and omitted from expressions. As an example, take \(\pi\circ\phi=\pi\phi\).
 
 %\begin{lemma}
 %	Let \(G\) be a permutation group on \(A\). Then \(G\) is non-commutative if there are two permutations \(\alpha,\beta\in G\) such that they share an element \(c\in\alphaset\cap\betaset\) where \(\alpha_c\neq\beta_c,\, \alphaset_c=\orbitl c \alpha,\, \betaset_c = \orbith c \beta\) and \(\left|\alpha_c\right|\geq 3\).
@@ -413,9 +411,30 @@ Further, when talking about permutation groups in this text, the operator \(\cir
 \end{lemma}
 
 \begin{proof}
-	Let \(\alpha\) and \(\beta\) be permutations of \(A\) and \(\alphaset\cap\betaset=\emptyset\). Then \(\forall b\in A\ \left( \alpha(b)=b \vee \beta(b)=b \right)\). Thus for each \(b\in A\) both \(\left(\alpha\circ\beta\right)(b)\) and \(\left(\beta\circ\alpha\right)(b)\) evaluate to the same expression, which will be either \(\alpha(b)\), \(\beta(b)\) or \(b\). If \(\alphaset\) and \(\betaset\) share an element \(c\) and \(\alpha_c=\beta_c\) where \(\alpha_c\) and \(\beta_c\) are the cycles of \(\alpha\) and \(\beta\) wherein \(c\) occurs, then \(\alpha_c\circ\beta_c=\beta_c\circ\alpha_c\) whilst the other cycles of \(\alpha\) and \(\beta\) commute (as noted above).
+	Let \(\alpha\) and \(\beta\) be permutations of \(A\) and \(\alphaset\cap\betaset=\emptyset\). Then \(\forall b\in A\ \left( \alpha(b)=b \vee \beta(b)=b \right)\). Thus for each \(b\in A\) both \(\left(\alpha\circ\beta\right)(b)\) and \(\left(\beta\circ\alpha\right)(b)\) evaluate to the same expression, which will be either \(\alpha(b)\), \(\beta(b)\) or \(b\).
+	A permutation always commutes with itself, so if \(\alpha_c=\beta_c\) for some \(c\in\alphaset\cap\betaset\) -- where \(\alpha_c\) and \(\beta_c\) are the cycles of \(\alpha\) and \(\beta\) wherein \(c\) occurs -- then \(\alpha_c\circ\beta_c=\beta_c\circ\alpha\). If each cycle in \(\alpha\) and \(\beta\) commute, so do they.
+	%A permutation always commutes with itself, so if \(\forall c\in\alphaset\cap\betaset\ \left(\alpha_c=\beta_c\right)\), then \(\forall c\in\alphaset\cap\betaset\ \left(\alpha_c\circ\beta_c=\beta_c\circ\alpha\right)\), where \(\alpha_c\) and \(\beta_c\) are the cycles of \(\alpha\) and \(\beta\) wherein \(c\) occurs. If each cycle in \(\alpha\) and \(\beta\) commute, so do they.
+	%Let \(\pi\) be a permutation, then it's cycles are disjoint. For each 
+	%Since the support of a cycle within a permutation is disjoint with every other such support therein, 
+	%Since the support of each cycle contituting a permutation 
+	%For each element \(c\in\alphaset\cap\betaset\), if \(\alpha_c=\beta_c\), where \(\alpha_c\) and \(\beta_c\) are the cycles of \(\alpha\) and \(\beta\) wherein \(c\) occurs, then \(\alpha\) and \(\beta\) commute, since every cycle commutes: \(\alpha_c\circ\beta_c=\beta_c\circ\alpha_c\).
+	%If \(\alphaset\) and \(\betaset\) share an element \(c\) and \(\alpha_c=\beta_c\) where \(\alpha_c\) and \(\beta_c\) are the cycles of \(\alpha\) and \(\beta\) wherein \(c\) occurs, then \(\alpha_c\circ\beta_c=\beta_c\circ\alpha_c\) whilst the other cycles of \(\alpha\) and \(\beta\) commute since they do not share any elements.
 	If \(\alpha_c=\beta_c\inv\), then the cycles neutralize each other \(\alpha_c\circ\beta_c=\beta_c\circ\alpha_c=e\).
-	If, however, there is an element \(c\in\alpha\cap\beta\) such that \(\alpha(c)\neq\beta(c)\), then \(\alpha_c\neq\beta_c\) and \(\left(\alpha\circ\beta\right)(c)=\beta(c)\neq\left(\beta\circ\alpha\right)(c)=\alpha(c)\), NOT TRUE!!!!! since \(\beta(c)\notin\alphaset\) and \(\alpha(c)\notin\betaset\).
+	Now suppose there is an element \(c\in\alphaset\cap\betaset\) such that \(\alpha_c\neq\beta_c\) and \(\alpha_c\neq\beta_c\inv\). Then from \(\beta(c)\notin\alphaset\) follows \(\left(\alpha\circ\beta\right)(c)=\beta(c)\) and thereof \(\left(\beta\circ\alpha\right)(c)\neq\beta(c)\). 
+	%or \(\left(\alpha\circ\beta\right)(c)\neq\beta(c)\) and thus \(\left(\beta\circ\alpha\right)(c)\).
+	If \(\beta(c)\in\alphaset\), then \(\left(\alpha\circ\beta\right)(c)\neq\beta(c)\)
+	%If, however, there is an element \(c\in\alpha\cap\beta\) such that \(\alpha(c)\neq\beta(c)\) and \(\alpha(c)\neq\beta\inv(c)\), 
+	%then neither \(\left(\alpha\circ\beta\right)(c) \notin \left\{ c, \alpha(c), \beta(c), \alpha^2(c),\beta^2(c) \right\} \not\ni \left(\beta\circ\alpha\right)(c)\)
+	%%If, however, there is an element \(c\in\alpha\cap\beta\) such that 
+	%%%\(\alpha(c)\notin\left\{\beta(c),\beta\inv(c)\right\}\), 
+	%%\(\alpha(c)\neq\beta(c)\) and \(\alpha(c)\neq\beta\inv(c)\), 
+	%%%then \(\alpha_c\neq\beta_c\) and \(\left(\alpha\circ\beta\right)(c)=\beta(c)\neq\left(\beta\circ\alpha\right)(c)=\alpha(c)\), NOT TRUE!!!!! since \(\beta(c)\notin\alphaset\) and \(\alpha(c)\notin\betaset\).
+	%%then 
+	%%\(\left(\alpha\circ\beta\right)(c)\in\left\{\alpha(c),\beta(c)\right\}\) and 
+	%%%\(\left(\alpha\circ\beta\right)(c)\notin\left\{\alpha^2(c),c\}\) and 
+	%%%\(\left(\beta\circ\alpha\right)(c)\notin\left\{\beta^2(c),c\}\).
+	
+	%%\(\left(\alpha\circ\beta\right)(c)\neq\left(\beta\circ\alpha\right)(c)\).
 \end{proof}
 \color{black}
 
@@ -431,6 +450,7 @@ Further, when talking about permutation groups in this text, the operator \(\cir
 Herein, all lowercase geek letters are implied to be elements in a permutation group \(G\) on \(A\).
 %and belong to the same permutation group \(G\).
 Elements of \(A\) are represented by lowercase latin characters.
+Further, the operator \(\circ\) will henceforth be implicit, and thus omitted from expressions. As an example, take \(\pi\circ\phi=\pi\phi\).
 
 \begin{definition}[Conjugate]
 	The \emph{conjugate} \(\conjl\alpha \beta\) of \(\beta\) by \(\alpha\) is the composition \(\alpha\inv\beta\alpha\).
