@@ -80,10 +80,11 @@
 \newcommand{\phiset}{\underline{\phi}}
 \newcommand{\solarr}{\mathbf{s}}
 \newcommand{\solperm}{\acute{\solarr}}
-\newcommand{\conjl}[2]{\searrow^#1_#2\ }
+\newcommand{\conjl}[2]{\searrow^{#1}_{#2}\ }
 \newcommand{\comml}[2]{\nearrow\kern-1em\searrow^#1_#2\ }
-\newcommand{\conjh}[2]{\scalebox{1.37}{$\conjl #1 #2$}}
-\newcommand{\commh}[2]{\scalebox{1.37}{$\comml #1 #2$}}
+%\newcommand{\conjh}[2]{\scalebox{1.37}{$\conjl {#1} {#2}$}}
+\newcommand{\conjh}[2]{\scalebox{1.5}{$\conjl {#1} {#2}$}}
+\newcommand{\commh}[2]{\scalebox{1.37}{$\comml {#1} {#2}$}}
 %\newcommand{\orbit}[1]{\text{\(#1\)\kern-0.95em \raisebox{-0.3em}{\scalebox{1.4}{\(\circlearrowright\) } } } }
 %\newcommand{\orbit}[1]{\overset{
 
@@ -275,12 +276,17 @@ Under construction.
 		\item \textit{Closure}: For every ordered pair of elements in the group, the binary product thereof (as defined by the binary operator) is also an element of that group; \(\forall a,b\in G\ \left(a*b=c\in G\right)\).
 		\item \textit{Associativity}: The order wherein ordered pairs of elements are evaluated has no consequence on the restulting product; \(\forall a,b,c\in G\ \left((a*b)*c = a*(b*c)\right)\).
 		\item \textit{Existence of Identity}: There exists in the group an \textit{identity} element, the omission of which from any expression containing any other element or elements has no consequence on the evaluation of that expression; \(\exists e\in G\ \forall a\in G\ (e*a=a*e=a)\).
-		\item \textit{Existence of Inverse}: Each element in the group has its own \textit{inverse}, who's product therewith evalutes to the identity; \(\forall a\in G\ \exists b\in G\ (a*b=b*a=e)\), where \(e\) is the identity.
+		\item \textit{Existence of Inverse}: Each element in the group has its own \textit{inverse}, who's product therewith evalutes to the identity; \(\forall a\in G\ \exists b\in G\ (a*b=e)\), where \(e\) is the identity.
 	\end{enumerate}
 \end{definition}
 
+\begin{remark}
+	Let \(a,b,c\in G\), where \(G\) is a group under \(*\). Then 
+	%If \(b\in G\) is the inverse of an element \(a\in G\), and \(c\in G\) is the inverse of \(b\), then \(a*b=e\) and \(b*c=e\)
+\end{remark}
+
 \begin{definition}[Commutativity]
-	Let \(G\) be a group. Then it is \emph{commutative} (or \emph{Abelian}) if \(\forall a,b\in\mathbb{G}\ (a*b=b*a)\).
+	Let \(G\) be a group. Then it is \emph{commutative} (or \emph{Abelian}) if \(\forall a,b\in G\ (a*b=b*a)\).
 \end{definition}
 
 The integers \(\mathbb{Z}=\left\{\cdots,-2,-1,0,1,2,\cdots\right\}\) together with \textit{addition} constitutes an Abelian group with \(0\) acting as its identity (since \(\forall a\in \mathbb{Z}\ \left(0+a=a+0=a\right)\)). The negative numbers exist as the inverses of the positives, and vice versa.
@@ -317,7 +323,7 @@ We write \(\pi^n\) for a permutation \(\pi\) to denote \(\pi\circ\cdots\circ\pi\
 %Note that if \(\piset=\emptyset\), then \(\pi\) equals the identity.
 \end{definition}
 
-A permutation whoose support is the empty set equals the identity. We say that a permutation \(\pi\) of \(A\) \textit{fixes} an element \(a\in A\) if \(a\notin\piset\).
+A permutation whose support is the empty set equals the identity. We say that a permutation \(\pi\) of \(A\) \textit{fixes} an element \(a\in A\) if \(a\notin\piset\).
 
 \begin{definition}[Orbit]
 	%The \emph{orbit} \(G\cdot a\) of an element \(a\) in a permutation group \(G\) is the set \(\left\{b\in A \,\middle|\, \phi(a)=b,\, \phi\in\left(\langle\{\pi\}\rangle,\circ\right)\right\}\), or, in other terms, \(\orbit{a}=\left\{b\in A \,\middle|\, \pi^n(a)=b,\, n\in\mathbb{N}\right\}\).
@@ -487,7 +493,7 @@ In the trivial case where they share no element, the permutations commute, so th
 	which, in cycle notation, is written \(\left(\alpha\inv(c),\beta(c),\beta^2(c),\cdots,\beta\inv(c)\right)\cdots\).
 \end{proof}
 
-\begin{corollary}
+\begin{corollary}\label{cor1}
 %Note that if \(\beta\) is a transposition, then \(\beta=\left(c,\beta(c)\right)\) and \(\beta(c)=\beta\inv(c)\). Thus 
 %Note that if \(\left|\orbith c \beta \right|=2\), then \(\beta_k=\left(c,\beta(c)\right)\) where \(c\in\betaset_k\) and \(\beta(c)=\beta\inv(c)\), so
 	If \(\beta\) is a transposition, then so is  \(\conjl \alpha \beta\).
@@ -752,5 +758,40 @@ This gives the solution \(\solarr=\left(S,U,S,U,U,S\right)\) visualized below.
 %}}}
 
 Since a transposition of any two elements herein can be composed using the generators in \(\mvs\) -- in other words, since the group \(G\) includes every transposition of the elements 1 through 6 -- it follows that the group must include every permutation on the six elements, and thereby equal \(S_6\).
+
+
+\chapter{New}
+
+Since this group is the symmetric group \(S_6\), there must be a map
+%\(\zeta_1:\{1,2,3\}\times\{4,5,6\} \to G\)
+\(\zeta_1(x,y)=(x,y)\), where \(x\in\{1,2,3\}\) and \(y\in\{4,5,6\}\).
+
+From Corrolary \ref{cor1}, we know that since \(\zeta_1(x,y)\) is a transposition, then \(\zeta_1=\conjl {\alpha_1} {\beta_1}\) where \(\beta_1=\left(x,c_1\right)\) and \(\alpha_1=\left(\cdots,y,c_1\right)\). Similarly, from \(\left|\beta_1\right|=2\) follows that \(\beta_1=\conjl {\alpha_2}{\beta_2}\) where \(\beta_2=\left(c_1,c_2\right)\) and \(\alpha_2=\left(\cdots,x,c_2\right)\).
+
+\begin{align*}
+T_1(x,y)
+	&= {   \conjh {L^{-y+3+1}} {\conjl {U^{-x+1}} S}   }
+%	&= (U^{x-1}L^{y-3-1})(S)(U^{x-1}L^{y-3-1})^{-1} \\
+	%&= \left(L^{-y+3+1}\right)\inv\left(\left(U^{-x+1}\right)\inv\left(S\right)\left(U^{-x+1}\right)\right)\left(L^{-y+3+1}\right) \\
+	%&= U^{-x+1}(L^{-y+3+1})\inv(S)(U^{-x+1}L^{-y+3+1}) \\
+	%&= ((L^{-y+4})\inv(U^{-x+1})\inv)(S)(U^{-x+1}L^{-y+4}) \\
+	%&= (L^{-(-y+4)}U^{-(-x+1)})(S)(U^{-x+1}L^{-y+4}) \\
+    %&= L^{y-4}U^{x-1}SU^{-x+1}L^{-y+4} \\
+    %&= L^{y-1}U^{x-1}SU^{-x+1}L^{-y+1},
+\end{align*}
+
+\begin{align*}
+T_2(x,y,R)
+	&= \Bigl((R^{-x+1})\inv(S)(R^{-x+1})\Bigl)\inv\Bigl((R^{-y+1})\inv(S)(R^{-y+1})\Bigl)\Bigl((R^{-x+1})\inv(S)(R^{-x+1})\Bigl) \\
+	&= (R^{x-1}SR^{-x+1})\inv(R^{y-1}SR^{-y+1})(R^{x-1}SR^{-x+1}) \\
+%	&= (R^{-(x-1)}S\inv R^{-(-x+1)})(R^{y-1}SR^{-y+1})(R^{x-1}SR^{-x+1}) \\
+	&= (R^{-(-x+1)}S\inv R^{-(x-1)})(R^{y-1}SR^{-y+1})(R^{x-1}SR^{-x+1}) \\
+	&= (R^{x-1}SR^{-x+1})(R^{y-1}SR^{-y+1})(R^{x-1}SR^{-x+1}) \\
+	&= R^{x-1}SR^{-x+1}R^{y-1}SR^{-y+1}R^{x-1}SR^{-x+1} \\
+%	&= R^{-x+1}SR^{x+y-2}SR^{x-y}SR^{-x+1} \\
+	&= R^{x-1}SR^{-x+y}SR^{x-y}SR^{-x+1}
+\end{align*}
+
+
 
 \end{document}

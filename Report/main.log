@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.6.28)  23 JAN 2026 19:49
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.6.28)  2 FEB 2026 19:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -647,12 +647,6 @@ LaTeX Info: Redefining \textsw on input line 47.
 LaTeX Info: Redefining \textssc on input line 48.
 LaTeX Info: Redefining \textulc on input line 49.
 )
-! Interruption.
-<argument> \sustyle 
-                    
-l.335    \DeclareRobustCommand{\sustyle}
-                                        {%
-? 
 \tx@sixem=\dimen269
 \tx@y=\dimen270
 \tx@x=\dimen271
@@ -668,7 +662,8 @@ l.335    \DeclareRobustCommand{\sustyle}
 \tx@dimBB=\dimen281
 \tx@dimC=\dimen282
 LaTeX Info: Redefining \oldstylenums on input line 893.
-) (/usr/share/texlive/texmf-dist/tex/latex/newtx/newtxmath.sty
+)
+(/usr/share/texlive/texmf-dist/tex/latex/newtx/newtxmath.sty
 Package: newtxmath 2023/11/05 v1.732
 
 `newtxmath' v1.732, 2023/11/05 Math macros based originally on txfonts (msharpe
@@ -873,32 +868,32 @@ Package epstopdf Info: Source file: <MDU_logo_English.eps>
 (epstopdf)                    size: 20013 bytes
 (epstopdf)             Command: <repstopdf --outfile=MDU_logo_English-eps-conve
 rted-to.pdf MDU_logo_English.eps>
-(epstopdf)             \includegraphics on input line 141.
+(epstopdf)             \includegraphics on input line 142.
 Package epstopdf Info: Output file is already uptodate.
 <MDU_logo_English-eps-converted-to.pdf, id=4, 593.21625pt x 377.41pt>
 File: MDU_logo_English-eps-converted-to.pdf Graphic file (type pdf)
 <use MDU_logo_English-eps-converted-to.pdf>
 Package pdftex.def Info: MDU_logo_English-eps-converted-to.pdf  used on input l
-ine 141.
+ine 142.
 (pdftex.def)             Requested size: 358.50612pt x 228.09476pt.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 14.4pt on input line 146.
+(Font)              scaled to size 14.4pt on input line 147.
 LaTeX Font Info:    Trying to load font information for T1+qhv on input line 14
-6.
+7.
 
 (/usr/share/texmf/tex/latex/tex-gyre/t1qhv.fd
 File: t1qhv.fd 2009/09/25 v1.2 font definition file for T1/qhv
 )
 LaTeX Font Info:    Font shape `T1/qhv/m/n' will be
-(Font)              scaled to size 13.53603pt on input line 146.
+(Font)              scaled to size 13.53603pt on input line 147.
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
-(Font)              scaled to size 14.4pt on input line 151.
+(Font)              scaled to size 14.4pt on input line 152.
 LaTeX Font Info:    Font shape `T1/qhv/b/n' will be
-(Font)              scaled to size 13.53603pt on input line 151.
+(Font)              scaled to size 13.53603pt on input line 152.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
-(Font)              scaled to size 14.4pt on input line 160.
+(Font)              scaled to size 14.4pt on input line 161.
 LaTeX Font Info:    Font shape `T1/qhv/m/it' will be
-(Font)              scaled to size 13.53603pt on input line 160.
+(Font)              scaled to size 13.53603pt on input line 161.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -907,7 +902,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf/fonts/enc/
 dvips/tex-gyre/q-ec.enc} <./MDU_logo_English-eps-converted-to.pdf>]
 LaTeX Font Info:    Font shape `T1/qhv/m/n' will be
-(Font)              scaled to size 11.28003pt on input line 170.
+(Font)              scaled to size 11.28003pt on input line 171.
  [2{/usr/share/texlive/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf.enc}]
 Package epstopdf Info: Source file: <MDU_logo_English.eps>
 (epstopdf)                    date: 2026-01-11 01:38:02
@@ -917,25 +912,25 @@ Package epstopdf Info: Source file: <MDU_logo_English.eps>
 (epstopdf)                    size: 20013 bytes
 (epstopdf)             Command: <repstopdf --outfile=MDU_logo_English-eps-conve
 rted-to.pdf MDU_logo_English.eps>
-(epstopdf)             \includegraphics on input line 178.
+(epstopdf)             \includegraphics on input line 179.
 Package epstopdf Info: Output file is already uptodate.
 File: MDU_logo_English-eps-converted-to.pdf Graphic file (type pdf)
 <use MDU_logo_English-eps-converted-to.pdf>
 Package pdftex.def Info: MDU_logo_English-eps-converted-to.pdf  used on input l
-ine 178.
+ine 179.
 (pdftex.def)             Requested size: 358.50612pt x 228.09476pt.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 10.95pt on input line 187.
+(Font)              scaled to size 10.95pt on input line 188.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
-(Font)              scaled to size 10.95pt on input line 187.
+(Font)              scaled to size 10.95pt on input line 188.
  [1]
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
-(Font)              scaled to size 12.0pt on input line 238.
+(Font)              scaled to size 12.0pt on input line 239.
  [1]
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 24.88pt on input line 242.
+(Font)              scaled to size 24.88pt on input line 243.
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
-(Font)              scaled to size 24.88pt on input line 242.
+(Font)              scaled to size 24.88pt on input line 243.
  [2
 
 ] (./main.toc
@@ -985,13 +980,13 @@ Chapter 1.
 ]
 Chapter 2.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 17.28pt on input line 270.
+(Font)              scaled to size 17.28pt on input line 271.
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
-(Font)              scaled to size 17.28pt on input line 270.
+(Font)              scaled to size 17.28pt on input line 271.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
-(Font)              scaled to size 12.0pt on input line 273.
+(Font)              scaled to size 12.0pt on input line 274.
 
-Overfull \hbox (7.28162pt too wide) in paragraph at lines 275--276
+Overfull \hbox (7.28162pt too wide) in paragraph at lines 276--277
 \T1/ntxtlf/m/n/12 defined by the bin-ary op-er-ator) is also an ele-ment of tha
 t group; $\LMS/ntxsy/m/n/12 8\OML/ntxmi/m/it/12 a; b \LMS/ntxsy/m/n/12 2 \OML/n
 txmi/m/it/12 G  []$\T1/ntxtlf/m/n/12 . 
@@ -1000,7 +995,7 @@ txmi/m/it/12 G  []$\T1/ntxtlf/m/n/12 .
 [5
 
 ]
-Overfull \hbox (30.70712pt too wide) in paragraph at lines 353--354
+Overfull \hbox (30.70712pt too wide) in paragraph at lines 359--360
 \T1/ntxtlf/m/it/12 with pair-wise dis-joint sup-ports such that $\LMS/ntxsy/m/n
 /12 8\OML/ntxmi/m/it/12 a \LMS/ntxsy/m/n/12 2 \OML/ntxmi/m/it/12 A \LMS/ntxsy/m
 /n/12 9\OML/ntxmi/m/it/12 i \LMS/ntxsy/m/n/12 2 \OML/ntxmi/m/it/12 I  []$\T1/nt
@@ -1008,7 +1003,7 @@ xtlf/m/it/12 .
  []
 
 
-Overfull \hbox (78.03238pt too wide) in paragraph at lines 357--359
+Overfull \hbox (78.03238pt too wide) in paragraph at lines 363--365
 []\T1/ntxtlf/m/n/12 Take any ele-ment $\OML/ntxmi/m/it/12 a \LMS/ntxsy/m/n/12 2
  \OML/ntxmi/m/it/12 A$\T1/ntxtlf/m/n/12 . Define the first cycle $\OML/ntxmi/m/
 it/12 ^^Y[]$ \T1/ntxtlf/m/n/12 with $\LMS/ntxsy/m/n/12 8\OML/ntxmi/m/it/12 n \L
@@ -1018,7 +1013,7 @@ MS/ntxsy/m/n/12 2 \U/ntxsym/m/n/12 Z  []$\T1/ntxtlf/m/n/12 .
 [6] [7]
 Chapter 3.
 
-Overfull \hbox (7.80354pt too wide) in paragraph at lines 476--477
+Overfull \hbox (7.80354pt too wide) in paragraph at lines 482--483
 \OML/ntxmi/m/it/12 d; ^^L\LMS/ntxsy/m/n/12 ¹\OML/ntxmi/m/it/12 d\LMS/ntxsy/m/n/
 12 º \U/ntxmia/m/it/12 8 []$\T1/ntxtlf/m/n/12 , so $[] \LMS/ntxsy/m/n/12 ¹\OML/
 ntxmi/m/it/12 d\LMS/ntxsy/m/n/12 º \U/ntxmia/m/it/12 = \OML/ntxmi/m/it/12 ^^L\L
@@ -1032,7 +1027,7 @@ y/m/n/12 º$ \T1/ntxtlf/m/n/12 maps to $[] \LMS/ntxsy/m/n/12 ¹\OML/ntxmi/m/it/12
 [8
 
 ]
-Overfull \hbox (7.09026pt too wide) in paragraph at lines 571--572
+Overfull \hbox (7.09026pt too wide) in paragraph at lines 577--578
 \T1/ntxtlf/m/n/12 only share two ele-ments, then $\OML/ntxmi/m/it/12 c[] \U/ntx
 mia/m/it/12 = \OML/ntxmi/m/it/12 c[]$\T1/ntxtlf/m/n/12 . $\OML/ntxmi/m/it/12 c[
 ]$ \T1/ntxtlf/m/n/12 maps to $\OML/ntxmi/m/it/12 ^^L\LMS/ntxsy/m/n/12 ¹\OML/ntx
@@ -1043,26 +1038,30 @@ ML/ntxmi/m/it/12 i \LMS/ntxsy/m/n/12 2 []  []$
 [9] [10]
 Chapter 4.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 8.8pt on input line 630.
+(Font)              scaled to size 8.8pt on input line 636.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 6.6pt on input line 630.
+(Font)              scaled to size 6.6pt on input line 636.
 
 Underfull \vbox (badness 6268) has occurred while \output is active []
 
  [11
 
 ]
-[12] [13] (./main.aux)
+[12] [13]
+Chapter 5.
+[14
+
+] (./main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2020/03/25>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 22906 strings out of 476139
- 434973 string characters out of 5794454
+ 22909 strings out of 476139
+ 435035 string characters out of 5794454
  1951975 words of memory out of 5000000
- 44495 multiletter control sequences out of 15000+600000
+ 44498 multiletter control sequences out of 15000+600000
  651332 words of font info for 146 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  108i,15n,107p,859b,289s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1076,10 +1075,10 @@ f-dist/fonts/type1/public/newtx/txmiaX.pfb></usr/share/texlive/texmf-dist/fonts
 /newtx/txsys.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/newtx/ztmb.p
 fb></usr/share/texlive/texmf-dist/fonts/type1/public/newtx/ztmr.pfb></usr/share
 /texlive/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
-Output written on main.pdf (16 pages, 272839 bytes).
+Output written on main.pdf (17 pages, 276456 bytes).
 PDF statistics:
- 132 PDF objects out of 1000 (max. 8388607)
- 85 compressed objects within 1 object stream
+ 135 PDF objects out of 1000 (max. 8388607)
+ 87 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  18 words of extra memory for PDF output out of 10000 (max. 10000000)
 
