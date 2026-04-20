@@ -134,6 +134,11 @@
     \end{matrix}
   }
 }
+
+\newcommand{\gamemovearrow}{\longmapsto}
+%\newcommand{\gamemovearrow}{\rightarrowtail}
+%\newcommand{\gamemovearrow}{\scalebox{2}{$\rightsquigarrow$}}
+%\newcommand{\gamemovearrow}{\scalebox{2}{$\rightarrowtail$}}
 %}}}
 
 
@@ -149,7 +154,7 @@
 \vspace{4cm}
 
 % Write your title here
-\centering{\large{\textbf{\textsf{The Title of the Thesis}} }}
+\centering{\large{\textbf{\textsf{On Permutation Groups}} }}
 
 \vspace{1cm}
 
@@ -273,21 +278,23 @@ Under construction.
 \begin{definition}[Group]
 	In mathematics, a \emph{group} \(G\) denotes a set of elements \(\left\{a,b,c,\cdots \right\}\) and an accompanying binary operator \(*\), together satisfying the following conditions:
 	\begin{enumerate}
-		\item \textit{Closure}: For every ordered pair of elements in the group, the binary product thereof (as defined by the binary operator) is also an element of that group; \(\forall a,b\in G\ \left(a*b=c\in G\right)\).
+		\item \textit{Closure}: For every ordered pair of elements in the group, the binary product thereof (as defined by the binary operator) is also an element of that group; \(\forall a,b\in G\ \left(a*b\in G\right)\).
 		\item \textit{Associativity}: The order wherein ordered pairs of elements are evaluated has no consequence on the restulting product; \(\forall a,b,c\in G\ \left((a*b)*c = a*(b*c)\right)\).
 		\item \textit{Existence of Identity}: There exists in the group an \textit{identity} element, the omission of which from any expression containing any other element or elements has no consequence on the evaluation of that expression; \(\exists e\in G\ \forall a\in G\ (e*a=a*e=a)\).
 		\item \textit{Existence of Inverse}: Each element in the group has its own \textit{inverse}, who's product therewith evalutes to the identity; \(\forall a\in G\ \exists b\in G\ (a*b=e)\), where \(e\) is the identity.
 	\end{enumerate}
 \end{definition}
 
-\begin{remark}
-	Let \(a,b,c\in G\), where \(G\) is a group under \(*\). Then 
-	%If \(b\in G\) is the inverse of an element \(a\in G\), and \(c\in G\) is the inverse of \(b\), then \(a*b=e\) and \(b*c=e\)
-\end{remark}
-
 \begin{definition}[Commutativity]
 	Let \(G\) be a group. Then it is \emph{commutative} (or \emph{Abelian}) if \(\forall a,b\in G\ (a*b=b*a)\).
 \end{definition}
+
+%\color{red}
+%\begin{remark}[Commutativity of inverses]
+%	Let \(a,b,c\in G\), where \(G\) is a group under \(*\). Then 
+	%If \(b\in G\) is the inverse of an element \(a\in G\), and \(c\in G\) is the inverse of \(b\), then \(a*b=e\) and \(b*c=e\)
+%\end{remark}
+%\color{black}
 
 The integers \(\mathbb{Z}=\left\{\cdots,-2,-1,0,1,2,\cdots\right\}\) together with \textit{addition} constitutes an Abelian group with \(0\) acting as its identity (since \(\forall a\in \mathbb{Z}\ \left(0+a=a+0=a\right)\)). The negative numbers exist as the inverses of the positives, and vice versa.
 %The inverse of any element \(x\in\mathbb{Z}\) is \(-x\), since \(x+(-x)=0\).
@@ -314,6 +321,14 @@ When the operator is given implicitly, a cyclic group with the generator \(g\) c
 
 We write \(\pi^n\) for a permutation \(\pi\) to denote \(\pi\circ\cdots\circ\pi\) where \(\pi\) is composed with itself \(n\in\mathbb{N}\) times. \(\pi^{-n}\) denotes the composition \(\pi\inv\circ\cdots\circ\pi\inv\) where the inverse \(\pi\inv\) is composed with itself \(n\in\mathbb{N}\) times. The permutation \(\pi^0\) always equals the identity.
 
+%\begin{theorem}
+%	Let \(\pi\) be a permutation of \(A\). Then \(\pi\) commutes with its own inverse \(\pi\inv\); \(\pi\circ\pi\inv=\pi\inv\circ\pi=e\), where \(e\) is the identity.
+%\end{theorem}
+
+%\begin{proof}
+%	Let \(a\in A\) and \(b=\pi(a)\). Since \(\pi\) is bijective
+%\end{proof}
+
 \begin{definition}[Permutation Group]
 	A \emph{permutation group} on a set \(A\) is a group of permutations of \(A\) under composition.
 \end{definition}
@@ -336,7 +351,7 @@ A permutation whose support is the empty set equals the identity. We say that a 
 \end{definition}
 
 %Herefrom follows the equality \(\forall a\in A \ \forall\pi\in G \ \left( \underset{b\in\orbitl a \pi}\bequals \orbitl b \pi \right)\) and \(\forall a\in A \ \left( \underset{b\in\orbith a G}\bequals \orbith b G \right)\) where \(G\) is a permutation group on \(A\).
-Herefrom follows that \(b\in\orbitl a \pi \Leftrightarrow a\in\orbitl b \pi\) and \(b\in\orbith a G \Leftrightarrow a\in\orbith b G\).
+Herefrom follows that \(b\in\orbitl a \pi \Longleftrightarrow a\in\orbitl b \pi\) and \(b\in\orbith a G \Longleftrightarrow a\in\orbith b G\).
 
 \begin{definition}[Cycle]
 	A \emph{cycle} is a permutation \(\pi\) such that 
@@ -350,18 +365,32 @@ Herefrom follows that \(b\in\orbitl a \pi \Leftrightarrow a\in\orbitl b \pi\) an
 Since the support of the identity is the empty set, the identity also a cycle.
 
 \begin{definition}[Transposition]
-	A \emph{transposition} is a cycle \(\pi\) where \(|\piset|=2\).
+	A \emph{transposition} is a cycle \(\pi\) with \(|\piset|=2\).
 \end{definition}
 
-\color{red}
-\begin{theorem}
+\begin{theorem}\label{lcycle}
 	%Each permutation \(\pi\) can be expressed as a composition of cycles \(\pi_1\circ\pi_2\circ\cdots\) where \(\text{Dom}(\pi_1)=\text{Dom}(\pi_2)=\cdots=\text{Dom}(\pi)\) and \(\piset_i\cap\piset_j=\emptyset\) for \(i\neq j\).
-	Let \(\pi\) be a permutation of a set \(A\). Then there exists a family \((\pi_i)_{i\in I}\) of cycles on \(A\) with pairwise disjoint supports such that \(\forall a\in A\ \exists i\in I \  \left( a\in\piset_i \wedge \pi_i(a)=\pi(a) \wedge \pi_j(a)=a \wedge i\neq j \right)\).
+	%Let \(\pi\) be a permutation of a set \(A\). Then there exists a family \((\pi_i)_{i\in I}\) of cycles on \(A\) with pairwise disjoint supports such that \(\forall a\in A\ \exists i\in I \  \left( a\in\piset_i \wedge \pi_i(a)=\pi(a) \wedge \pi_j(a)=a \wedge i\neq j \right)\).
+	%Let \(\pi\) be a permutation of a set \(A\). Then there exists a family \((\pi_i)_{i\in I}\) of cycles on \(A\) with pairwise disjoint supports such that \(\forall a\in A\ \exists i\in I \  \left( a\in\piset_i \wedge \pi_i(a)=\pi(a) \wedge \pi_j(a)=a \wedge i\neq j \right)\).
+	Let \(\pi\) be a permutation of a set \(A\). Then there exists a family of cycles \((\pi_i)_{i\in I}\) on \(A\) with pairwise disjoint supports such that for each \(a\in\piset\), there exists unique \(i\in I\) where \(\pi(a)=\pi_i(a)\).
 \end{theorem}
 
+%\color{red}
 \begin{proof}
-	Take any element \(a\in A\). Define the first cycle \(\pi_1\) with \(\forall n\in\mathbb{Z}\  \left( \pi_1^n(a)=\pi(a) \wedge b\notin\orbith a {\pi_1} \Rightarrow \pi_1(b)=b \right)\). Then \(\piset_1=\orbitl a \pi\).
-	Let \(a_{k+1}\in A\setminus\underset{i\in \{1,\cdots,k\}}\bbigcup\piset_i\) where \(k\in\mathbb{N}\) and each \(\pi_i\) is defined in the same way as \(\pi_1\) for each \(a_i\). Then \(\piset_{k+1}\)
+	%Take any element \(a\in A\). Define the first cycle \(\pi_1\) with \(\forall n\in\mathbb{Z}\  \left( \pi_1^n(a)=\pi(a) \wedge b\notin\orbith a {\pi_1} \implies \pi_1(b)=b \right)\). Then \(\piset_1=\orbitl a \pi\).
+	%Let \(a_{k+1}\in A\setminus\underset{i\in \{1,\cdots,k\}}\bbigcup\piset_i\) where \(k\in\mathbb{N}\) and each \(\pi_i\) is defined in the same way as \(\pi_1\) for each \(a_i\). Then \(\piset_{k+1}\)
+
+
+%	Take any element \(a\in\piset\). Define the first cycle \(\pi_1\) with
+%	\[
+%		\forall n\in\mathbb{Z}\  \left( \pi_1^n(a)=\pi^n(a) \wedge b\notin\orbith a {\pi_1} \implies \pi_1(b)=b \right).
+%	\] 
+%	Then \(\piset_1=\orbitl a \pi\).
+%	Let \(a_{k+1}\in A\setminus\underset{i\in \{1,\cdots,k\}}\bbigcup\piset_i\) where \(k\in\mathbb{N}\) and each \(\pi_i\) is defined in the same way as \(\pi_1\) for each \(a_i\). Then \(\piset_{k+1}\)
+
+
+	Let \(a_{k+1}\in \piset\setminus\underset{i\in \{1,\cdots,k\}}\bbigcup\underline{\pi_i}\) where \(k\in\mathbb{N}\) and each \(\pi_i\) is a cycle satisfying \(\forall n\in\mathbb{Z}\  \left( \pi_i^n(a_{k+1})=\pi^n(a_{k+1}) \right)\). 
+	Then 
 
 	%Let \(a_k\in A\) where \(k\in\mathbb{N}\) and \(a_{k}\in A\setminus\underset{i\in \{1,\cdots,k-1}\bbigcup\piset_i\) where each \(\pi_k\) is defined in the same way as \(\pi_1\). Then 
 
@@ -375,7 +404,11 @@ Since the support of the identity is the empty set, the identity also a cycle.
 
 \color{black}
 %Any permutation can herefore be written as a set of pairwise disjoint cycles, commonly called \textit{cycle notation}. The permutation \((a,b,c)(d,e)\)
-In \textit{cycle notation}, the fact above is used to express permutations in a convenient way. Here, each cycle in the expressed permutation is written as a parenthesized list of elements. 
+In \textit{cycle notation}, 
+%the fact above 
+%Lemma \ref{lcycle} 
+Theorem \ref{lcycle} 
+is used to express permutations in a convenient way. Here, each cycle in the expressed permutation is written as a parenthesized list of elements, where each element therein is mapped to the succeeding element save for the last one, which is mapped to the first.
 For example, the permutation \((a,b,c)(d,e)\) maps \(a\mapsto b\), \(b\mapsto c\) and \(c\mapsto a\), as well as \(d\mapsto e\) and \(e\mapsto d\). Note that this permutation is the same as the permutation \((c,a,b)(e,d)\), but not the same as \((a,c,b)(d,e)\).
 %For example, the permutation \((a,b,c)(d,e)\) maps \(a\) to \(b\), \(b\) to \(c\) and \(c\) back to \(a\), as well as \(d\) to \(e\) and \(e\) to back to \(d\). Note that this permutation is the same as the permutation \((c,a,b)(e,d)\), but not the same as \((a,c,b)(d,e)\).
 
@@ -399,7 +432,7 @@ In this text, permutations containing symbols or numbers with multiple digits wi
 %\end{lemma}
 %
 %\begin{proof}
-	%%Let \(c\) be as defined above. Then \(\alpha_c\circ\beta_c(c)=\beta_c\circ\alpha_c(c)\Rightarrow\)
+	%%Let \(c\) be as defined above. Then \(\alpha_c\circ\beta_c(c)=\beta_c\circ\alpha_c(c)\implies\)
 	%%Let none of the constituting cycles of two permutations \(\alpha\) and \(\beta\) of \(A\) share elements. Then 
 	%Let \(\alpha\) and \(\beta\) be permutations of \(A\) whose constituting cycles share no elements. Then 
 	%%\(\forall \alpha_i\in C_{\alpha} \ \forall \beta_j\in C_{\beta} \ \forall a\in A\ \left( \neg \left( \alpha_i(a)\neq a \wedge \beta_j(a)\neq a \right) \right)\)
@@ -416,6 +449,7 @@ In this text, permutations containing symbols or numbers with multiple digits wi
 	Let \(\alpha\) and \(\beta\) be permutations of \(A\). Then \(\alpha\) and \(\beta\) do not commute if and only if there is an element \(c\in\alphaset\cap\betaset\) where the cycles of \(\alpha\) and \(\beta\) wherein \(c\) is contained are neither equal nor each other's inverses.
 \end{lemma}
 
+\color{red}
 \begin{proof}
 	Let \(\alpha\) and \(\beta\) be permutations of \(A\) and \(\alphaset\cap\betaset=\emptyset\). Then \(\forall b\in A\ \left( \alpha(b)=b \vee \beta(b)=b \right)\). Thus for each \(b\in A\) both \(\left(\alpha\circ\beta\right)(b)\) and \(\left(\beta\circ\alpha\right)(b)\) evaluate to the same expression, which will be either \(\alpha(b)\), \(\beta(b)\) or \(b\).
 	A permutation always commutes with itself, so if \(\alpha_c=\beta_c\) for some \(c\in\alphaset\cap\betaset\) -- where \(\alpha_c\) and \(\beta_c\) are the cycles of \(\alpha\) and \(\beta\) wherein \(c\) occurs -- then \(\alpha_c\circ\beta_c=\beta_c\circ\alpha_c\). If each cycle in \(\alpha\) and \(\beta\) commute, so do they.
@@ -479,7 +513,7 @@ In the trivial case where they share no element, the permutations commute, so th
 \begin{proof}
 	%For each \(\alpha^k(c)\) where \(k\in\left\{0,\cdots,\left|\orbitl c \alpha\right|\right-2\}\), \(\conjl \alpha \beta\left(\alpha^k(c)\right)=\alpha^k(c)\), since permutations which share no supportive elements commute and \(\alpha\left(\alpha^k(c)\right)\notin\{c\}\cup\betaset\). The element \(\alpha\inv(c)\)
 	%For each \(a\in\langle\alpha\rangle\setminus\left\{\alpha\inv(c)\right\}\), \(\pi\)
-	For each \(b\in\alphaset\setminus\left\{\alpha\inv(c)\right\}\), \(\alpha(b)\notin\betaset\). Since \(\beta\alpha(b)=\alpha(b)\), the conjugate can be rewritten for \(b\): \(\left(\alpha\inv\beta\alpha\right)(b)=\left(\alpha\inv\alpha\right)(b)=b\). In the case of \(\alpha\inv(c)\), \(\left(\alpha\inv\beta\alpha\alpha\inv\right)(c)=\left(\alpha\inv\beta\right)(c)=\beta(c)\), since \(\beta(c)\notin\alphaset\Rightarrow\left(\alpha\inv\beta\right)(c)=\beta(c)\). For each \(d\in\betaset\setminus\left\{\beta\inv(c), c\right\}\), \(d,\beta(d)\notin\alphaset\), so \(\left(\alpha\inv\beta\alpha\right)(d)=\beta(d)\). Lastly, \(\beta\inv(c)\) maps to \(\left(\alpha\inv\beta\alpha\beta\inv\right)(c)=\left(\alpha\inv\beta\beta\inv\right)(c)=\alpha\inv(c)\). This gives the function 
+	For each \(b\in\alphaset\setminus\left\{\alpha\inv(c)\right\}\), \(\alpha(b)\notin\betaset\). Since \(\beta\alpha(b)=\alpha(b)\), the conjugate can be rewritten for \(b\): \(\left(\alpha\inv\beta\alpha\right)(b)=\left(\alpha\inv\alpha\right)(b)=b\). In the case of \(\alpha\inv(c)\), \(\left(\alpha\inv\beta\alpha\alpha\inv\right)(c)=\left(\alpha\inv\beta\right)(c)=\beta(c)\), since \(\beta(c)\notin\alphaset\implies\left(\alpha\inv\beta\right)(c)=\beta(c)\). For each \(d\in\betaset\setminus\left\{\beta\inv(c), c\right\}\), \(d,\beta(d)\notin\alphaset\), so \(\left(\alpha\inv\beta\alpha\right)(d)=\beta(d)\). Lastly, \(\beta\inv(c)\) maps to \(\left(\alpha\inv\beta\alpha\beta\inv\right)(c)=\left(\alpha\inv\beta\beta\inv\right)(c)=\alpha\inv(c)\). This gives the function 
 	\begin{equation}\label{conj}
 		\conjl \alpha \beta (x) = \left\{
 				\begin{array}{cl}
@@ -531,7 +565,7 @@ In the trivial case where they share no element, the permutations commute, so th
 \begin{proof}
 	Using (\ref{conj}) from Lemma \ref{lmconj}, we get 
 	\begin{align*}
-		\comml\alpha\beta(x) = \beta\inv\conjl\alpha\beta(x)
+		\comml\alpha\beta(x) = \left(\beta\inv\conjl\alpha\beta\right)(x)
 			&= \left\{
 					\begin{array}{cl}
 						\beta\inv(x) & : \ x\in\alphaset\setminus\left\{\alpha\inv(c)\right\} \\
@@ -633,9 +667,9 @@ In the trivial case where they share no element, the permutations commute, so th
 The ``\(2\times 3\) game'' is a simple puzzle with six tiles in a grid of numbers and a set of allowed moves which permute them. The goal of the game is to sort the grid into a ``solved'' state from some scrambled state.
 \[
 	\gameboard[5 4 2 3 6 1]
-	\overset{\text{Move}_1}\longrightarrow
+	\overset{\text{Move}_1}\gamemovearrow
 	\cdots
-	\overset{\text{Move}_n}\longrightarrow
+	\overset{\text{Move}_n}\gamemovearrow
 	\gameboard[1 2 3 4 5 6]
 \]
 
@@ -667,15 +701,15 @@ T_1(2,6)
 This gives -- after some reductions -- the solution \(\solarr=\left(L,U\inv,S,U,L\inv\right)\) visualized below.
 \begin{align*}
 	& \gameboard[1 6 3 4 5 2]
-	\overset{L}\longrightarrow
+	\overset{L}\gamemovearrow
 	\gameboard[1 6 3 2 4 5]
-	\overset{U\inv}\longrightarrow
+	\overset{U\inv}\gamemovearrow
 	\gameboard[6 3 1 2 4 5] \\
-	\overset{S}\longrightarrow
+	\overset{S}\gamemovearrow
 	& \gameboard[2 3 1 6 4 5]
-	\overset{U}\longrightarrow
+	\overset{U}\gamemovearrow
 	\gameboard[1 2 3 6 4 5]
-	\overset{L\inv}\longrightarrow
+	\overset{L\inv}\gamemovearrow
 	\gameboard[1 2 3 4 5 6]
 \end{align*}
 
@@ -712,19 +746,19 @@ T_2(2,3,U)
 This gives the solution \(\solarr=\left(U\inv,S,U\inv,S,U,S,U\right)\) visualized below.
 \begin{align*}
 	& \gameboard[1 3 2 4 5 6]
-	\overset{U\inv}\longrightarrow
+	\overset{U\inv}\gamemovearrow
 	\gameboard[3 2 1 4 5 6]
-	\overset{S}\longrightarrow
+	\overset{S}\gamemovearrow
 	\gameboard[4 2 1 3 5 6]
-	\overset{U\inv}\longrightarrow
+	\overset{U\inv}\gamemovearrow
 	\gameboard[2 1 4 3 5 6] \\
-	\overset{S}\longrightarrow
+	\overset{S}\gamemovearrow
 	& \gameboard[3 1 4 2 5 6]
-	\overset{U}\longrightarrow
+	\overset{U}\gamemovearrow
 	\gameboard[4 3 1 2 5 6]
-	\overset{S}\longrightarrow
+	\overset{S}\gamemovearrow
 	\gameboard[2 3 1 4 5 6]
-	\overset{U}\longrightarrow
+	\overset{U}\gamemovearrow
 	\gameboard[1 2 3 4 5 6]
 \end{align*}
 %{{{ OLD EXAMPLE
@@ -743,15 +777,15 @@ T_2(1,3,U)
 This gives the solution \(\solarr=\left(S,U,S,U,U,S\right)\) visualized below.
 \begin{align*}
 	& \gameboard[3 2 1 4 5 6]
-	\overset{S}\longrightarrow
+	\overset{S}\gamemovearrow
 	\gameboard[4 2 1 3 5 6]
-	\overset{U}\longrightarrow
+	\overset{U}\gamemovearrow
 	\gameboard[1 4 2 3 5 6]
-	\overset{S}\longrightarrow \\
+	\overset{S}\gamemovearrow \\
 	& \gameboard[3 4 2 1 5 6]
-	\overset{U^2}\longrightarrow
+	\overset{U^2}\gamemovearrow
 	\gameboard[4 2 3 1 5 6]
-	\overset{S}\longrightarrow
+	\overset{S}\gamemovearrow
 	\gameboard[1 2 3 4 5 6]
 \end{align*}
 \end{comment}
@@ -762,11 +796,12 @@ Since a transposition of any two elements herein can be composed using the gener
 
 \chapter{New}
 
-Since this group is the symmetric group \(S_6\), there must be a map
+Since \(G\) is the symmetric group \(S_6\), there must exist a map
 %\(\zeta_1:\{1,2,3\}\times\{4,5,6\} \to G\)
-\(\zeta_1(x,y)=(x,y)\), where \(x\in\{1,2,3\}\) and \(y\in\{4,5,6\}\).
+\(T_1(x,y)=(x,y)\), where \(x\in\{1,2,3\}\) and \(y\in\{4,5,6\}\).
 
-From Corrolary \ref{cor1}, we know that since \(\zeta_1(x,y)\) is a transposition, then \(\zeta_1=\conjl {\alpha_1} {\beta_1}\) where \(\beta_1=\left(x,c_1\right)\) and \(\alpha_1=\left(\cdots,y,c_1\right)\). Similarly, from \(\left|\beta_1\right|=2\) follows that \(\beta_1=\conjl {\alpha_2}{\beta_2}\) where \(\beta_2=\left(c_1,c_2\right)\) and \(\alpha_2=\left(\cdots,x,c_2\right)\).
+%From Corrolary \ref{cor1}, we know that since \(\zeta_1(x,y)\) is a transposition, then \(\zeta_1=\conjl {\alpha_1} {\beta_1}\) where \(\beta_1=\left(x,c_1\right)\) and \(\alpha_1=\left(\cdots,y,c_1\right)\). Similarly, from \(\left|\beta_1\right|=2\) follows that \(\beta_1=\conjl {\alpha_2}{\beta_2}\) where \(\beta_2=\left(c_1,c_2\right)\) and \(\alpha_2=\left(\cdots,x,c_2\right)\).
+From Corrolary \ref{cor1}, we know that since \(\zeta_1(x,y)\) is a transposition, then \(\zeta_1=\conjl {\alpha_1} {\beta_1}\) where \(\beta_1=\left(x,c_1\right)\) and \(\alpha_1(y)=c_1\). Similarly, from \(\left|\beta_1\right|=2\) follows that \(\beta_1=\conjl {\alpha_2}{\beta_2}\) where \(\beta_2=\left(c_1,c_2\right)\) and \(\alpha_2(x)=c_2\). Now, from \(\mvs\) we can find permutations matching these properties
 
 \begin{align*}
 T_1(x,y)
@@ -783,15 +818,27 @@ T_1(x,y)
 \begin{align*}
 T_2(x,y,R)
 	&= \Bigl((R^{-x+1})\inv(S)(R^{-x+1})\Bigl)\inv\Bigl((R^{-y+1})\inv(S)(R^{-y+1})\Bigl)\Bigl((R^{-x+1})\inv(S)(R^{-x+1})\Bigl) \\
-	&= (R^{x-1}SR^{-x+1})\inv(R^{y-1}SR^{-y+1})(R^{x-1}SR^{-x+1}) \\
-%	&= (R^{-(x-1)}S\inv R^{-(-x+1)})(R^{y-1}SR^{-y+1})(R^{x-1}SR^{-x+1}) \\
-	&= (R^{-(-x+1)}S\inv R^{-(x-1)})(R^{y-1}SR^{-y+1})(R^{x-1}SR^{-x+1}) \\
-	&= (R^{x-1}SR^{-x+1})(R^{y-1}SR^{-y+1})(R^{x-1}SR^{-x+1}) \\
-	&= R^{x-1}SR^{-x+1}R^{y-1}SR^{-y+1}R^{x-1}SR^{-x+1} \\
-%	&= R^{-x+1}SR^{x+y-2}SR^{x-y}SR^{-x+1} \\
+%			&= (R^{x-1}SR^{-x+1})\inv(R^{y-1}SR^{-y+1})(R^{x-1}SR^{-x+1}) \\
+%		%	&= (R^{-(x-1)}S\inv R^{-(-x+1)})(R^{y-1}SR^{-y+1})(R^{x-1}SR^{-x+1}) \\
+%			&= (R^{-(-x+1)}S\inv R^{-(x-1)})(R^{y-1}SR^{-y+1})(R^{x-1}SR^{-x+1}) \\
+%			&= (R^{x-1}SR^{-x+1})(R^{y-1}SR^{-y+1})(R^{x-1}SR^{-x+1}) \\
+%			&= R^{x-1}SR^{-x+1}R^{y-1}SR^{-y+1}R^{x-1}SR^{-x+1} \\
+%		%	&= R^{-x+1}SR^{x+y-2}SR^{x-y}SR^{-x+1} \\
 	&= R^{x-1}SR^{-x+y}SR^{x-y}SR^{-x+1}
 \end{align*}
 
+\newpage
+
+Since \(G\) is the symmetric group \(S_6\), there must be a map
+%\(\zeta_1:\{1,2,3\}\times\{4,5,6\} \to G\)
+\(\zeta:\{1,\cdots,6\}^2\to \mathcal{P}\left(\mvs^{<\omega}\right)\), where \(\mvs^{<\omega}=\underset{n\in\mathbb{N}}{\bbigcup}\mvs^n\) and \(\solarr\in\zeta(x,y) \implies \solperm=(x,y)\). In other words: there must exist a set of solutions to each transposition in \(S_6\).
+
+Since \(G\) is the symmetric group \(S_6\), there must be an infinite\footnote{It is easy to see that this set is infinite, since one can append any solution with a permutation and its inverse to get a new solution. Take the solution \(\solarr_2=\left(\alpha,\beta,\gamma\right)\) as an example, then \(\solperm_1=\solperm_2\) where \(\solarr_2=\left(\alpha,\beta,\gamma,\alpha,\alpha\inv\right).\)} set of maps 
+\(\{1,\cdots,6\}^2\to \mvs^{<\omega}\), 
+where \(\mvs^{<\omega}=\underset{n\in\mathbb{N}}{\bbigcup}\mvs^n\) and \(\solarr\in\zeta(x,y) \implies \solperm=(x,y)\) where \(\zeta\) is such a map.
+
+::::::::::There is a set of solutions to \(T_1\), and \(\alpha_1\) and \(\beta_1\) and \(\alpha_2\) and \(\beta_2\). the solution is the intersection thereof. At each level there is a uniqe map (for that level) to a set of solutions. It's recursive!
 
 
 \end{document}
+
