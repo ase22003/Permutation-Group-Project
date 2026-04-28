@@ -652,8 +652,8 @@ In the trivial case where they share no element, the permutations commute, so th
 					\beta(c_n) & : \ x=c_{n-1} \\
 					\alpha\inv(c_1) & : \ x=\beta\inv(c_1)
 				\end{array}
-			\right. \\
-		\implies \subcycle {c_1}{\conjl\alpha\beta} &= \left(\alpha\inv(c_1),c_1,\cdots,c_{n-1},\beta(c_n),\cdots,\beta\inv(c_1)\right).
+			\right.\label{conj_string_func} \\
+		&\implies \subcycle {c_1}{\conjl\alpha\beta} = \left(\alpha\inv(c_1),c_1,\cdots,c_{n-1},\beta(c_n),\cdots,\beta\inv(c_1)\right).
 	\end{align}
 	%\begin{align}
 	%	\conjl \alpha \beta (x) &= \left\{
@@ -692,7 +692,7 @@ In the trivial case where they share no element, the permutations commute, so th
 \end{lemma}
 
 \begin{proof}
-	From Lemma \ref{conj_string} we get 
+	From (\ref{conj_string_func}) from Lemma \ref{conj_string} we get 
 	\begin{align}
 		\comml \alpha \beta (x) &= \left\{
 				\begin{array}{cl}
@@ -716,10 +716,10 @@ In the trivial case where they share no element, the permutations commute, so th
 		&= \left\{
 				\begin{array}{cl}
 					x & : \ x\in\set{c_{n-1},c_n,\alpha\inv(c_1),\beta\inv(c_1)} \\
-					c_{n-1} & : \ x=c_n \\
 					\beta\inv(c_1) & : \  x=\alpha\inv(c_1) \\
+					\alpha\inv(c_1) & : \ x=\beta\inv(c_1) \\
 					c_n & : \ x=c_{n-1} \\
-					\alpha\inv(c_1) & : \ x=\beta\inv(c_1)
+					c_{n-1} & : \ x=c_n
 				\end{array}
 			\right.\\
 		&= \perm{\alpha\inv(c_1),\beta\inv(c_1)}\perm{c_{n-1},c_n}.
