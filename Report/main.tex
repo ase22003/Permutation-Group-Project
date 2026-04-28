@@ -149,6 +149,9 @@
 \newcommand{\quotetext}[1]{``#1''}
 \newcommand{\perm}[1]{\left( #1 \right)}
 \newcommand{\spann}[2]{#1,\cdots,#2}
+\newcommand{\foralll}[2]{\forall #1\ \left(#2\right)}
+\newcommand{\subcycle}[2]{\overset{#1}{#2}}
+\newcommand{\prnth}[1]{\left(#1\right)}
 
 %}}}
 
@@ -327,7 +330,7 @@ When the operator is given implicitly, a cyclic group with the generator \(g\) c
 \section{Permutations}
 
 \begin{definition}[Permutation]
-	A \emph{permutation} \(\pi\) of the set \(A\) is a bijective map \(\pi:A\to A\).
+	A \emph{permutation} \(\pi\) of a set \(A\) is a bijective map \(\pi:A\to A\).
 \end{definition}
 
 We write \(\pi^n\) for a permutation \(\pi\) to denote \(\pi\circ\cdots\circ\pi\) where \(\pi\) is composed with itself \(n\in\mathbb{N}\) times. \(\pi^{-n}\) denotes the composition \(\pi\inv\circ\cdots\circ\pi\inv\) where the inverse \(\pi\inv\) is composed with itself \(n\in\mathbb{N}\) times. The permutation \(\pi^0\) always equals the identity.
@@ -351,18 +354,18 @@ We write \(\pi^n\) for a permutation \(\pi\) to denote \(\pi\circ\cdots\circ\pi\
 
 A permutation whose support is the empty set equals the identity. We say that a permutation \(\pi\) of \(A\) \textit{fixes} an element \(a\in A\) if \(a\notin\piset\).
 
-\begin{definition}[Orbit]
-	%The \emph{orbit} \(G\cdot a\) of an element \(a\) in a permutation group \(G\) is the set \(\left\{b\in A \,\middle|\, \phi(a)=b,\, \phi\in\left(\langle\{\pi\}\rangle,\circ\right)\right\}\), or, in other terms, \(\orbit{a}=\left\{b\in A \,\middle|\, \pi^n(a)=b,\, n\in\mathbb{N}\right\}\).
-	%The \emph{orbit} \(\orbit[a \pi]\) of an element \(a\in A\) in a permutation \(\pi\) of \(A\) is the set \(\left\{b\in A \,\middle|\, \phi(a)=b,\, \phi\in\left(\langle\{\pi\}\rangle,\circ\right)\right\}\), or, in other terms, \(\orbit{a}=\left\{b\in A \,\middle|\, \pi^n(a)=b,\, n\in\mathbb{N}\right\}\).
-	%The \emph{orbit} \(\orbitl a \pi\) of an element \(a\in A\) under a permutation \(\pi\) of \(A\) is the set \(\left\{b\in A \,\middle|\, \phi(a)=b,\, \phi\in\left(\langle\{\pi\}\rangle,\circ\right)\right\}\). The orbit \(\orbith a G\) -- where \(G\) is a permutation group on \(A\) -- is the union of all orbits of \(a\) in the group: \(\left\{b\in A \,\middle|\, b\in\orbitl a \pi,\, \pi\in G\right\}\).
-	The \emph{orbit} \(\orbitl a \pi\) of an element \(a\in A\) under a permutation \(\pi\) of \(A\) is the set \(\left\{b\in A \,\middle|\, \phi(a)=b,\, \phi\in \langle\pi\rangle \right\}\). The orbit \(\orbith a G\) -- where \(G\) is a permutation group on \(A\) -- is the union 
-	\(\underset{\pi\in G}\bbigcup\orbitl a \pi\) 
-	%\(\left\{b\in A \,\middle|\, b\in\orbitl a \pi,\, \pi\in G\right\}\)
-	of the orbits of \(a\) under each permutation in the group -- or put differently: \(\orbith a G = \left\{\pi(a) \,\middle|\, \pi\in G \right\}\).
-\end{definition}
+%\begin{definition}[Orbit]
+%	%The \emph{orbit} \(G\cdot a\) of an element \(a\) in a permutation group \(G\) is the set \(\left\{b\in A \,\middle|\, \phi(a)=b,\, \phi\in\left(\langle\{\pi\}\rangle,\circ\right)\right\}\), or, in other terms, \(\orbit{a}=\left\{b\in A \,\middle|\, \pi^n(a)=b,\, n\in\mathbb{N}\right\}\).
+%	%The \emph{orbit} \(\orbit[a \pi]\) of an element \(a\in A\) in a permutation \(\pi\) of \(A\) is the set \(\left\{b\in A \,\middle|\, \phi(a)=b,\, \phi\in\left(\langle\{\pi\}\rangle,\circ\right)\right\}\), or, in other terms, \(\orbit{a}=\left\{b\in A \,\middle|\, \pi^n(a)=b,\, n\in\mathbb{N}\right\}\).
+%	%The \emph{orbit} \(\orbitl a \pi\) of an element \(a\in A\) under a permutation \(\pi\) of \(A\) is the set \(\left\{b\in A \,\middle|\, \phi(a)=b,\, \phi\in\left(\langle\{\pi\}\rangle,\circ\right)\right\}\). The orbit \(\orbith a G\) -- where \(G\) is a permutation group on \(A\) -- is the union of all orbits of \(a\) in the group: \(\left\{b\in A \,\middle|\, b\in\orbitl a \pi,\, \pi\in G\right\}\).
+%	The \emph{orbit} \(\orbitl a \pi\) of an element \(a\in A\) under a permutation \(\pi\) of \(A\) is the set \(\left\{b\in A \,\middle|\, \phi(a)=b,\, \phi\in \langle\pi\rangle \right\}\). The orbit \(\orbith a G\) -- where \(G\) is a permutation group on \(A\) -- is the union 
+%	\(\underset{\pi\in G}\bbigcup\orbitl a \pi\) 
+%	%\(\left\{b\in A \,\middle|\, b\in\orbitl a \pi,\, \pi\in G\right\}\)
+%	of the orbits of \(a\) under each permutation in the group -- or put differently: \(\orbith a G = \left\{\pi(a) \,\middle|\, \pi\in G \right\}\).
+%\end{definition}
 
-%Herefrom follows the equality \(\forall a\in A \ \forall\pi\in G \ \left( \underset{b\in\orbitl a \pi}\bequals \orbitl b \pi \right)\) and \(\forall a\in A \ \left( \underset{b\in\orbith a G}\bequals \orbith b G \right)\) where \(G\) is a permutation group on \(A\).
-Herefrom follows that \(b\in\orbitl a \pi \Longleftrightarrow a\in\orbitl b \pi\) and \(b\in\orbith a G \Longleftrightarrow a\in\orbith b G\).
+%%Herefrom follows the equality \(\forall a\in A \ \forall\pi\in G \ \left( \underset{b\in\orbitl a \pi}\bequals \orbitl b \pi \right)\) and \(\forall a\in A \ \left( \underset{b\in\orbith a G}\bequals \orbith b G \right)\) where \(G\) is a permutation group on \(A\).
+%Herefrom follows that \(b\in\orbitl a \pi \Longleftrightarrow a\in\orbitl b \pi\) and \(b\in\orbith a G \Longleftrightarrow a\in\orbith b G\).
 
 \begin{definition}[Cycle]
 	A \emph{cycle} is a permutation \(\pi\) such that 
@@ -375,10 +378,21 @@ Herefrom follows that \(b\in\orbitl a \pi \Longleftrightarrow a\in\orbitl b \pi\
 
 Since the support of the identity is the empty set, the identity also a cycle.
 
+\begin{definition}[Subcycle]
+	The \emph{subcycle} \(\subcycle a \pi\) of an element \(a\in A\) within a permutaion \(\pi\) on \(A\) is the cycle whose support \(\underline{\subcycle a \pi}\) is the set 
+	%\(\left\{b\in A \,\middle|\, \phi(a)=b,\, \phi\in \langle\pi\rangle \right\}\)
+	\(\setdef{\phi(a)}{\phi\in \langle\pi\rangle }\) and where \(\foralll{b\in \underline{\subcycle a \pi}}{\subcycle a \pi(b)=\pi(b)}\).
+\end{definition}
+
+\begin{definition}[Orbit]
+	The \emph{orbit} of an element \(a\in A\) in a permutation \(\pi\) on \(A\) is the support of the subcycle of \(a\) in \(\pi\).
+\end{definition}
+
 \begin{definition}[Transposition]
 	A \emph{transposition} is a cycle \(\pi\) with \(|\piset|=2\).
 \end{definition}
 
+\color{red}
 \begin{theorem}\label{lcycle}
 	%Each permutation \(\pi\) can be expressed as a composition of cycles \(\pi_1\circ\pi_2\circ\cdots\) where \(\text{Dom}(\pi_1)=\text{Dom}(\pi_2)=\cdots=\text{Dom}(\pi)\) and \(\piset_i\cap\piset_j=\emptyset\) for \(i\neq j\).
 	%Let \(\pi\) be a permutation of a set \(A\). Then there exists a family \((\pi_i)_{i\in I}\) of cycles on \(A\) with pairwise disjoint supports such that \(\forall a\in A\ \exists i\in I \  \left( a\in\piset_i \wedge \pi_i(a)=\pi(a) \wedge \pi_j(a)=a \wedge i\neq j \right)\).
@@ -412,8 +426,8 @@ Since the support of the identity is the empty set, the identity also a cycle.
 	%For every element \(a\in A\), there is a string of elements defined by \(\left\{b\in A \,\middle|\, n\in\mathbb{N},\, \pi^n(a)=b,\, \phi\in\left(\rangle\right) \right\}\)
 	%Let \(a_1\in A\). If \(\pi(a_1)=a_1\), then there is a cycle on \(\{a_1\}\) in \(\pi\). If \(\pi(a_1)\neq a_1\), write \(\pi(a_1)=a_2\). Since \(pi\) is bijective, \(a_2\) cannot map to itself, so it must either map to a new element or back to \(a_1\), wherefrom would follow that there is a cycle on \(\{a_1,a_2\}\) in \(\pi\). Otherwise write \(\pi(a_2)=a_3, \cdots,\pi(a_i)=a_{i+1}\), continuing indefinitely until \(\pi(a_n)=a_1\) for some \(n\), in which case the set whereon the cycle operates is infinite. Continue like this until each element in \(A\) has found its cycle.
 \end{proof}
-
 \color{black}
+
 %Any permutation can herefore be written as a set of pairwise disjoint cycles, commonly called \textit{cycle notation}. The permutation \((a,b,c)(d,e)\)
 In \textit{cycle notation}, 
 %the fact above 
@@ -518,7 +532,10 @@ In the trivial case where they share no element, the permutations commute, so th
 \begin{lemma}\label{lmconj}
 	Let 
 	%\(\alpha\) and \(\beta\) where 
-	\(\alphaset\cap\betaset=\{c\}\). Then the cycle of \(\conjl\alpha\beta\) wherein \(c\) occurs has the form \(\left(\alpha\inv(c),\beta(c),\beta^2(c),\cdots,\beta\inv(c)\right)\).
+	\(\alphaset\cap\betaset=\{c\}\). 
+	%Then the cycle of \(\conjl\alpha\beta\) wherein \(c\) occurs has the form \(\left(\alpha\inv(c),\beta(c),\beta^2(c),\cdots,\beta\inv(c)\right)\).
+	%Then the subcycle of \(c\) in \(\conjl\alpha\beta\) is \(\left(\alpha\inv(c),\beta(c),\beta^2(c),\cdots,\beta\inv(c)\right)\).
+	Then \(\subcycle c {\conjl\alpha\beta} = \perm{\alpha\inv(c),\beta(c),\cdots,\beta\inv(c)}\).
 \end{lemma}
 
 \begin{proof}
@@ -535,7 +552,7 @@ In the trivial case where they share no element, the permutations commute, so th
 				\end{array}
 			\right.
 	\end{equation}
-	which, in cycle notation, is written \(\left(\alpha\inv(c),\beta(c),\beta^2(c),\cdots,\beta\inv(c)\right)\cdots\).
+	whose subcycle of \(c\) is written as \(\left(\alpha\inv(c),\beta(c),\cdots,\beta\inv(c)\right)\).
 \end{proof}
 
 \begin{corollary}\label{cor1}
@@ -579,10 +596,10 @@ In the trivial case where they share no element, the permutations commute, so th
 		\comml\alpha\beta(x) = \left(\beta\inv\conjl\alpha\beta\right)(x)
 			&= \left\{
 					\begin{array}{cl}
-						\beta\inv(x) & : \ x\in\alphaset\setminus\left\{\alpha\inv(c)\right\} \\
-						\beta\inv\beta(c) & : \ x=\alpha\inv(c) \\
-						\beta\inv\beta(x) & : \ x\in\betaset\setminus\left\{\beta\inv(c), c\right\} \\
-						\beta\inv\alpha\inv(c) & : \ x=\beta\inv(c) \\
+						\prnth{\beta\inv}(x) & : \ x\in\alphaset\setminus\left\{\alpha\inv(c)\right\} \\
+						\prnth{\beta\inv\beta}(c) & : \ x=\alpha\inv(c) \\
+						\prnth{\beta\inv\beta}(x) & : \ x\in\betaset\setminus\left\{\beta\inv(c), c\right\} \\
+						\prnth{\beta\inv\alpha\inv}(c) & : \ x=\beta\inv(c) \\
 					\end{array}
 				\right. \\
 			&= \left\{
@@ -611,17 +628,24 @@ In the trivial case where they share no element, the permutations commute, so th
 %\end{lemma}
 
 \begin{lemma}\label{conj_string}
-	%Let \(\alpha\) and \(\beta\) where \(\alphaset\cap\betaset = \left\{c_1,\cdots,c_n\right\}, n\geq 2\) and 
-	%\(\alpha^{k}\left(c_1\right)=\beta^{k}\left(c_1\right)\) for all \(k\in\left\{0,\cdots,n-1\right\}\).
-	%%\(\alpha^{k-1}\left(c_1\right)=\beta^{k-1}\left(c_1\right)\) for all \(k\in\left\{1,\cdots,n\right\}\).
-	%Then \(\conjl \alpha \beta = \left(\right)\).
-	Let \(\alphaset\cap\betaset = \set{\spann {c_1} c_n },\, \alpha\neq\beta\) for \(n\geq 2\) where \(\alpha(c_m)=\alpha(c_{m+1})\) for \(m\in\set{\spann 1 n-1}\) and \(\alpha^k(c_1) = \beta^k(c_1)\) for \(k\in\set{\spann 0 k-1}\). Then \(\conjl \alpha \beta = \perm{\alpha\inv(c_1), \spann {c_1} c_{n-1},\spann {\beta(c_{n})} \beta\inv(c_1)}\).
+	%%Let \(\alpha\) and \(\beta\) where \(\alphaset\cap\betaset = \left\{c_1,\cdots,c_n\right\}, n\geq 2\) and 
+	%%\(\alpha^{k}\left(c_1\right)=\beta^{k}\left(c_1\right)\) for all \(k\in\left\{0,\cdots,n-1\right\}\).
+	%%%\(\alpha^{k-1}\left(c_1\right)=\beta^{k-1}\left(c_1\right)\) for all \(k\in\left\{1,\cdots,n\right\}\).
+	%%Then \(\conjl \alpha \beta = \left(\right)\).
+	%Let \(\alphaset\cap\betaset = \set{\spann {c_1} c_n },\, \alpha\neq\beta\) for \(n\geq 2\) where \(\alpha(c_m)=\alpha(c_{m+1})\) for \\ \(m\in\set{\spann 1 n-1}\) and \(\alpha^k(c_1) = \beta^k(c_1)\) for \(k\in\set{\spann 0 n-1}\). Then \\ \(\conjl \alpha \beta = \perm{\alpha\inv(c_1), \spann {c_1} c_{n-1},\spann {\beta(c_{n})} \beta\inv(c_1)}\).
+	Let \(\alphaset\cap\betaset = \set{\spann {c_1} c_n },\, \alpha\neq\beta\) for \(n\geq 2\) where \(\alpha^{k-1}(c_1) = \beta^{k-1}(c_1) = c_k\) for \(k\in\set{\spann 1 n}\). Then \(\subcycle c {\conjl \alpha \beta} = \perm{\alpha\inv(c_1), \spann {c_1} c_{n-1},\spann {\beta(c_{n})} \beta\inv(c_1)}\).
 \end{lemma}
 
 \begin{proof}
 \color{red}
-	Let \(b\in\alphaset\setminus\left\{\alpha\inv(c_1),c_1,\cdots,c_{n-1}\right\}\), then the conjugation fixes \(b\). Note that if \(\alpha\) and \(\beta\) only share two elements, then \(c_1=c_{n-1}\). \(c_{n-1}\) maps to \(\beta(c_n)\) and \(\forall i\in\left\{1,\cdots,n-2\right\}\ \left( c_i\mapsto c_{i+1} \right)\) given that \(n\geq 3\). Each \(g\in\betaset\setminus\left\{\beta\inv(c_1),c_1,\cdots,c_{n}\right\}\) map to \(\beta(g)\). Lastly, \(\alpha\inv(c_1)\mapsto c_1\) and \(\beta\inv(c_1)\mapsto\alpha\inv(c_1)\). This yields the function 
-\color{black}
+	%Let \(b\in\alphaset\setminus\left\{\alpha\inv(c_1),c_1,\cdots,c_{n-1}\right\}\), then the conjugation fixes \(b\). Note that if \(\alpha\) and \(\beta\) only share two elements, then \(c_1=c_{n-1}\). \(c_{n-1}\) maps to \(\beta(c_n)\) and \(\forall i\in\left\{1,\cdots,n-2\right\}\ \left( c_i\mapsto c_{i+1} \right)\) given that \(n\geq 3\). Each \(g\in\betaset\setminus\left\{\beta\inv(c_1),c_1,\cdots,c_{n}\right\}\) map to \(\beta(g)\). Lastly, \(\alpha\inv(c_1)\mapsto c_1\) and \(\beta\inv(c_1)\mapsto\alpha\inv(c_1)\). This yields the function 
+	Let \(a\in\set{\spann {c_n, \alpha(c_n)} \alpha^{-2}(c_1)}\). 
+	From \(\alphaset\cap\betaset = \set{\spann {c_1} c_n }\) and \(\alpha\neq\beta\) follows that \(\foralll{x\in A}{\alpha(x)\notin\set{\spann {c_1} c_n} \implies \alpha(x)\notin\betaset}\)
+	%Then \(\alpha(a)\notin\set{\spann {c_1} c_n} \implies \alpha(a)\notin\betaset\), since \(\alphaset\cap\betaset = \set{\spann {c_1} c_n }\) and \(\alpha\neq\beta\), hencewhy \(\alpha\inv\beta\alpha(a)=\alpha\inv\alpha(a)=a\).
+
+	!!!!!CHECK FOR CONSIDERATIONS OF ELEMENTS OUTSIDE OF THE CYCLE OF C'S
+
+	\color{black}
 	\begin{align}
 		\conjl \alpha \beta (x) &= \left\{
 				\begin{array}{cl}
@@ -632,7 +656,7 @@ In the trivial case where they share no element, the permutations commute, so th
 					\alpha\inv(c_1) & : \ x=\beta\inv(c_1)
 				\end{array}
 			\right. \\
-				&= \left(\alpha\inv(c_1),c_1,\cdots,c_{n-1},\beta(c_n),\cdots,\beta\inv(c_1)\right).
+				&\implies \subcycle {c_1}{\conjl\alpha\beta} = \left(\alpha\inv(c_1),c_1,\cdots,c_{n-1},\beta(c_n),\cdots,\beta\inv(c_1)\right).
 	\end{align}
 	%\begin{align}
 	%	\conjl \alpha \beta (x) &= \left\{
@@ -671,14 +695,15 @@ In the trivial case where they share no element, the permutations commute, so th
 \end{lemma}
 
 \begin{proof}
+	From Lemma \ref{conj_string} we get 
 	\begin{align}
 		\comml \alpha \beta (x) &= \left\{
 				\begin{array}{cl}
 					\beta\inv(x) & : \ x\in\set{\spann {c_n, \alpha(c_n)} \alpha^{-2}(c_1)} \\
 					\beta\inv(c_1) & : \  x=\alpha\inv(c_1) \\
-					\beta\inv\left(\beta(x)\right) & : \ x\in\set{\spann {\beta(c_n)} \beta^{-2}(c_1)} \cup \set{\spann {c_1} c_{n-2}} \\
-					\beta\inv(\beta(c_n)) & : \ x=c_{n-1} \\
-					\beta\inv\left(\alpha\inv(c_1)\right) & : \ x=\beta\inv(c_1)
+					\prnth{\beta\inv\beta}(x) & : \ x\in\set{\spann {\beta(c_n)} \beta^{-2}(c_1)} \cup \set{\spann {c_1} c_{n-2}} \\
+					\prnth{\beta\inv\beta}(c_n) & : \ x=c_{n-1} \\
+					\prnth{\beta\inv\alpha\inv}(c_1) & : \ x=\beta\inv(c_1)
 				\end{array}
 			\right. \\
 		&= \left\{
