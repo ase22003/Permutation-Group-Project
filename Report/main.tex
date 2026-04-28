@@ -562,7 +562,7 @@ In the trivial case where they share no element, the permutations commute, so th
 \end{corollary}
 \begin{proof}
 	If \(\beta\) is a transposition, then \(\beta=\left(c,\beta(c)\right)\) and \(\beta(c)=\beta\inv(c)\). Using (\ref{conj}) we get 
-\begin{align*}
+\begin{align}
 	\conjl \alpha \beta (x) &= \left\{
 				\begin{array}{cl}
 					x & : \ x\in\alphaset\setminus\left\{\alpha\inv(c)\right\} \\
@@ -579,7 +579,7 @@ In the trivial case where they share no element, the permutations commute, so th
 				\end{array}
 			\right. \\
 	&= \left(\alpha\inv(c),\beta(c)\right).
-\end{align*}
+\end{align}
 %and the conjugate is the transposition \(\left(\alpha\inv(c),\beta(c)\right)\).
 \end{proof}
 
@@ -592,7 +592,7 @@ In the trivial case where they share no element, the permutations commute, so th
 
 \begin{proof}
 	Using (\ref{conj}) from Lemma \ref{lmconj}, we get 
-	\begin{align*}
+	\begin{align}
 		\comml\alpha\beta(x) = \left(\beta\inv\conjl\alpha\beta\right)(x)
 			&= \left\{
 					\begin{array}{cl}
@@ -620,7 +620,7 @@ In the trivial case where they share no element, the permutations commute, so th
 					\end{array}
 				\right. \\
 			&=\left(c,\beta\inv(c),\alpha\inv(c)\right).
-	\end{align*}
+	\end{align}
 \end{proof}
 
 %\begin{lemma}
@@ -637,15 +637,12 @@ In the trivial case where they share no element, the permutations commute, so th
 \end{lemma}
 
 \begin{proof}
-\color{red}
-	%Let \(b\in\alphaset\setminus\left\{\alpha\inv(c_1),c_1,\cdots,c_{n-1}\right\}\), then the conjugation fixes \(b\). Note that if \(\alpha\) and \(\beta\) only share two elements, then \(c_1=c_{n-1}\). \(c_{n-1}\) maps to \(\beta(c_n)\) and \(\forall i\in\left\{1,\cdots,n-2\right\}\ \left( c_i\mapsto c_{i+1} \right)\) given that \(n\geq 3\). Each \(g\in\betaset\setminus\left\{\beta\inv(c_1),c_1,\cdots,c_{n}\right\}\) map to \(\beta(g)\). Lastly, \(\alpha\inv(c_1)\mapsto c_1\) and \(\beta\inv(c_1)\mapsto\alpha\inv(c_1)\). This yields the function 
-	Let \(a\in\set{\spann {c_n, \alpha(c_n)} \alpha^{-2}(c_1)}\). 
-	From \(\alphaset\cap\betaset = \set{\spann {c_1} c_n }\) and \(\alpha\neq\beta\) follows that \(\foralll{x\in A}{\alpha(x)\notin\set{\spann {c_1} c_n} \implies \alpha(x)\notin\betaset}\)
-	%Then \(\alpha(a)\notin\set{\spann {c_1} c_n} \implies \alpha(a)\notin\betaset\), since \(\alphaset\cap\betaset = \set{\spann {c_1} c_n }\) and \(\alpha\neq\beta\), hencewhy \(\alpha\inv\beta\alpha(a)=\alpha\inv\alpha(a)=a\).
+	%%Let \(b\in\alphaset\setminus\left\{\alpha\inv(c_1),c_1,\cdots,c_{n-1}\right\}\), then the conjugation fixes \(b\). Note that if \(\alpha\) and \(\beta\) only share two elements, then \(c_1=c_{n-1}\). \(c_{n-1}\) maps to \(\beta(c_n)\) and \(\forall i\in\left\{1,\cdots,n-2\right\}\ \left( c_i\mapsto c_{i+1} \right)\) given that \(n\geq 3\). Each \(g\in\betaset\setminus\left\{\beta\inv(c_1),c_1,\cdots,c_{n}\right\}\) map to \(\beta(g)\). Lastly, \(\alpha\inv(c_1)\mapsto c_1\) and \(\beta\inv(c_1)\mapsto\alpha\inv(c_1)\). This yields the function 
+	%Let \(a\in\set{\spann {c_n, \alpha(c_n)} \alpha^{-2}(c_1)}\). 
+	%From \(\alphaset\cap\betaset = \set{\spann {c_1} c_n }\) and \(\alpha\neq\beta\) follows that \(\foralll{x\in A}{\alpha(x)\notin\set{\spann {c_1} c_n} \implies \alpha(x)\notin\betaset}\)
+	%%Then \(\alpha(a)\notin\set{\spann {c_1} c_n} \implies \alpha(a)\notin\betaset\), since \(\alphaset\cap\betaset = \set{\spann {c_1} c_n }\) and \(\alpha\neq\beta\), hencewhy \(\alpha\inv\beta\alpha(a)=\alpha\inv\alpha(a)=a\).
 
-	!!!!!CHECK FOR CONSIDERATIONS OF ELEMENTS OUTSIDE OF THE CYCLE OF C'S
-
-	\color{black}
+	Let \(a\in\set{\spann {c_n, \alpha(c_n)} \alpha^{-2}(c_1)}\). Then \(\alpha(a)\notin\betaset\), so \(\prnth{\alpha\inv\beta\alpha}(a)=\prnth{\alpha\inv\alpha}(a)=a\). Conversely, each \(b\in\set{\spann {\beta(c_n)} \beta^{-2}(c_1)}\) maps to \(\prnth{\alpha\inv\beta\alpha}(b)=\beta(b)\), since \(b,\beta(b) \notin\alphaset\). As for the elements \(\set{\spann {c_1} c_{n-2}}\), none thereof diverge from the common path \(\alpha^{k-1}(c_1) = \beta^{k-1}(c_1) = c_k\) for \( k\in\set{\spann 1 n}\), wherefore \(c_j \overset{\alpha}\mapsto c_{j+1} \overset{\beta}\mapsto c_{j+2} \overset{\alpha\inv}\mapsto c_{j+1}\) in \(\conjl\alpha\beta\) for each \(j\in\set{\spann 1 n-2}\). Lastly, \(\alpha\inv(c_1)\) maps to \(\prnth{\alpha\inv\beta\alpha\alpha\inv}(c_1)=\prnth{\alpha\inv\beta}(c_1)=\alpha\inv(c_2)=c_1\), \(\beta\inv(c_1)\) maps to \(\prnth{\alpha\inv\beta\alpha\beta\inv}(c_1)=\prnth{\alpha\inv\beta\beta\inv}(c_1)=\alpha\inv(c_1)\) and \(c_{n-1}\) maps to \(\prnth{\alpha\inv\beta\alpha}(c_{n-1})=\prnth{\alpha\inv\beta}(c_n)=\beta(c_n)\). This gives the function 
 	\begin{align}
 		\conjl \alpha \beta (x) &= \left\{
 				\begin{array}{cl}
@@ -656,7 +653,7 @@ In the trivial case where they share no element, the permutations commute, so th
 					\alpha\inv(c_1) & : \ x=\beta\inv(c_1)
 				\end{array}
 			\right. \\
-				&\implies \subcycle {c_1}{\conjl\alpha\beta} = \left(\alpha\inv(c_1),c_1,\cdots,c_{n-1},\beta(c_n),\cdots,\beta\inv(c_1)\right).
+		\implies \subcycle {c_1}{\conjl\alpha\beta} &= \left(\alpha\inv(c_1),c_1,\cdots,c_{n-1},\beta(c_n),\cdots,\beta\inv(c_1)\right).
 	\end{align}
 	%\begin{align}
 	%	\conjl \alpha \beta (x) &= \left\{
