@@ -1,4 +1,5 @@
 %{{{PREAMBLE
+%{{{BULLSHIT
 \documentclass[a4paper,twoside,12pt,openany]{report}
 
 \usepackage[pdftex]{graphicx}
@@ -24,6 +25,10 @@
 \usepackage{mathtools}
 
 \usepackage{xcolor}
+
+
+\usepackage{mathrsfs}
+
 
 
 %symbols
@@ -64,6 +69,7 @@
 \usepackage{newtxmath}
 
 \begin{document}
+%}}}
 %{{{CUSTOM COMMANDS
 \newcommand\bbigcirc{\scalebox{1.5}{$\bigcirc$}}
 \newcommand\bsubseteq{\scalebox{1.7}{$\subseteq$}}
@@ -155,8 +161,44 @@
 \newcommand{\subcycle}[2]{\overset{#1}{#2}}
 \newcommand{\prnth}[1]{\left(#1\right)}
 \newcommand{\card}[1]{\left|#1\right|}
-
+\newcommand{\condw}[1]{\left\{\begin{array}{cl} #1 \end{array}\right.}
+\newcommand{\conde}[2]{#1 & : \ #2 \\}
+\newcommand\koppa{\raisebox{-0.25em}{$\includegraphics[scale=.04]{symbols/koppa.png}$}}
+\newcommand{\Cset}{\framebox{$\mathcal{C}$}}
+\newcommand{\Piset}{\framebox{$\Pi$}}
+\newcommand{\Phiset}{\framebox{$\Phi$}}
+\newcommand{\setof}[1]{\framebox{$#1$}}
+\newcommand{\prnthl}[1]{\bigl( #1 \bigr)}
+\newcommand{\prnthll}[1]{\Bigl( #1 \Bigr)}
+\newcommand{\validPhi}{\widehat{\Phi}}
+\newcommand{\validPhiset}{\setof\validPhi}
+\newcommand{\powerset}[1]{\mathcal{P}\prnth{#1}}
+\newcommand{\spell}{\mathfrak{s}}
+\newcommand{\spellset}[1]{\mathfrak{S}_{#1}}
+\newcommand{\grim}{\Phi}
+\newcommand{\grimset}{\setof{\grim}}
+\newcommand{\moveset}{\mathfrak{M}}
+\newcommand{\move}{\mathfrak{m}}
+%\newcommand{\vcat}{+\kern-5px\circ\ } %\text{‡}} %\bbox[black]{\color{white}{\bullet} }}
+\begin{comment}\newcommand{\vcat}{
+  \mathord{
+    \hbox{
+      \ooalign{
+		\hfil$\displaystyle +$\hfil\cr
+		\hfil\raisebox{0ex}{\smash{
+			%$\times$
+		\ooalign{
+		\hfil$\displaystyle \times$\hfil\cr
+		\hfil\raisebox{0ex}{\smash{$\bullet$}{}}\hfil\cr
+      }
+}{}}\hfil\cr
+      }
+    }
+  }
+}\end{comment}
+\newcommand\vcat{\raisebox{0.0em}{$\includegraphics[scale=.05]{symbols/right_arrrow.png}$}}
 %}}}
+%{{{MORE BULLSHIT
 
 
 \begin{titlepage}
@@ -256,6 +298,7 @@
 \bigskip\hrule
 
 \end{titlepage}
+%}}}
 %}}}
 %{{{ABSTRACT AND ACKNOWLEDGEMENTS
 \begin{abstract}
@@ -930,24 +973,6 @@ A \textit{pattern} is a set \(p\). If a set, vector, element (or other data) \(\
 
 \subsubsection{Example}
 
-%\newcommand{\vcat}{+\kern-5px\circ\ } %\text{‡}} %\bbox[black]{\color{white}{\bullet} }}
-\newcommand{\vcat}{
-  \mathord{
-    \hbox{
-      \ooalign{
-		\hfil$\displaystyle +$\hfil\cr
-		\hfil\raisebox{0ex}{\smash{
-			%$\times$
-		\ooalign{
-		\hfil$\displaystyle \times$\hfil\cr
-		\hfil\raisebox{0ex}{\smash{$\bullet$}{}}\hfil\cr
-      }
-}{}}\hfil\cr
-      }
-    }
-  }
-}
-
 Let \(a \vcat b= \vect{a_1,\cdots,a_n,b_1,\cdots,b_m}\), where \(a=\vect{a_1,\cdots,a_n}\) and \(b=\vect{b_1,\cdots,b_m}\).
 
 \[
@@ -963,5 +988,64 @@ Let \(a \vcat b= \vect{a_1,\cdots,a_n,b_1,\cdots,b_m}\), where \(a=\vect{a_1,\cd
 	\mathcal{N} & := & \set{\text{\quotemath{0}}, \cdots, \text{\quotemath{9}} }
 \end{array}
 \]
+
+\[
+	\sigma' = \koppa(\Phi, \sigma)
+\]
+
+\[
+\condw{
+	\conde{1}{x<4}
+	\conde{0}{x>6}
+}
+\]
+%}}}
+%{{{FURTHER
+\chapter{Going Further}
+
+\begin{definition}[Grimoire]
+	A \emph{grimoire} \(\grim\) of a semigroup \(G\), a set of \textit{spells} \(\spellset{\grim}\subseteq G\) and a set of \textit{movements} \(\moveset\subseteq \spellset{\grim}\) is a map in \(\spellset{\grim} \to \mathcal{P}\prnth{\spellset{\grim}^{<\omega}}\) such that \(\spell_1*\cdots*\spell_n=\spell\) -- where \(*\) is the binary operator belonging to \(G\) -- for each \(\vect{\spell_1,\cdots,\spell_n}\in\grim\prnth{\spell}\) and \(\spell\in \spellset{\grim}\setminus\mathfrak{A}\).
+\end{definition}
+
+\begin{definition}[Exploration Function]
+	%Let a map \(\triangle:\grimset \times G^2 \to \grimset\) -- where \(\grimset\) is the set of all grimoires of a subgroup \(G\) -- be defined for some grimoire \(\grim\) by \(\forall \spell\in \spellset{\grim} \setminus\set{\spell_1*\spell_2}\ \left(\grim'(\spell) = \grim(\spell)\right)\) and \(\grim'(\spell_1*\spell_2) = \grim(\spell_1*\spell_2)\cup\set{\vect{\spell_1,\spell_2}}\) if \(\spell_1*\spell_2\in \spellset{\grim}\) and \(\grim'(\spell_1*\spell_2) = \set{\vect{\spell_1,\spell_2}}\) if not -- where \(\grim' = \triangle(\grim, \vect{\spell_1, \spell_2})\) and \(\spell_1, \spell_2 \in \spellset\grim\). (Note that since \(\spellset{\grim}=\text{dom}(\grim)\), then \(\spellset{\grim'}=\spellset{\grim}\cup\set{\spell_1*\spell_2}\) if \(\grim' = \triangle(\grim, \vect{\spell_1, \spell_2})\).)
+	Let a map \(\triangle:\grimset \times G^{<\omega} \to \grimset\) -- where \(\grimset\) is the set of all grimoires of a subgroup \(G\) -- be defined for some grimoire \(\grim\) by \(\forall \spell\in \spellset{\grim} \setminus\set{\spell_1*\cdots*\spell_n}\ \left(\grim'(\spell) = \grim(\spell)\right)\) and \(\grim'(\spell_1*\cdots*\spell_n) = \grim(\spell_1*\cdots*\spell_n)\cup\set{\vect{\spell_1,\cdots,\spell_n}}\) if \(\spell_1*\cdots*\spell_n\in \spellset{\grim}\) and \(\grim'(\spell_1*\cdots*\spell_n) = \set{\vect{\spell_1,\cdots,\spell_n}}\) if not -- where \(\grim' = \triangle(\grim, \vect{\spell_1,\cdots,\spell_n})\) and \(\spell_1,\cdots, \spell_n \in \spellset\grim\). (Note that since \(\spellset{\grim}=\text{dom}(\grim)\), then \(\spellset{\grim'}=\spellset{\grim}\cup\set{\spell_1*\cdots*\spell_n}\) if \(\grim' = \triangle(\grim, \vect{\spell_1,\cdots,\spell_n})\).)
+	An \emph{exploration function} \(\mathscr{E}\) in \(G\) is a map in \(\grimset \times \Cset^{<\omega} \to \grimset\) defined by 
+	\[
+		\mathscr{E}(\grim, \vect{\mathcal{C}_1,\cdots,\mathcal{C}_n}) := \underset{i=1}{\overset{n}\bbigcirc}\triangle\prnth{\grim, \mathcal{C}_i\prnth{ \spellset{\grim}} }
+	,\] 
+where \(\Cset\subset\mathcal{P}(G)\to G^{<\omega}\) and
+%\(\forall\mathcal{C}\in\Cset\ \prnthll{\forall S\in\mathcal{P}(G)\ \prnthl{\mathcal{C}(S)\in S^2}}\).
+	\(\mathcal{C}(S)\in S^{<\omega}\) for each \(\mathcal{C}\in\Cset\) and \(S\in\mathcal{P}(G)\).
+\end{definition}
+
+%\begin{lemma}
+%	a the output of an exploration function is a grimoire
+%\end{lemma}
+
+\begin{definition}[Expansion Function]
+	An \emph{expansion function} \(\koppa\) for a grimoire \(\grim\) of a semigroup \(G\) is a map in \(\grimset\times\spellset\grim\times\Piset\to\moveset^{<\omega}\) -- where \(\grimset\) is the set of all grimoires of \(G\) -- defined by
+\[
+	\koppa\prnth{\grim,\spell,\Pi}:=\condw{
+		\conde{\spell}{\koppa_{\text{step}}\prnth{\grim,\spell,\Pi}=\spell}
+		\conde{\koppa\prnth{\grim,\koppa_{\text{step}}\prnth{\grim,\spell,\Pi},\Pi}}{\text{otherwise}}
+	}
+\]
+
+	where \(\koppa_{\text{step}}:\grimset\times\spellset\grim\times\Piset\to\spellset\grim^{<\omega}\) is defined by 
+\[
+	\koppa_{\text{step}}\prnth{\grim,\spell,\Pi}:=\overset{\left|\spell\right|}{\underset{i=1}{\scalebox{2}{$\vcat$} }}\prnth{
+		\condw{
+			\conde{\spell_i}{\spell_i\in \moveset}
+			\conde{\Pi\prnth{\grim\prnth{\spell_i}} }{\text{otherwise}}
+		}
+	}
+,\]
+where \(\Piset\subset\mathcal{P}\prnth{G^{<\omega}}\to G^{<\omega}\) is a set of maps wherein
+%both \(\forall\Pi\in\Piset\ \prnthll{\forall S\in\mathcal{P}\prnth{G^{<\omega}}\ \prnthl{\Pi(S)\in S}}\) and \(\exists S\in\mathcal{P}\prnth{G^{<\omega}}\ \prnth{\Pi(S)=}\) hold.
+\(\Pi(S)\in S\) for each \(\Pi\in\Piset\) and \(S\in\mathcal{P}\prnth{G^{<\omega}}\) hold.
+
+\end{definition}
+
 %}}}
 \end{document}
