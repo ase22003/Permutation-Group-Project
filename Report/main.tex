@@ -430,12 +430,24 @@ A permutation whose support is the empty set equals the identity. We say that a 
 %Note that if \(\piset=\emptyset\), then \(\pi\) equals the identity.
 \end{definition}
 
-Since the support of the identity is the empty set, the identity also a cycle.
+Since the support of the identity is the empty set, it follows that the identity also a cycle.
 
-\begin{definition}[Subcycle]
-	The \emph{subcycle} \(\subcycle a \pi\) of an element \(a\in A\) within a permutaion \(\pi\) on \(A\) is the cycle whose support \(\underline{\subcycle a \pi}\) is the set 
+\begin{definition}[Subcycle of an Element]
+	The \emph{subcycle} \(\subcycle a \pi\) of an element \(a\in A\) within a permutation \(\pi\) on \(A\) is cycle on \(A\) whose support \(\underline{\subcycle a \pi}\) is the set 
 	%\(\left\{b\in A \,\middle|\, \phi(a)=b,\, \phi\in \langle\pi\rangle \right\}\)
 	\(\setdef{\phi(a)}{\phi\in \langle\pi\rangle }\) and where \(\foralll{b\in \underline{\subcycle a \pi}}{\subcycle a \pi(b)=\pi(b)}\).
+\end{definition}
+
+\begin{definition}[Subcycle of a Permutation]
+	A \emph{subcycle \(\phi\in\pi\) of a permutation \(\pi\)} on \(A\) is a cycle on \(A\) where \(\foralll{a\in\phiset}{\phi(a)=\pi(a)}\).
+	% and \(\phi(b)=b\) for each \(b\in\piset\setminus\phiset\).
+\end{definition}
+
+Note that if \(\pi\) is a cycle, then \(\pi\) is its own subcycle.
+
+\begin{definition}[Subpermutation of a Permutation]
+	A \emph{subpermutation \(\phi\subset\pi\) of a permutation \(\pi\)} of \(A\) is a permutation \(\phi\neq\pi\) on \(A\) where \(\foralll{a\in\phiset}{\phi(a)=\pi(a)}\).
+	% and \(\phi(b)=b\) for each \(b\in\piset\setminus\phiset\).
 \end{definition}
 
 \begin{definition}[Orbit]
@@ -557,7 +569,12 @@ In this text, permutations containing symbols or numbers with multiple digits wi
 \end{proof}
 \color{black}
 
+\color{red}
+\subsection{On set notation for permutations}
 
+Since (by Theorem \ref{lcycle}) permutations can be represented by sets of cycles, we can use set notation for permutations. For example, \(\alpha\in\beta\) implies that \(\alpha\) is a cycle ...
+
+\color{black}
 %\begin{example}
 %\end{example}
 %}}}
@@ -779,7 +796,37 @@ In the trivial case where they share no element, the permutations commute, so th
 		&= \perm{\alpha\inv(c_1),\beta\inv(c_1)}\perm{c_{n-1},c_n}.
 	\end{align}
 \end{proof}
-\color{black}
+
+\begin{lemma} %		A'BA
+	Let \(\)
+\end{lemma}
+
+\color{orange}DEFINE PERMUTATION \textit{SHAPE}.\color{black}
+
+\begin{lemma} %		THIS IS THE CUBING ALGORITHM ABA'B'.
+	%Let \(\alphaset \subset \betaset\) and let \(\gamma\neq\beta\) be a composition \color{red}THIS EXCLUDES INFINITE PERMUTATIONS \(\gamma\) \color{black} of subcycles of \(\beta\) where \(\gammaset\subseteq\alphaset\). Then \(\comml \alpha {\beta} = \comml{\alpha}{\gamma}\).
+	%Let \(\alpha\cap\beta\neq x\mapsto x\) (or \(\underline{\alpha\cap\beta}\neq\emptyset\)) . Then \(\comml \alpha {\beta} = \comml{\alpha}{\gamma}\).
+	%Let \(\alpha\cap\beta\subset\alpha\) (or \(\underline{\alpha\cap\beta}\neq\emptyset\)) . Then \(\comml \alpha {\beta} = \comml{\alpha}{\gamma}\).
+	%Let \(\alphaset\cap\betaset\subseteq\alphaset\) and \(\gamma\in\beta\) where \(\gammaset\subseteq\alphaset\). Then \(\comml \alpha {\beta} = \comml{\alpha}{\gamma}\).
+	Let \(\emptyset \neq \alphaset\cap\betaset \neq \alphaset\cup\betaset\) and \(\foralll{\beta'\in\beta}{\betaset'\subseteq\alphaset \lor \betaset'\cap\alphaset=\emptyset}\). Now, let \(\gamma\) be a permutation \(\gamma\subset\beta\) such that \(\underline{\beta\setminus\gamma}\cap\alphaset=\emptyset\) and \(\gammaset\subseteq\alphaset\).
+	%Then \(\comml \alpha {\beta} = \comml{\alpha}{\gamma}\). FALSE, IT IS THE *SHAPE* OF GAMMA APPLIED IN TWO DIFFERENT SPOTS
+\end{lemma}
+
+\begin{proof}
+	Let \(\beta=\spann{\beta_1}{\beta_n}\spann{\beta'_1}{\beta'_m}\) and \(\beta'=\spann{\beta'_1}{\beta'_m}\). Then 
+	\[
+		\comml \alpha {\beta} = \condw{
+			\conde{x}{x\in\betaset\setminus\betaset'}
+			\conde{\beta'(x)}{x}
+		}.
+	\]
+	%\[
+	%	\conjl \alpha \beta\prnth{x} = \condw{
+	%		\conde{x}{x \in \betaset\setminus\betaset'}
+	%	}.
+	%\]
+\end{proof}
+
 %}}}
 %{{{THE 2x3 GAME
 \chapter{The \(2\times 3\) Game}
@@ -1007,7 +1054,7 @@ Let \(a \vcat b= \vect{a_1,\cdots,a_n,b_1,\cdots,b_m}\), where \(a=\vect{a_1,\cd
 \chapter{Going Further}
 
 \begin{definition}[Grimoire]
-	A \emph{grimoire} \(\grim\) of a semigroup \(G\), a set of \textit{spells} \(\spellset{\grim}\subseteq G\) and a set of \textit{movements} \(\moveset\subseteq \spellset{\grim}\) is a map in \(\spellset{\grim} \to \mathcal{P}\prnth{\spellset{\grim}^{<\omega}}\) such that \(\spell_1*\cdots*\spell_n=\spell\) -- where \(*\) is the binary operator belonging to \(G\) -- for each \(\vect{\spell_1,\cdots,\spell_n}\in\grim\prnth{\spell}\) and \(\spell\in \spellset{\grim}\setminus\mathfrak{A}\).
+	A \emph{grimoire} \(\grim\) of a semigroup \(G\), a set of \textit{spells} \(\spellset{\grim}\subseteq G\) and a set of \textit{movements} \(\moveset\subseteq \spellset{\grim}\) is a map in \(\spellset{\grim} \to \mathcal{P}\prnth{\spellset{\grim}^{<\omega}}\) such that \(\spell_1*\cdots*\spell_n=\spell\) -- where \(*\) is the binary operator belonging to \(G\) -- for each \(\vect{\spell_1,\cdots,\spell_n}\in\grim\prnth{\spell}\) and \(\spell\in \spellset{\grim}\setminus\mathfrak{M}\).
 \end{definition}
 
 \begin{definition}[Exploration Function]
@@ -1017,7 +1064,7 @@ Let \(a \vcat b= \vect{a_1,\cdots,a_n,b_1,\cdots,b_m}\), where \(a=\vect{a_1,\cd
 	\[
 		\mathscr{E}(\grim, \vect{\mathcal{C}_1,\cdots,\mathcal{C}_n}) := \underset{i=1}{\overset{n}\bbigcirc}\triangle\prnth{\grim, \mathcal{C}_i\prnth{ \spellset{\grim}} }
 	,\] 
-where \(\Cset\subset\mathcal{P}(G)\to G^{<\omega}\) and
+	where \(\Cset\subset\mathcal{P}(G)\to G^{<\omega}\) and
 %\(\forall\mathcal{C}\in\Cset\ \prnthll{\forall S\in\mathcal{P}(G)\ \prnthl{\mathcal{C}(S)\in S^2}}\).
 	\(\mathcal{C}(S)\in S^{<\omega}\) for each \(\mathcal{C}\in\Cset\) and \(S\in\mathcal{P}(G)\).
 \end{definition}
@@ -1028,27 +1075,34 @@ where \(\Cset\subset\mathcal{P}(G)\to G^{<\omega}\) and
 
 \begin{definition}[Expansion Function]
 	An \emph{expansion function} \(\koppa\) for a grimoire \(\grim\) of a semigroup \(G\) is a map in \(\grimset\times\spellset\grim\times\Piset\to\moveset^{<\omega}\) -- where \(\grimset\) is the set of all grimoires of \(G\) -- defined by
-\[
-	\koppa\prnth{\grim,\spell,\Pi}:=\condw{
-		\conde{\spell}{\koppa_{\text{step}}\prnth{\grim,\spell,\Pi}=\spell}
-		\conde{\koppa\prnth{\grim,\koppa_{\text{step}}\prnth{\grim,\spell,\Pi},\Pi}}{\text{otherwise}}
-	}
-\]
+	\[
+		\koppa\prnth{\grim,\spell,\Pi}:=\condw{
+			\conde{\spell}{\koppa_{\text{step}}\prnth{\grim,\spell,\Pi}=\spell}
+			\conde{\koppa\prnth{\grim,\koppa_{\text{step}}\prnth{\grim,\spell,\Pi},\Pi}}{\text{otherwise}}
+		}
+	\]
 
 	where \(\koppa_{\text{step}}:\grimset\times\spellset\grim\times\Piset\to\spellset\grim^{<\omega}\) is defined by 
-\[
-	\koppa_{\text{step}}\prnth{\grim,\spell,\Pi}:=\overset{\left|\spell\right|}{\underset{i=1}{\scalebox{2}{$\vcat$} }}\prnth{
-		\condw{
-			\conde{\spell_i}{\spell_i\in \moveset}
-			\conde{\Pi\prnth{\grim\prnth{\spell_i}} }{\text{otherwise}}
+	\[
+		\koppa_{\text{step}}\prnth{\grim,\spell,\Pi}:=\overset{\left|\spell\right|}{\underset{i=1}{\scalebox{2}{$\vcat$} }}\prnth{
+			\condw{
+				\conde{\spell_i}{\spell_i\in \moveset}
+				\conde{\Pi\prnth{\grim\prnth{\spell_i}} }{\text{otherwise}}
+			}
 		}
-	}
-,\]
-where \(\Piset\subset\mathcal{P}\prnth{G^{<\omega}}\to G^{<\omega}\) is a set of maps wherein
-%both \(\forall\Pi\in\Piset\ \prnthll{\forall S\in\mathcal{P}\prnth{G^{<\omega}}\ \prnthl{\Pi(S)\in S}}\) and \(\exists S\in\mathcal{P}\prnth{G^{<\omega}}\ \prnth{\Pi(S)=}\) hold.
-\(\Pi(S)\in S\) for each \(\Pi\in\Piset\) and \(S\in\mathcal{P}\prnth{G^{<\omega}}\) hold.
-
+	,\]
+	where \(\Piset\subset\mathcal{P}\prnth{G^{<\omega}}\to G^{<\omega}\) is a set of maps wherein
+	%both \(\forall\Pi\in\Piset\ \prnthll{\forall S\in\mathcal{P}\prnth{G^{<\omega}}\ \prnthl{\Pi(S)\in S}}\) and \(\exists S\in\mathcal{P}\prnth{G^{<\omega}}\ \prnth{\Pi(S)=}\) hold.
+	\(\Pi(S)\in S\) holds for each \(\Pi\in\Piset\) and \(S\in\mathcal{P}\prnth{G^{<\omega}}\).
 \end{definition}
+
+\color{green}
+	Proove that grimoire-exploration with \(\mathscr{E}/\triangle\) is a semigroup.
+\color{black}
+
+\color{orange}
+	Är gruppen definierad av \textit{likheten} mellan en mängd utforskningar/utökningar av trollformelboken?
+\color{black}
 
 %}}}
 \end{document}
