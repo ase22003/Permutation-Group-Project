@@ -474,7 +474,8 @@ Since the support of the identity is the empty set, it follows that the identity
 
 \begin{definition}[Permutation Form of a Set]
 %	The \emph{permutation form} \(\permform S\) of a set of cycles \(S\) on \(A\) with pairwise disjoint supports is the permutation on \(A\) where \(\foralll {a\in\underline{\permform S}}{\existss {\phi\in S}{\phi(a)=\permform S (a)}}\) and \(\underset{\phi\in S}{\bbigcup}\ \phiset = \underline{\permform S}\).
-	The \emph{permutation form} \(\permform S\) of a set of cycles \(S\) on \(A\) with pairwise disjoint supports is the permutation on \(A\) whose set form is \(S\).
+	%The \emph{permutation form} \(\permform S\) of a set of cycles \(S\) on \(A\) with pairwise disjoint supports is the permutation on \(A\) whose set form is \(S\).
+	The \emph{permutation form} \(\permform S\) of a set of cycles \(S\) on \(A\) (with pairwise disjoint supports) is the permutation on \(A\) whose set form is \(S\).
 \end{definition}
 
 When writing about the permutation form of a subset (or any other set relation) of the set form of a permutation, we use a shorthand: 
@@ -485,7 +486,7 @@ we write \(\phi\subset\pi\) -- for example -- to mean \(\phi=\permform S\) where
 	The \emph{subpermutation} \(\subperm S \pi\) of a permutation \(\pi\) for a set \(S\subset\piset\) is the permutation \(\subperm S \pi\subset\pi\) with \(\support{\subperm S \pi} = S\).
 \end{definition}
 
-A subpermutation with is a cycle is, conversely, called a \textit{subcycle} -- take for instance \(\subcycle a \pi \in \pi\), where \(a\in\piset\).
+A subpermutation which is a cycle is, conversely, called a \textit{subcycle} -- take for instance \(\subcycle a \pi \in \pi\), where \(a\in\piset\).
 
 \begin{definition}[Orbit]
 	The \emph{orbit} of an element \(a\in A\) in a permutation \(\pi\) on \(A\) is the set \(\support{\subcycle a \pi}\).
