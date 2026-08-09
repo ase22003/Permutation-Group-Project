@@ -317,7 +317,7 @@ Under construction.
 
 \chapter*{Acknowledgements}\addcontentsline{toc}{chapter}{Acknowledgements}
 
-Under construction.
+Thank you to Peder Thompson for helping me and encouraging me through the course of this project.
 
 \tableofcontents
 
@@ -442,6 +442,27 @@ A permutation whose support is the empty set equals the identity. We say that a 
 
 Since the support of the identity is the empty set, it follows that the identity also a cycle.
 
+Permutations are commonly expressed using \textit{cycle notation}, wherein each cycle is written as a collection of parenthesized series of elements. For example, a permutation \(\pi\) on \(\set{1,2,3,4,5}\) defined by 
+\[
+	\pi = \left\{\begin{array}{cl}
+		1 \mapsto 2 \\
+		2 \mapsto 3 \\
+		3 \mapsto 1 \\
+		4 \mapsto 5 \\
+		5 \mapsto 4 \\
+	\end{array}\right\}
+\]
+is expressed by its cycles like
+\[
+\begin{array}{cl}
+	\pi &= (1,2,3)(4,5) \\
+	&= (2,3,1)(5,4) \\
+	&= (4,5)(3,1,2) \\
+	&\,\vdots
+\end{array}
+\]
+where each element is mapped to the succeeding element save for the last one, which is mapped to the first. When writing about permutations on elements \(0\) through \(9\), the commas inbetween the numbers can be omitted like so: \((4,6,8,2) = (4682)\).
+
 %\begin{definition}[Subcycle]
 %	The \emph{subcycle} \(\subcycle a \pi\permin\pi\) of an element \(a\in A\) in a permutation \(\pi\) on \(A\) is cycle on \(A\) whose support \(\underline{\subcycle a \pi}\) is the set 
 %	%\(\left\{b\in A \,\middle|\, \phi(a)=b,\, \phi\in \langle\pi\rangle \right\}\)
@@ -468,6 +489,10 @@ Since the support of the identity is the empty set, it follows that the identity
 	and \(\underset{\phi\in\setform\pi}{\bbigcup}\ \phiset = \piset\).
 \end{definition}
 
+\begin{example}
+	Let \(\pi = (12)(5349)(687)\). Then \(\setform \pi = \set{(12),(5349),(687)}\).
+\end{example}
+
 %\begin{definition}[Subcycle]
 %	The \emph{subcycle} \(\subcycle a \pi \in \setform\pi\) of an element \(a\in A\) within a permutation \(\pi\) on \(A\) is the cycle in \(\setform\pi\) where \(a\in\subcycle a\piset\).
 %\end{definition}
@@ -482,19 +507,63 @@ When writing about the permutation form of a subset (or any other set relation) 
 %For example, we write \(\phi=\permform S\) where \(S\subset\setform \pi\) as just \(\phi\subset\pi\).
 we write \(\phi\subset\pi\) -- for example -- to mean \(\phi=\permform S\) where \(S\subset\setform \pi\).
 
+\begin{example}
+	Let \(S = \set{(12),(34),(56),(789)}\). Then \(\permform S = (12)(34)(56)(789)\).
+\end{example}
+
 \begin{definition}[Subpermutation]
-	The \emph{subpermutation} \(\subperm S \pi\) of a permutation \(\pi\) for a set \(S\subset\piset\) is the permutation \(\subperm S \pi\subset\pi\) with \(\support{\subperm S \pi} = S\).
+	The \emph{subpermutation} \(\subperm S \pi\) of a permutation \(\pi\) for a set \(S\subset\piset\) is the permutation \(\subperm S \pi\subset\pi\) where \(S \subseteq \support{\subperm S \pi}\).
 \end{definition}
 
 A subpermutation which is a cycle is, conversely, called a \textit{subcycle} -- take for instance \(\subcycle a \pi \in \pi\), where \(a\in\piset\).
+
+\begin{example}
+	Let \(\pi = (12)(34)(56)(789)\) and \(\phi = (34)(789)\). Then \(\phi\subset\pi\) and \(\phi=\subperm {\set{3,7}} \pi=\subperm {\set{2,3,7}} \pi=\subperm {\set{2,3,7,9}} \pi\cdots\).
+\end{example}
 
 \begin{definition}[Orbit]
 	The \emph{orbit} of an element \(a\in A\) in a permutation \(\pi\) on \(A\) is the set \(\support{\subcycle a \pi}\).
 \end{definition}
 
+\begin{example}
+	Let \(\pi = (253)(798)\). Then the orbit of \(8\) in \(\pi\) is the set \(\set{7,8,9}\).
+\end{example}
+
 \begin{definition}[Transposition]
 	A \emph{transposition} is a cycle \(\pi\) with \(\card\piset=2\).
 \end{definition}
+
+\begin{example}
+	Let \(\pi = (19)(37)(58)\). Then each cycle in \(\setform \pi\) is a transposition, since \(\foralll {\phi\in\pi}{\phi}\).
+\end{example}
+
+\begin{definition}[Order of a permutation]
+	The \emph{order} \(\card\pi\) of a permutation \(\pi\) on \(A\) with \(2\leq\card\piset<\infty\) is the smallest number \(n\in\mathbb{N}\) (where \(\mathbb{N}=\set{1,2,3,\cdots}\)) such that \(\pi^n = e\), where \(e:A\to A\) is the identity \(e(x)=x\).
+\end{definition}
+
+\begin{lemma}
+	Let \(\phi\) be a cycle. Then the order of \(\phi\) is \(\card\phiset\).
+\end{lemma}
+
+\begin{proof}
+	Let \(a\in\phiset\).
+	Then since \(\card\piset\geq 2\), \(\phi(a)=b\) where \(b\in \phiset\) and \(a\neq b\). If \(\phi(b) = a\), then \(\phiset=\set{a,b}\) and the order is \(2\), since \(\phi(\phi(x))=\phi^2(x)=x\) for \(x\in\set{a,b}\). Now, let \(\alpha = \perm{\spann{a_1}{a_k}}\) have the order \(n\) and \(\beta=\perm{\spann{b_1}{b_k,b_{k+1}}}\) have the order \(m\). Then \(\alpha^{n-1}(a_1)=a_{k}\) and \(\beta^{n-1}(b_1)=b_{k}\). So \(\beta^{n}(b_1)=b_{k+1}\) and \(\beta^{n+1}(b_1)=b_1\), wherefore \(m = n+1\). By induction, then, follows the lemma herefrom.
+	%Then \(a = \phi\inv(\phi(a)) = \phi^{-2}(\phi^2(a))=\phi^{-3}(\phi^3(a)) = \cdots\). Let \(n\in\mathbb{N}\) be the order of \(\pi\). Then \(\phi^n(a)=a=\).
+\end{proof}
+
+\begin{theorem}
+	Let \(\pi\) be a permutation where
+	\(\piset\) is finite.
+	%\(\foralll {\phi\in\piset} {2\leq\card\phi<\infty}\).
+	%Then \(\card\pi=\text{lcm}_{\phi\in\piset}(\card\phi)\).
+	Then the order of \(\pi\) is the least common multiple of the order of its cycles \(\phi\in\piset\).
+\end{theorem}
+
+\begin{proof}
+	
+\end{proof}
+
+
 
 \begin{comment}
 \color{red}
@@ -537,17 +606,17 @@ A subpermutation which is a cycle is, conversely, called a \textit{subcycle} -- 
 \end{comment}
 
 %%Any permutation can herefore be written as a set of pairwise disjoint cycles, commonly called \textit{cycle notation}. The permutation \((a,b,c)(d,e)\)
-In \textit{cycle notation}, 
+%In \textit{cycle notation}, 
 %%the fact above 
 %%Lemma \ref{lcycle} 
 %Theorem \ref{lcycle} 
 %is used to express permutations in a convenient way. 
 %Here, 
-each cycle in a permutation is written as a parenthesized list of elements, where each element therein is mapped to the succeeding element save for the last one, which is mapped to the first.
-For example, the permutation \((a,b,c)(d,e)\) maps \(a\mapsto b\), \(b\mapsto c\) and \(c\mapsto a\), as well as \(d\mapsto e\) and \(e\mapsto d\). Note that this permutation is the same as the permutation \((c,a,b)(e,d)\), but not the same as \((a,c,b)(d,e)\).
+%each cycle in a permutation is written as a parenthesized list of elements, where each element therein is mapped to the succeeding element save for the last one, which is mapped to the first.
+%For example, the permutation \((a,b,c)(d,e)\) maps \(a\mapsto b\), \(b\mapsto c\) and \(c\mapsto a\), as well as \(d\mapsto e\) and \(e\mapsto d\). Note that this permutation is the same as the permutation \((c,a,b)(e,d)\), but not the same as \((a,c,b)(d,e)\).
 %For example, the permutation \((a,b,c)(d,e)\) maps \(a\) to \(b\), \(b\) to \(c\) and \(c\) back to \(a\), as well as \(d\) to \(e\) and \(e\) to back to \(d\). Note that this permutation is the same as the permutation \((c,a,b)(e,d)\), but not the same as \((a,c,b)(d,e)\).
 
-In this text, permutations containing symbols or numbers with multiple digits will be written with dividing commas, whilst permutations containing exclusively the numbers 0 through 9 will be written therewithout -- for example, the permutation \((1,2,3,4)\) can and will be written as \((1234)\).
+%In this text, permutations containing symbols or numbers with multiple digits will be written with dividing commas, whilst permutations containing exclusively the numbers 0 through 9 will be written therewithout -- for example, the permutation \((1,2,3,4)\) can and will be written as \((1234)\).
 
 %\begin{lemma}
 %	Let \(G\) be a permutation group on \(A\). Then \(G\) is non-commutative if there are two permutations \(\alpha,\beta\in G\) such that they share an element \(c\in\alphaset\cap\betaset\) where \(\alpha_c\neq\beta_c,\, \alphaset_c=\orbitl c \alpha,\, \betaset_c = \orbith c \beta\) and \(\left|\alpha_c\right|\geq 3\).
