@@ -332,7 +332,7 @@ Thank you to Peder Thompson for helping me and encouraging me through the course
 
 The motivation behind the research whose the results can be found largely within this work, was the desire to find an answer to a deceptively simple question: ``What is the process by which methods for solving problems are found?''
 
-The question arose within me in relation to a long fascination with the problem-solving process employed when finding methods for solving \textit{twisty puzzles} -- such as the \textit{Rubik's cube}. It was this initial focus which led me to study \textit{permutation groups}, and initially formulate my thoughts and findings in terms thereof. 
+The question arose within me in relation to a long-time fascination with the problem-solving process employed when finding methods for solving \textit{twisty puzzles} -- such as the \textit{Rubik's cube}. This focus led me to study \textit{permutation groups}, and initially formulate my thoughts and findings in terms thereof. 
 %In this way, then, is this text not actually about permutations or groups thereof, but instead about 
 
 \(\cdots\)
@@ -538,7 +538,7 @@ A subpermutation which is a cycle is, conversely, called a \textit{subcycle} -- 
 \end{example}
 
 \begin{definition}[Order of a permutation]
-	The \emph{order} \(\card\pi\) of a permutation \(\pi\) on \(A\) with \(2\leq\card\piset<\infty\) is the smallest number \(n\in\mathbb{N}\) (where \(\mathbb{N}=\set{1,2,3,\cdots}\)) such that \(\pi^n = e\), where \(e:A\to A\) is the identity \(e(x)=x\).
+	The \emph{order} \(\card\pi\) of a permutation \(\pi\) on \(A\) with \(2\leq\card\piset<\infty\) is the smallest number \(n\in\mathbb{N}\) (where \(\mathbb{N}=\set{1,2,3,\cdots}\)) such that \(\pi^n = \varepsilon\), where \(\varepsilon:A\to A\) is the identity \(\varepsilon(x)=x\).
 \end{definition}
 
 \begin{lemma}
@@ -556,12 +556,25 @@ A subpermutation which is a cycle is, conversely, called a \textit{subcycle} -- 
 	\(\piset\) is finite.
 	%\(\foralll {\phi\in\piset} {2\leq\card\phi<\infty}\).
 	%Then \(\card\pi=\text{lcm}_{\phi\in\piset}(\card\phi)\).
-	Then the order of \(\pi\) is the least common multiple of the order of its cycles \(\phi\in\piset\).
+	Then the order of \(\pi\) is the least common multiple of the order of its cycles \(\phi\in\setform \pi\).
 \end{theorem}
 
 \begin{proof}
-	
+	Let \(\phi\in\setform\pi\) have the order \(n\). Then \(\phi^{kn}=\phi^n=\varepsilon\) for all \(k\in\mathbb{N}\) (where \(\varepsilon\) is the identity), since \(\phi^{kn} = \overset{k}{\overbrace{\phi^n\circ\cdots\circ\phi^n}}=\overset{k}{\overbrace{\varepsilon\circ\cdots\circ \varepsilon}}=\varepsilon\).
+	Now, let \(S=\setdef{\card\phi}{\phi\in\setform\pi}\).
+	Then \(\foralll{\phi\in\setform\pi}{\phi^{\text{lcm}(S)}=e}\), since \(\existss{k\in\mathbb{N}}{k\cdot\card\phi=\text{lcm}(S)}\) for all \(\phi\in\setform\pi\). Because every cycle in \(\pi^{\text{lcm}(S)}\) is the identity, it follows that \(\pi^{\text{lcm}(S)}\) is the identity also. The fact that \(\text{lcm}(S)\) is the \textit{smallest} number with this property follows from the definition of the \textit{least common multiple}.
+	%Then Let \(\alpha,\beta\in\setform \pi\) and \(n=\card\alpha\), \(m=\card\beta\). Then \(\alpha^{\text{lcm}(n,m)}=\beta^{\text{lcm}(n,m)} = \varepsilon\), where \(\varepsilon\) is the identity. Hereby follows that \(\)
 \end{proof}
+
+\begin{example}
+\[
+	\begin{array}{lcr}
+		|(123)(45)|&=6\\
+		|(123)(456)(789)|&=3\\
+		|(012345)(6789)|&=12
+	\end{array}
+\]
+\end{example}
 
 
 
