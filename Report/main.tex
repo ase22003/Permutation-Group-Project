@@ -403,6 +403,27 @@ When the operator is given implicitly, a cyclic group \(G\) with the single gene
 	The even integers \(\left(\left\langle\left\{ 2 \right\}\right\rangle,+\right)\) is a subgroup of the integers \(\left(\mathbb{Z},+\right)\) since it inherits associativity, existence of identity and existence of inverse from the integers, and is closed due to the fact that two even numbers can only produce another even number under addition.
 \end{example}
 
+\begin{definition}[Coset]
+	Let G be a group under \(*\) and \(H\subset G\) be a subgroup thereof. Then a \emph{left coset} \(a*H\) of \(H\) in \(G\) is a subgroup \(\setdef{a*h}{h\in H}\), where \(a\in G\). Similarly, a \textit{right coset} \(H*a\) is a set \(\setdef{h*a}{h\in H}\) where \(a\in G\).
+\end{definition}
+
+%\begin{definition}[Index]
+%\end{definition}
+
+\begin{theorem}[Lagrange's Theorem]
+	If \(H\) is a subgrup of a finite group \(G\) under \(*\), then \(\card{\setdef{a*H}{a\in G}}=\card{\setdef{H*a}{a\in G}}=\frac{\card G}{\card H}\).
+\end{theorem}
+
+\begin{proof}
+	%Let \(G=\set{a_1,a_2,\cdots,a_n}\) and \(L=\setdef{a*H}{a\in G}\). Then \(L = a_1*H\cup a_2*H\cup\cdots\cup a_n*H \). Now, \(\foralll{a,b\in G}{a*H=b*H \lor a*H\cap b*H=\emptyset}\), since
+	Let \(A = \set{a_1,a_2,\cdots,a_n} \subseteq G\) such that \(G=a_1*H\cup a_2*H\cup\cdots\cup a_n*H\) and \(\foralll{a,b\in A}{a*H \cap b*H = \emptyset}\). Then \(\card G = \card{a_1*H}+ \card{a_2*H}+\cdots+\card{a_n*H}\) and thus \(\card G = n\cdot\card H\), since \(\foralll{a\in G}{\card{a*H}=\card{H}}\). Now, \(n=\card{\setdef{a*H}{a\in G}}=\card{\setdef{H*a}{a\in G}}\).
+	\color{red}!!!!DEFINE INDEX!!!!\color{black}
+\end{proof}
+
+\begin{example}
+	Let G \color{red}!!!!Finish example of lagrange theorem and cosets!!!!\color{black}
+\end{example}
+
 %}}}
 %{{{PERMUTATIONS
 
@@ -552,7 +573,7 @@ A subpermutation which is a cycle is, conversely, called a \textit{subcycle} -- 
 	Let \(\pi = (19)(37)(58)\). Then each cycle in \(\pi\) is a transposition, since \(\foralll {\phi\in\setform\pi}{\card\phiset=2}\).
 \end{example}
 
-\begin{definition}[Order of a permutation]
+\begin{definition}[Order of a Permutation]
 	The \emph{order} \(\card\pi\) of a permutation \(\pi\) on \(A\) with \(2\leq\card\piset<\infty\) is the smallest number \(n\in\mathbb{N}\) (where \(\mathbb{N}=\set{1,2,3,\cdots}\)) such that \(\pi^n = \varepsilon\), where \(\varepsilon:A\to A\) is the identity \(\varepsilon(x)=x\).
 \end{definition}
 
@@ -590,6 +611,7 @@ A subpermutation which is a cycle is, conversely, called a \textit{subcycle} -- 
 	\end{array}
 \]
 \end{example}
+
 
 
 
