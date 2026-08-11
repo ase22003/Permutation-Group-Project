@@ -416,7 +416,7 @@ When the operator is given implicitly, a cyclic group \(G\) with the single gene
 	%Then, each unique coset in \(\setdef{aH}{a\in G}\) and in \(\setdef{Ha}{a\in G}\) has the same cardinality, that is, \(\card{H}\).
 	%Now, for each pair \(x,y\in G\) where \(xH=yH\), there is some \(h\in H\) where \(x=yh\) (in the case where \(x=y\), then \(h\) is the identity) and conversely some \(h'\in H\) such that \(x=h'y\) -- giving \(Hx=H(h'y)=Hy\). Therefore
 	%Now, for each pair \(x,y\in G\) where \(xH=yH\), it follows that \(y\inv x\in H\).
-	Now, for each pair \(x,y\in G\) where \(xH=yH\), there must be some \(h\in H\) such that \(xH=(yh)H=y(hH)=yH\) -- that is, \(h=y\inv x\). So \(y\inv x\in H\), which means that \((y\inv x)\inv=yx\inv \in H\). Then \(Hy\inv=H(yx\inv)x\inv=Hx\inv\). So \(xH=yH \implies x\inv H=y\inv H\) for any \(x,y\in G\). There are, therefore, an equal number of unique cosets \(aH\) as there are \(Ha\) for \(a\in G\).
+	Now, for each pair \(x,y\in G\) where \(xH=yH\), there must be some \(h\in H\) such that \(xH=(yh)H=y(hH)=yH\) -- that is, \(h=y\inv x\). So \(y\inv x\in H\), which means that \((y\inv x)\inv=yx\inv \in H\). Then \(Hy\inv=H(yx\inv)x\inv=Hx\inv\). So \(xH=yH \implies x\inv H=y\inv H\) for any \(x,y\in G\). There are, therefore, an equal number of unique cosets \(aH\) as there are unique cosets \(Ha\) for \(a\in G\).
 	%Since both sets equal \(G\), and each
 	%it follows that there must be an equal number of cosets in both right-hand and left-hand sets.
 	%Now, let \(L=\setdef{aH}{a\in G}\) and \(R=\setdef{Ha}{a\in G}\). Hereof follows that \(\foralll{l,r\in L\times R}{\card{l}=\card{r}}\). Next
@@ -437,7 +437,7 @@ When the operator is given implicitly, a cyclic group \(G\) with the single gene
 \end{proof}
 
 \begin{example}
-	Let \(G=\left(\langle\set{1}\rangle, +_8\right)\), where \(+_8\) is addition modulo \(8\). Then \(H=\set{0,4}\) is a subgroup of \(G\) and the set of cosets of \(H\) in \(G\) is \(\setdef{aH}{a\in\mathbb{Z}_8}=\setdef{aH}{a\in{0,1,2,3}}=\set{\set{0,4},\set{1,5},\set{2,6},\set{3,7}}\). Thus \(\card{G:H}=4=\dfrac{8}{2}=\dfrac{\card G}{\card H}\).
+	Let \(G=\left(\langle\set{1}\rangle, +_8\right)\), where \(+_8\) is addition modulo \(8\). Then \(H=\set{0,4}\) is a subgroup of \(G\) and the set of cosets of \(H\) in \(G\) is \(\setdef{aH}{a\in\mathbb{Z}_8}=\setdef{aH}{a\in\set{0,1,2,3}}=\set{\set{0,4},\set{1,5},\set{2,6},\set{3,7}}\). Thus \(\card{G:H}=4=\dfrac{8}{2}=\dfrac{\card G}{\card H}\).
 \end{example}
 
 %}}}
