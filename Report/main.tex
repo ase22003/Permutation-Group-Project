@@ -672,7 +672,16 @@ Symmetric groups over numbers \(1\) to \(n\) are often denoted \(S_n\). (Thus th
 %More generally, a symmetric group over a set \(A\) is denoted \(\text{Sym}(A)\).
 
 \begin{example}
-	Let \(G=S_6\) and \(H=S_4\). Then \(H\) is a subgroup of \(G\) and 
+	Let \(G=S_4\) and \(H=S_3\). Then \(H\) is a subgroup of \(G\). Now, \(\card G=4!=24\), \(\card H=3!=6\). The set of cosets \(\setdef{\pi H}{\pi\in G}\) evaluates to 
+	\[
+		\left\{\begin{array}{cl}
+			\set{(\varepsilon,  (1  2  3),  (2  3),  (1  3),  (1  3  2),  (1  2)}\\
+			\set{(1  3  2  4),  (1  4)  (2  3),  (1  2  4),  (1  2  3  4),  (1  3  4),  (1  4)}\\
+			\set{(1  2)  (3  4),  (1  2  4  3),  (1  4  3),  (1  4  3  2),  (3  4),  (2  4  3)}\\
+			\set{(1  4  2),  (1  4  2  3),  (1  3)  (2  4),  (2  4),  (1  3  4  2),  (2  3  4)}
+		\end{array}\right\}
+	\]
+	which has a cardinality of \(\dfrac{24}{6}=4\), as stated by with Lagrange's theorem.
 \end{example}
 
 \begin{theorem}[Cayley's Theorem]
@@ -846,7 +855,7 @@ Since (by Theorem \ref{lcycle}) permutations can be represented by sets of cycle
 %\chapter{Properties of Permutation Groups}
 \chapter{The Conjugates and Commutators of Permutations}
 
-Herein, all lowercase geek letters are implied to be elements in a permutation group \(G\) on \(A\).
+Herein, all lowercase Greek letters are implied to be elements in a permutation group \(G\) on \(A\).
 %and belong to the same permutation group \(G\).
 Elements of \(A\) are represented by lowercase Latin characters.
 Further, the operator \(\circ\) will henceforth be implicit, and thus omitted from expressions. As an example, take \(\pi\circ\phi=\pi\phi\).
