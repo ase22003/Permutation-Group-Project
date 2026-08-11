@@ -357,9 +357,9 @@ The question arose within me in relation to a long-time fascination with the pro
 	In mathematics, a \emph{group} \(G\) denotes a set of elements \(\left\{a,b,c,\cdots \right\}\) and an accompanying binary operator \(*\), together satisfying the following conditions:
 	\begin{enumerate}
 		\item \textit{Closure}: For every ordered pair of elements in the group, the binary product thereof (as defined by the binary operator) is also an element of that group; \(\forall a,b\in G\ \left(a*b\in G\right)\).
-		\item \textit{Associativity}: The order wherein ordered pairs of elements are evaluated has no influence over the restulting product; \(\forall a,b,c\in G\ \left((a*b)*c = a*(b*c)\right)\).
+		\item \textit{Associativity}: The order wherein ordered pairs of elements are evaluated has no influence over the resulting product; \(\forall a,b,c\in G\ \left((a*b)*c = a*(b*c)\right)\).
 		\item \textit{Existence of Identity}: There exists in the group an \textit{identity} element, the omission of which from any expression containing any other element or elements has no consequence on the evaluation of that expression; \(\existss {\varepsilon\in G} {\forall a\in G\ (\varepsilon*a=a*\varepsilon=a)}\).
-		\item \textit{Existence of Inverse}: Each element in the group has its own \textit{inverse}, who's product therewith evalutes to the identity; \(\foralll{ a\in G} {\exists b\in G\ (a*b=\varepsilon)}\), where \(\varepsilon\) is the identity.
+		\item \textit{Existence of Inverse}: Each element in the group has its own unique \textit{inverse}, who's product therewith evaluates to the identity; \(\foralll{ a\in G} {\exists b\in G\ (a*b=\varepsilon)}\), where \(\varepsilon\) is the identity.
 	\end{enumerate}
 \end{definition}
 
@@ -404,24 +404,40 @@ When the operator is given implicitly, a cyclic group \(G\) with the single gene
 \end{example}
 
 \begin{definition}[Coset]
-	Let G be a group under \(*\) and \(H\subset G\) be a subgroup thereof. Then a \emph{left coset} \(a*H\) of \(H\) in \(G\) is a subgroup \(\setdef{a*h}{h\in H}\), where \(a\in G\). Similarly, a \textit{right coset} \(H*a\) is a set \(\setdef{h*a}{h\in H}\) where \(a\in G\).
+	Let G be a group under \(*\) and \(H\subset G\) be a subgroup thereof. Then a \emph{left coset} \(aH\) of \(H\) in \(G\) is a set \(\setdef{a*h}{h\in H}\), where \(a\in G\). Similarly, a \textit{right coset} \(Ha\) is a set \(\setdef{h*a}{h\in H}\) where \(a\in G\).
 \end{definition}
 
-%\begin{definition}[Index]
-%\end{definition}
+\begin{lemma}
+	Let \(G\) be a finite group under \(*\) and let \(H\subset G\) be a subgroup thereof. Then \(\card{aH}=\card{Ha}=\card{H}\) and \(\card{\setdef{aH}{a\in G}}=\card{\setdef{Ha}{a\in G}}\).
+\end{lemma}
+
+\begin{proof}
+	Let \(H=\set{h_1,h_2,\cdots,h_n}\) and \(a\in G\). Then \(aH=\set{a*h_1,a*h_2,\cdots,a*h_n}\) with cardinality \(n\), since -- in a group -- for any \(h,h'\in H\), \(a*h=a*h'\iff h=h'\), so each product is unique. Similarly, \(Ha\) also has cardinality \(n\).
+	%Then, each unique coset in \(\setdef{aH}{a\in G}\) and in \(\setdef{Ha}{a\in G}\) has the same cardinality, that is, \(\card{H}\).
+	%Now, for each pair \(x,y\in G\) where \(xH=yH\), there is some \(h\in H\) where \(x=yh\) (in the case where \(x=y\), then \(h\) is the identity) and conversely some \(h'\in H\) such that \(x=h'y\) -- giving \(Hx=H(h'y)=Hy\). Therefore
+	%Now, for each pair \(x,y\in G\) where \(xH=yH\), it follows that \(y\inv x\in H\).
+	Now, for each pair \(x,y\in G\) where \(xH=yH\), there must be some \(h\in H\) such that \(xH=(yh)H=y(hH)=yH\) -- that is, \(h=y\inv x\). So \(y\inv x\in H\), which means that \((y\inv x)\inv=yx\inv \in H\). Then \(Hy\inv=H(yx\inv)x\inv=Hx\inv\). So \(xH=yH \implies x\inv H=y\inv H\) for any \(x,y\in G\). There are, therefore, an equal number of unique cosets \(aH\) as there are \(Ha\) for \(a\in G\).
+	%Since both sets equal \(G\), and each
+	%it follows that there must be an equal number of cosets in both right-hand and left-hand sets.
+	%Now, let \(L=\setdef{aH}{a\in G}\) and \(R=\setdef{Ha}{a\in G}\). Hereof follows that \(\foralll{l,r\in L\times R}{\card{l}=\card{r}}\). Next
+\end{proof}
+
+\begin{definition}[Index of a Subgroup]
+	Let \(H\) be a subgroup of a group \(G\). Then the \emph{index} \(\card{G:H}\) of \(H\) in \(G\) is the number of unique left (or right) cosets of \(H\) in \(G\) -- that is, \(\card{\setdef{aH}{a\in G}}\).
+\end{definition}
 
 \begin{theorem}[Lagrange's Theorem]
-	If \(H\) is a subgrup of a finite group \(G\) under \(*\), then \(\card{\setdef{a*H}{a\in G}}=\card{\setdef{H*a}{a\in G}}=\frac{\card G}{\card H}\).
+	%If \(H\) is a subgrup of a finite group \(G\) under \(*\), then \(\card{\setdef{aH}{a\in G}}=\card{\setdef{Ha}{a\in G}}=\dfrac{\card G}{\card H}\).
+	If \(H\) is a subgroup of a finite group \(G\) under \(*\), then \(\card{G:H}=\dfrac{\card G}{\card H}\).
 \end{theorem}
 
 \begin{proof}
-	%Let \(G=\set{a_1,a_2,\cdots,a_n}\) and \(L=\setdef{a*H}{a\in G}\). Then \(L = a_1*H\cup a_2*H\cup\cdots\cup a_n*H \). Now, \(\foralll{a,b\in G}{a*H=b*H \lor a*H\cap b*H=\emptyset}\), since
-	Let \(A = \set{a_1,a_2,\cdots,a_n} \subseteq G\) such that \(G=a_1*H\cup a_2*H\cup\cdots\cup a_n*H\) and \(\foralll{a,b\in A}{a*H \cap b*H = \emptyset}\). Then \(\card G = \card{a_1*H}+ \card{a_2*H}+\cdots+\card{a_n*H}\) and thus \(\card G = n\cdot\card H\), since \(\foralll{a\in G}{\card{a*H}=\card{H}}\). Now, \(n=\card{\setdef{a*H}{a\in G}}=\card{\setdef{H*a}{a\in G}}\).
-	\color{red}!!!!DEFINE INDEX!!!!\color{black}
+	%Let \(G=\set{a_1,a_2,\cdots,a_n}\) and \(L=\setdef{aH}{a\in G}\). Then \(L = a_1H\cup a_2H\cup\cdots\cup a_nH \). Now, \(\foralll{a,b\in G}{aH=bH \lor aH\cap bH=\emptyset}\), since
+	Let \(A = \set{a_1,a_2,\cdots,a_n} \subseteq G\) such that \(G=a_1H\cup a_2H\cup\cdots\cup a_nH\) and \(\foralll{a,b\in A}{aH \cap bH = \emptyset}\). Then \(\card G = \card{a_1H}+ \card{a_2H}+\cdots+\card{a_nH}\) and thus \(\card G = n\cdot\card H\), since \(\foralll{a\in G}{\card{aH}=\card{H}}\). Now, \(n=\card{G:H}\), so by substitution we get \(\card{G:H}=\dfrac{\card G}{\card H}\).
 \end{proof}
 
 \begin{example}
-	Let G \color{red}!!!!Finish example of lagrange theorem and cosets!!!!\color{black}
+	Let \(G=\left(\langle\set{1}\rangle, +_8\right)\), where \(+_8\) is addition modulo \(8\). Then \(H=\set{0,4}\) is a subgroup of \(G\) and the set of cosets of \(H\) in \(G\) is \(\setdef{aH}{a\in\mathbb{Z}_8}=\setdef{aH}{a\in{0,1,2,3}}=\set{\set{0,4},\set{1,5},\set{2,6},\set{3,7}}\). Thus \(\card{G:H}=4=\dfrac{8}{2}=\dfrac{\card G}{\card H}\).
 \end{example}
 
 %}}}
@@ -497,7 +513,7 @@ is expressed by its cycles like
 	&\,\vdots
 \end{array}
 \]
-where each element is mapped to the succeeding element save for the last one, which is mapped to the first. When writing about permutations on elements \(0\) through \(9\), the commas inbetween the numbers can be omitted like so: \((4,6,8,2) = (4682)\).
+where each element is mapped to the succeeding element save for the last one, which is mapped to the first. When writing about permutations on elements \(0\) through \(9\), the commas in-between the numbers can be omitted like so: \((4,6,8,2) = (4682)\).
 
 %\begin{definition}[Subcycle]
 %	The \emph{subcycle} \(\subcycle a \pi\permin\pi\) of an element \(a\in A\) in a permutation \(\pi\) on \(A\) is cycle on \(A\) whose support \(\underline{\subcycle a \pi}\) is the set 
@@ -612,7 +628,9 @@ A subpermutation which is a cycle is, conversely, called a \textit{subcycle} -- 
 \]
 \end{example}
 
+\color{orange}!!!ADD EXAMPLE OF LAGRANGE'S THEOREM FOR A PERMUTATION GROUP!!!\color{black}
 
+\color{red}!!!ADD CAYLAYS THEOREM!!!\color{black}
 
 
 \begin{comment}
@@ -761,7 +779,7 @@ Since (by Theorem \ref{lcycle}) permutations can be represented by sets of cycle
 
 Herein, all lowercase geek letters are implied to be elements in a permutation group \(G\) on \(A\).
 %and belong to the same permutation group \(G\).
-Elements of \(A\) are represented by lowercase latin characters.
+Elements of \(A\) are represented by lowercase Latin characters.
 Further, the operator \(\circ\) will henceforth be implicit, and thus omitted from expressions. As an example, take \(\pi\circ\phi=\pi\phi\).
 
 \begin{definition}[Conjugate]
@@ -1021,7 +1039,7 @@ The ``\(2\times 3\) game'' is a simple puzzle with six tiles in a grid of number
 	\gameboard[1 2 3 4 5 6]
 \]
 
-Formally, the game can and will herein henceforth be modelled as follows. Let \(G:=\left(\langle \mvs\rangle,\circ\right) \) be a group compositionally generated by the set of moves \(\mvs := \left\{ (123), (456), (14) \right\}\), named \(U=(123)\) for \textit{upper row}, \(L=(456)\) for \textit{lower row} and \(S=(14)\) for \textit{side flip}. A \textit{problem} is a permutation \(p\in G\), and a \textit{solution} thereto is a vector \(\solarr\in\mvs^\ast\) such that \[\overset{1}{\underset{i=n}{\bbigcirc}} \solarr_i=\solarr_n\circ \solarr_{n-1}\circ \cdots \circ \solarr_1=p\] where \(n\) denotes the length of \(\solarr\). Note that \(\solarr\) may include the implicitly given inverses of the group generators. Hereafter, \(\overset{1}{\underset{i=n}{\bbigcirc}} \solarr_i\) will be written as \(\solperm\).
+Formally, the game can and will herein henceforth be modeled as follows. Let \(G:=\left(\langle \mvs\rangle,\circ\right) \) be a group compositionally generated by the set of moves \(\mvs := \left\{ (123), (456), (14) \right\}\), named \(U=(123)\) for \textit{upper row}, \(L=(456)\) for \textit{lower row} and \(S=(14)\) for \textit{side flip}. A \textit{problem} is a permutation \(p\in G\), and a \textit{solution} thereto is a vector \(\solarr\in\mvs^\ast\) such that \[\overset{1}{\underset{i=n}{\bbigcirc}} \solarr_i=\solarr_n\circ \solarr_{n-1}\circ \cdots \circ \solarr_1=p\] where \(n\) denotes the length of \(\solarr\). Note that \(\solarr\) may include the implicitly given inverses of the group generators. Hereafter, \(\overset{1}{\underset{i=n}{\bbigcirc}} \solarr_i\) will be written as \(\solperm\).
 
 This group equals the symmetric group \(S_6\).  \color{orange}MAKE THIS A THEOREM/LEMMA. AND MAKE THE FOLLOWING ITS PROOF:  \color{black}  This fact can be proven in the following way. Each transposition between the upper and lower row can be found with the nested conjugate
 \begin{align*}
@@ -1185,21 +1203,21 @@ Since \(G\) is the symmetric group \(S_6\), there must be an infinite\footnote{I
 \(\{1,\cdots,6\}^2\to \mvs^{<\omega}\), 
 where \(\mvs^{<\omega}=\underset{n\in\mathbb{N}}{\bbigcup}\mvs^n\) and \(\solarr\in\zeta(x,y) \implies \solperm=(x,y)\) where \(\zeta\) is such a map.
 
-There is a set of solutions to \(T_1\), and \(\alpha_1\) and \(\beta_1\) and \(\alpha_2\) and \(\beta_2\). the solution is the intersection thereof. At each level there is a uniqe map (for that level) to a set of solutions\footnote{These are \textit{patterns} with rewriting rules!}. It's recursive!
+There is a set of solutions to \(T_1\), and \(\alpha_1\) and \(\beta_1\) and \(\alpha_2\) and \(\beta_2\). the solution is the intersection thereof. At each level there is a unique map (for that level) to a set of solutions\footnote{These are \textit{patterns} with rewriting rules!}. It's recursive!
 
 
 ---
 
 
-The lemmas and corollaries in chapter 3 -- and indeed, any other observation, general or particualar (about permutations or a specific game) -- together construct a formal language.
+The lemmas and corollaries in chapter 3 -- and indeed, any other observation, general or particular (about permutations or a specific game) -- together construct a formal language.
 
-Example: \(\pi\) where \(\card\piset=2\) is a \textit{pattern}, which can be substituted by another pattern: a conjugation \(\conjl{\alpha_1}{\beta_1}\) where \(\beta_1=\left(x,c_1\right)\) and \(\alpha_1(y)=c_1\) (as in the example above). The permutaion \(\beta_1=\perm{x, c_1}\) is, then, also a pattern to be substituted and so on until you have a permutation constructed from available moves (\(\mathfrak{M}\)?). You don't even need to evaluate them all if you know, for example, that \(\zeta_1/T_1\) exists.
+Example: \(\pi\) where \(\card\piset=2\) is a \textit{pattern}, which can be substituted by another pattern: a conjugation \(\conjl{\alpha_1}{\beta_1}\) where \(\beta_1=\left(x,c_1\right)\) and \(\alpha_1(y)=c_1\) (as in the example above). The permutation \(\beta_1=\perm{x, c_1}\) is, then, also a pattern to be substituted and so on until you have a permutation constructed from available moves (\(\mathfrak{M}\)?). You don't even need to evaluate them all if you know, for example, that \(\zeta_1/T_1\) exists.
 
 All the lemmas and corollaries are in fact rewritings (with rewriting rules -- in this case, formal math) ...
 
 
 
-A \textit{pattern} is a set \(p\). If a set, vector, element (or other data) \(\Omega\) maches the pattern \(p\), then \(\Omega \in p\). The set \(\setdef p{\Omega\in p}\) is the set of patterns to which some data \(\Omega\) belongs.
+A \textit{pattern} is a set \(p\). If a set, vector, element (or other data) \(\Omega\) matches the pattern \(p\), then \(\Omega \in p\). The set \(\setdef p{\Omega\in p}\) is the set of patterns to which some data \(\Omega\) belongs.
 
 \subsubsection{Example}
 
@@ -1235,7 +1253,7 @@ Let \(a \vcat b= \vect{a_1,\cdots,a_n,b_1,\cdots,b_m}\), where \(a=\vect{a_1,\cd
 	An \emph{exploration function} \(\mathscr{E}\) in \(G\) is a map in \(\grimset \times \Cset^{<\omega} \to \grimset\) defined by 
 	\[
 		\mathscr{E}(\grim, \vect{\mathcal{C}_1,\cdots,\mathcal{C}_n}) := \underset{i=1}{\overset{n}\bbigcirc}\triangle\prnth{\grim, \mathcal{C}_i\prnth{ \spellset{\grim}} }
-	,\] \color{red}!!!THE EXPLORATION IS NON-RECURSVE!!!\color{black}
+	,\] \color{red}!!!THE EXPLORATION IS NON-RECURSIVE!!!\color{black}
 	where \(\Cset\subset\mathcal{P}(G)\to G^{<\omega}\) and \color{red}!!!THE DEFINITION OF \(\mathcal{C}\) IS SLOPPY!!!\color{black}
 %\(\forall\mathcal{C}\in\Cset\ \prnthll{\forall S\in\mathcal{P}(G)\ \prnthl{\mathcal{C}(S)\in S^2}}\).
 	\(\mathcal{C}(S)\in S^{<\omega}\) for each \(\mathcal{C}\in\Cset\) and \(S\in\mathcal{P}(G)\).
@@ -1269,7 +1287,7 @@ Let \(a \vcat b= \vect{a_1,\cdots,a_n,b_1,\cdots,b_m}\), where \(a=\vect{a_1,\cd
 \end{definition}
 
 \color{green}
-	Proove that grimoire-exploration with \(\mathscr{E}\) or \(\triangle\) is a semigroup.
+	Prove that grimoire-exploration with \(\mathscr{E}\) or \(\triangle\) is a semigroup.
 \color{black}
 
 \color{orange}
