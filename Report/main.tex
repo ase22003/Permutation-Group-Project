@@ -262,7 +262,7 @@
 \noindent{\small\emph{Date of presentation}:}
 
 % Write the date of your presentation here
-\noindent{XX June 2026}
+\noindent{19 August 2026}
 
 \bigskip
 
@@ -297,7 +297,7 @@
 \noindent{\small\emph{Examiner}:}
 
 % Write the name of your examiner here:
-\noindent{To be determined}
+\noindent{Peder Thompson}
 
 \bigskip
 
@@ -317,7 +317,7 @@ Under construction.
 
 \chapter*{Acknowledgements}\addcontentsline{toc}{chapter}{Acknowledgements}
 
-Thank you to Peder Thompson for helping me and encouraging me through the course of this project.
+Thank you to Peder Thompson for guiding and encouraging me through the course of this project.
 
 \tableofcontents
 
@@ -408,15 +408,36 @@ When the operator is given implicitly, a cyclic group \(G\) with the single gene
 \end{definition}
 
 \begin{lemma}
-	Let \(G\) be a finite group under \(*\) and let \(H\subset G\) be a subgroup thereof. Then \(\card{aH}=\card{Ha}=\card{H}\) and \(\card{\setdef{aH}{a\in G}}=\card{\setdef{Ha}{a\in G}}\).
+	Let \(G\) be a finite group under \(*\) and let \(H\subset G\) be a subgroup thereof. Then \(\card{aH}=\card{Ha}=\card{H}\).
 \end{lemma}
 
 \begin{proof}
-	Let \(H=\set{h_1,h_2,\cdots,h_n}\) and \(a\in G\). Then \(aH=\set{a*h_1,a*h_2,\cdots,a*h_n}\) with cardinality \(n\), since -- in a group -- for any \(h,h'\in H\), \(a*h=a*h'\iff h=h'\), so each product is unique. Similarly, \(Ha\) also has cardinality \(n\).
+	Let \(H=\set{h_1,h_2,\cdots,h_n}\) and \(a\in G\). Then \(aH=\set{a*h_1,a*h_2,\cdots,a*h_n}\) with cardinality \(n\), since -- in a group -- for any \(h,h'\in H\), \(a*h=a*h'\iff h=h'\), so each product is unique. Similarly, \(Ha\) also has cardinality \(n=\card H\).
 	%Then, each unique coset in \(\setdef{aH}{a\in G}\) and in \(\setdef{Ha}{a\in G}\) has the same cardinality, that is, \(\card{H}\).
 	%Now, for each pair \(x,y\in G\) where \(xH=yH\), there is some \(h\in H\) where \(x=yh\) (in the case where \(x=y\), then \(h\) is the identity) and conversely some \(h'\in H\) such that \(x=h'y\) -- giving \(Hx=H(h'y)=Hy\). Therefore
 	%Now, for each pair \(x,y\in G\) where \(xH=yH\), it follows that \(y\inv x\in H\).
-	Now, for each pair \(x,y\in G\) where \(xH=yH\), there must be some \(h\in H\) such that \(xH=(yh)H=y(hH)=yH\) -- that is, \(h=y\inv x\). So \(y\inv x\in H\), which means that \((y\inv x)\inv=yx\inv \in H\). Then \(Hy\inv=H(yx\inv)x\inv=Hx\inv\). So \(xH=yH \implies x\inv H=y\inv H\) for any \(x,y\in G\). There are, therefore, an equal number of unique cosets \(aH\) as there are unique cosets \(Ha\) for \(a\in G\).
+	%Since both sets equal \(G\), and each
+	%it follows that there must be an equal number of cosets in both right-hand and left-hand sets.
+	%Now, let \(L=\setdef{aH}{a\in G}\) and \(R=\setdef{Ha}{a\in G}\). Hereof follows that \(\foralll{l,r\in L\times R}{\card{l}=\card{r}}\). Next
+\end{proof}
+
+\begin{lemma}
+	Let \(G\) be a finite group under \(*\) and let \(H\subset G\) be a subgroup thereof. Then \(h\in H \iff hH=Hh=H\).
+\end{lemma}
+
+\begin{proof}
+	Let \(H=\set{h_1,h_2,\cdots, h_n}\) and let \(f(x)=hx\) where \(h\in H\) be defined for any element \(x\in G\). Then \(\setdef{f(x)}{x\in H}=\set{h*h_1,h*h_2,\cdots,h*h_n}\). Since the identity \(\varepsilon\) is in \(H\), \(f(\varepsilon)=h\) and \(f(h\inv)=\varepsilon\). So each element in \(H\) gets transposed one step in \(h\)'s ``direction'', and since \(H\) is finite and thus \(\foralll{a\in H}{\existss{n\in\mathbb{N}}{a*\cdots*a=\varepsilon}}\)\color{red}!!!!!!!!!!!!!UNFINISHED!!!!!!!!!!!!!!!\color{black}
+\end{proof}
+
+\begin{lemma}
+	Let \(G\) be a finite group and let \(H\subset G\) be a subgroup thereof. Then \(\card{\setdef{aH}{a\in G}}=\card{\setdef{Ha}{a\in G}}\).
+\end{lemma}
+
+\begin{proof}
+	%Then, each unique coset in \(\setdef{aH}{a\in G}\) and in \(\setdef{Ha}{a\in G}\) has the same cardinality, that is, \(\card{H}\).
+	%Now, for each pair \(x,y\in G\) where \(xH=yH\), there is some \(h\in H\) where \(x=yh\) (in the case where \(x=y\), then \(h\) is the identity) and conversely some \(h'\in H\) such that \(x=h'y\) -- giving \(Hx=H(h'y)=Hy\). Therefore
+	%Now, for each pair \(x,y\in G\) where \(xH=yH\), it follows that \(y\inv x\in H\).
+	For each pair \(x,y\in G\) where \(xH=yH\), there must be some \(h\in H\) such that \(xH=(yh)H=y(hH)=yH\) -- that is, \(h=y\inv x\). So \(y\inv x\in H\), which means that \((y\inv x)\inv=yx\inv \in H\) due to the ``existence of inverses'' condition. Then \(Hy\inv=H(yx\inv)x\inv=Hx\inv\). So \(xH=yH \iff Hx\inv=Hy\inv\) for any \(x,y\in G\). Therefore, there are an equal number of unique cosets \(aH\) as there are unique cosets \(Ha\) for \(a\in G\).
 	%Since both sets equal \(G\), and each
 	%it follows that there must be an equal number of cosets in both right-hand and left-hand sets.
 	%Now, let \(L=\setdef{aH}{a\in G}\) and \(R=\setdef{Ha}{a\in G}\). Hereof follows that \(\foralll{l,r\in L\times R}{\card{l}=\card{r}}\). Next
@@ -460,7 +481,7 @@ We write \(\pi^n\) for a permutation \(\pi\) to denote \(\pi\circ\cdots\circ\pi\
 %\end{proof}
 
 \begin{definition}[Permutation Group]
-	A \emph{permutation group} on a set \(A\) is a group of permutations on \(A\) under composition.
+	A \emph{permutation group} over a set \(A\) is a group of permutations on \(A\) under composition.
 \end{definition}
 
 \begin{definition}[Support]
@@ -600,6 +621,7 @@ A subpermutation which is a cycle is, conversely, called a \textit{subcycle} -- 
 \begin{proof}
 	Let \(a\in\phiset\).
 	Then since \(\card\piset\geq 2\), \(\phi(a)=b\) where \(b\in \phiset\) and \(a\neq b\). If \(\phi(b) = a\), then \(\phiset=\set{a,b}\) and the order is \(2\), since \(\phi(\phi(x))=\phi^2(x)=x\) for \(x\in\set{a,b}\). Now, let \(\alpha = \perm{\spann{a_1}{a_k}}\) have the order \(n\) and \(\beta=\perm{\spann{b_1}{b_k,b_{k+1} }}\) have the order \(m\). Then \(\alpha^{n-1}(a_1)=a_{k}\) and \(\beta^{n-1}(b_1)=b_{k}\). So \(\beta^{n}(b_1)=b_{k+1}\) and \(\beta^{n+1}(b_1)=b_1\), wherefore \(m = n+1\). By induction, then, follows the lemma herefrom.
+\color{orange}!!!!!!!!!!!!!!!!!!!!!!ADD PRECEDING LEMMA MAYBE!!!!!!!!!!!!!!!!!!!!!\color{black}
 	%Then \(a = \phi\inv(\phi(a)) = \phi^{-2}(\phi^2(a))=\phi^{-3}(\phi^3(a)) = \cdots\). Let \(n\in\mathbb{N}\) be the order of \(\pi\). Then \(\phi^n(a)=a=\).
 \end{proof}
 
@@ -628,9 +650,56 @@ A subpermutation which is a cycle is, conversely, called a \textit{subcycle} -- 
 \]
 \end{example}
 
-\color{orange}!!!ADD EXAMPLE OF LAGRANGE'S THEOREM FOR A PERMUTATION GROUP!!!\color{black}
+\begin{definition}[Symmetric Group]
+	A \emph{symmetric group} \(G\) over a set \(A\) is a permutation group over \(A\) where \(G\) is the set of all permutations on \(A\).
+\end{definition}
 
-\color{red}!!!ADD CAYLAYS THEOREM!!!\color{black}
+\begin{example}\label{symex}
+	Let \(G\) be a symmetric group over \(\set{1,2,3}\). Then \[
+	G = \left\{\begin{array}{cl}
+		\varepsilon \\
+		(12) \\
+		(13) \\
+		(23) \\
+		(123) \\
+		(132)
+	\end{array}\right\}
+.\]
+	%\(G=\set{\varepsilon, (12),(13),(23),(123),(132),}\).
+\end{example}
+
+Symmetric groups over numbers \(1\) to \(n\) are often denoted \(S_n\). (Thus the group described in Example \ref{symex} is the symmetric group \(S_3\).)
+%More generally, a symmetric group over a set \(A\) is denoted \(\text{Sym}(A)\).
+
+\begin{example}
+	Let \(G=S_6\) and \(H=S_4\). Then \(H\) is a subgroup of \(G\) and 
+\end{example}
+
+\begin{theorem}[Cayley's Theorem]
+	Let \(G\) be a group under \(*\). Then \(G\) is isomorphic to a 
+	%subgroup of the symmetric group over \(G\).
+	permutation group over \(G\).
+\end{theorem}
+
+\begin{proof}
+	Let \(\lambda_g:G\to G\) be defined by \(\lambda_g(x)=g*x\) for any \(g\in G\). Then \(\lambda_g\) is a permutation on \(G\) -- namely 
+	\[
+		\lambda_g(x)=\prnth{\cdots, \lambda_{g^{-2}}(x), \lambda_{g\inv}(x),x,\lambda_g(x), \lambda_{g^2}(x), \cdots}
+	.\]
+
+	Now, let \(G' = \setdef{\lambda_g}{g\in G}\). Then \((\lambda_a\circ \lambda_b)(x)=a*b*x=\lambda_{a*b}(x)\) for any \(a,b,x\in G\). Since \(a*b \in G\), the set \(G'\) is closed under composition. Since \(\varepsilon \in G\), \(\lambda_\varepsilon \in G'\) where \(\lambda_\varepsilon(x)=\varepsilon*x = x\) functions as the identity for \(G'\) under composition. \(G'\) is also associative under composition, since \((\lambda_a\circ \lambda_b)\circ \lambda_c = \lambda_{a*b}\circ \lambda_c=\lambda_{a*b*c}=\lambda_a\circ(\lambda_{b*c})=\lambda_a\circ(\lambda_b\circ \lambda_c)\) for any \(a,b\in G\). Also, if \(a\in G\), then \(a\inv\in G\). So if \(\lambda_a\in G'\), then \(\lambda_{a\inv}\in G'\) where \(\lambda_{a\inv}\circ \lambda_{a}=\lambda_{a\inv*a}=\lambda_\varepsilon\) -- or, in words, there is a unique inverse for every element in \(G'\) under composition. Since \(G'\) is a set of permutations and satisfies closure, associativity, existence-of-inverse and existence-of-inverses under composition, \(G'\) is is a permutation group under composition.
+
+	Lastly, let \(\rho:G\to G'\) a bijective function defined by \(\rho(g)=\lambda_g\). Then \(\rho(a*b)=\lambda_{a*b}=\lambda_a\circ\lambda_b=\rho(a)\circ\rho(b)\).
+	So any true expression \(g_1*\cdots*g_n=h\) where \(g_1,\cdots, g_n,h\in G\) will hold for an equivalent expression \(\rho(g_1)\circ\cdots\circ\rho(g_n)=\rho(h)\) and vice versa (using \(\rho\inv\)).
+	Therefore, \(\rho\) is an isomorphism between \(G\) and \(G'\).
+	%So for any expression using elements from \(G\) and * can be tr\(\rho\) the operation of \(G\) translates
+\end{proof}
+
+
+
+
+
+
 
 
 \begin{comment}
