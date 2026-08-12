@@ -381,7 +381,7 @@ The question arose within me in relation to a long-time fascination with the pro
 \end{example}
 
 \begin{definition}[Generation of a group]
-	A group \(G\) with the operator \(*\) can be expressed by a set of \emph{generators} \(g\subseteq G\) as \(G=\prnth{\langle g \rangle, *}\) if \(\foralll{a\in G}{\existss{\mathbf{s}\in \underset{n\in\mathbb{N}}{\bbigcup}g^n}{\mathbf{s}_1*\mathbf{s}_2*\cdots*\mathbf{s}_k=a}}\).
+    A group \(G\) with the operator \(*\) can be expressed by a set of \emph{generators} \(\mathscr{G}\subseteq G\) like so \(G=\prnth{\langle \mathscr{G} \rangle, *}\) if and only if \(\foralll{a\in G}{\existss{\mathbf{s}\in \underset{n\in\mathbb{N}}{\bbigcup}\mathscr{G}^n}{\mathbf{s}_1*\cdots*\mathbf{s}_k=a}}\).
 \end{definition}
 
 \begin{definition}[Cyclicity]
@@ -536,11 +536,11 @@ Permutations are commonly expressed using \textit{cycle notation}, wherein each 
 \]
 is expressed by its cycles like
 \[
-\begin{array}{cl}
-	\pi &= (1,2,3)(4,5) \\
-	&= (2,3,1)(5,4) \\
-	&= (4,5)(3,1,2) \\
-	&\,\vdots
+\begin{array}{ccl}
+    \pi &=& (1,2,3)(4,5) \\
+	&= &(2,3,1)(5,4) \\
+	&= &(4,5)(3,1,2) \\
+	& \vdots
 \end{array}
 \]
 where each element is mapped to the succeeding element save for the last one, which is mapped to the first. When writing about permutations on elements \(0\) through \(9\), the commas in-between the numbers can be omitted like so: \((4,6,8,2) = (4682)\).
@@ -694,7 +694,7 @@ Symmetric groups over numbers \(1\) to \(n\) are often denoted \(S_n\). (Thus th
 			\set{(1  4  2),  (1  4  2  3),  (1  3)  (2  4),  (2  4),  (1  3  4  2),  (2  3  4)}
 		\end{array}\right\}
 	\]
-	which has a cardinality of \(\dfrac{\card G}{\card H}=\dfrac{4!}{3!}=\dfrac{24}{6}=4\), as stated by with Lagrange's theorem.
+	which has a cardinality of \(\dfrac{\card G}{\card H}=\dfrac{4!}{3!}=\dfrac{24}{6}=4\), as per Lagrange's theorem.
 \end{example}
 
 \begin{theorem}[Cayley's Theorem]
