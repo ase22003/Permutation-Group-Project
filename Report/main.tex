@@ -422,11 +422,20 @@ When the operator is given implicitly, a cyclic group \(G\) with the single gene
 \end{proof}
 
 \begin{lemma}
-	Let \(G\) be a finite group under \(*\) and let \(H\subset G\) be a subgroup thereof. Then \(h\in H \iff hH=Hh=H\).
+	Let \(G\) be a group under \(*\) and let \(H\subset G\) be a subgroup thereof. Then \(h\in H \iff hH=Hh=H\).
+	%Let \(G\) be a finite group under \(*\) and let \(H\subset G\) be a subgroup thereof. Then \(h\in H \iff hH=Hh=H\).
 \end{lemma}
 
 \begin{proof}
-	Let \(H=\set{h_1,h_2,\cdots, h_n}\) and let \(f(x)=hx\) where \(h\in H\) be defined for any element \(x\in G\). Then \(\setdef{f(x)}{x\in H}=\set{h*h_1,h*h_2,\cdots,h*h_n}\). Since the identity \(\varepsilon\) is in \(H\), \(f(\varepsilon)=h\) and \(f(h\inv)=\varepsilon\). So each element in \(H\) gets transposed one step in \(h\)'s ``direction'', and since \(H\) is finite and thus \(\foralll{a\in H}{\existss{n\in\mathbb{N}}{a*\cdots*a=\varepsilon}}\)\color{red}!!!!!!!!!!!!!UNFINISHED!!!!!!!!!!!!!!!\color{black}
+	Let \(h\in H\) and let \(\mathbf{v}\) be any ordering of \(H\) -- that is, any vector containing each element of \(H\) exactly once. Now, let \(\mathbf{v}'\) also be such a vector defined by \(\mathbf{v}_i'=h*\mathbf{v}_i\).
+	Then for each index \(i\in\set{1,\cdots,\card H}\), \(h\inv*\mathbf{v}_i\in \mathbf{v}\) due to closure, whereby there exists a different index \(j\) where \(\mathbf{v}_j=h\inv*\mathbf{v}_i\), hence \(\mathbf{v}_i=h*h\inv*\mathbf{v}_i=h*\mathbf{v}_j=\mathbf{v}_j'\). So \(\mathbf{v}'\) is merely a different ordering of \(H\) and thus \(hH = H\). A similar proof exists for the right-side case \(Hh\).
+	%Then for each index \(i\in\set{1,\cdots,\card H}\), there is a different index \(j\) therein such that \(\mathbf{v}_j'=h\inv*\mathbf{v}_i\) and thereby \(\mathbf{v}_i=\mathbf{v}_j'\).
+	%%Let \(h\in H\) and let \(\mathbf{v}=\vect{\cdots, v_{-2}, v_{-1}, v_0, v_1, v_2,\cdots}\) be any ordering of elements in \(H\).
+	%%%Let \(h\in H\) and let \(V\) be any ordering of \(H\) -- that is, \[V\in\setdef{\vect{h_1,\cdots,h_n}}{n=\card H, h_i\neq h_j, i\neq j, \set{i,j}\subseteq\set{1,\cdots,n}}\] for \(H\neq\set{\varepsilon}\), where \(\varepsilon\) is the identity. Let \(V_h=\vect{}\)
+	%%%%Let \(h\in H\) and let \(V=\vect{\cdots, h_{-2}, h_{-1}, h_0, h_1, h_2,\cdots}\) be any vector of all unique elements of \(H\). Then for each 
+	%%%%%Let \(H=\set{h_1,h_2,\cdots, h_n}\) and let \(f(x)=h*x\) where \(h\in H\) be defined for any element \(x\in G\). Then \(\setdef{f(x)}{x\in H}=\set{h*h_1,h*h_2,\cdots,h*h_n}\). Since the identity \(\varepsilon\) is in \(H\), \(f(\varepsilon)=h\) and \(f(h\inv)=\varepsilon\). So each element in \(H\) gets transposed one step in the ``direction'' of \(h\), and since \(H\) is finite, there is an \(n\in\mathbb{N}\) such that \(\overset{n}{\overbrace{a*\cdots*a}}=\varepsilon\) for all \(a\in H\).
+	%%%%%%\(\foralll{a\in H}{\existss{n\in\mathbb{N}}{\overset{n}{\overbrace{a*\cdots*a}}=\varepsilon}}\)
+	%%%%%It follows, then, that 
 \end{proof}
 
 \begin{lemma}
@@ -621,7 +630,7 @@ A subpermutation which is a cycle is, conversely, called a \textit{subcycle} -- 
 \begin{proof}
 	Let \(a\in\phiset\).
 	Then since \(\card\piset\geq 2\), \(\phi(a)=b\) where \(b\in \phiset\) and \(a\neq b\). If \(\phi(b) = a\), then \(\phiset=\set{a,b}\) and the order is \(2\), since \(\phi(\phi(x))=\phi^2(x)=x\) for \(x\in\set{a,b}\). Now, let \(\alpha = \perm{\spann{a_1}{a_k}}\) have the order \(n\) and \(\beta=\perm{\spann{b_1}{b_k,b_{k+1} }}\) have the order \(m\). Then \(\alpha^{n-1}(a_1)=a_{k}\) and \(\beta^{n-1}(b_1)=b_{k}\). So \(\beta^{n}(b_1)=b_{k+1}\) and \(\beta^{n+1}(b_1)=b_1\), wherefore \(m = n+1\). By induction, then, follows the lemma herefrom.
-\color{orange}!!!!!!!!!!!!!!!!!!!!!!ADD PRECEDING LEMMA MAYBE!!!!!!!!!!!!!!!!!!!!!\color{black}
+%\color{orange}!!!!!!!!!!!!!!!!!!!!!!ADD PRECEDING LEMMA MAYBE!!!!!!!!!!!!!!!!!!!!!\color{black}
 	%Then \(a = \phi\inv(\phi(a)) = \phi^{-2}(\phi^2(a))=\phi^{-3}(\phi^3(a)) = \cdots\). Let \(n\in\mathbb{N}\) be the order of \(\pi\). Then \(\phi^n(a)=a=\).
 \end{proof}
 
@@ -642,10 +651,10 @@ A subpermutation which is a cycle is, conversely, called a \textit{subcycle} -- 
 
 \begin{example}
 \[
-	\begin{array}{lcr}
-		|(123)(45)|&=6\\
-		|(123)(456)(789)|&=3\\
-		|(012345)(6789)|&=12
+	\begin{array}{rll}
+		|(123)(45)| &= &6\\
+		|(123)(456)(789)| &= &3\\
+		|(012345)(6789)| &= &12
 	\end{array}
 \]
 \end{example}
@@ -655,33 +664,37 @@ A subpermutation which is a cycle is, conversely, called a \textit{subcycle} -- 
 \end{definition}
 
 \begin{example}\label{symex}
-	Let \(G\) be a symmetric group over \(\set{1,2,3}\). Then \[
-	G = \left\{\begin{array}{cl}
-		\varepsilon \\
-		(12) \\
-		(13) \\
-		(23) \\
-		(123) \\
-		(132)
-	\end{array}\right\}
-.\]
+	Let \(G\) be a symmetric group over \(\set{1,2,3}\). Then 
+%\[
+	%G = \left\{\begin{array}{cl}
+	%	\varepsilon \\
+	%	(12) \\
+	%	(13) \\
+	%	(23) \\
+	%	(123) \\
+	%	(132)
+	%\end{array}\right\}
+%.\]
 	%\(G=\set{\varepsilon, (12),(13),(23),(123),(132),}\).
+	\[G=\set{\varepsilon, (12),(13),(23),(123),(132)}.\]
 \end{example}
 
 Symmetric groups over numbers \(1\) to \(n\) are often denoted \(S_n\). (Thus the group described in Example \ref{symex} is the symmetric group \(S_3\).)
 %More generally, a symmetric group over a set \(A\) is denoted \(\text{Sym}(A)\).
 
 \begin{example}
-	Let \(G=S_4\) and \(H=S_3\). Then \(H\) is a subgroup of \(G\). Now, \(\card G=4!=24\), \(\card H=3!=6\). The set of cosets \(\setdef{\pi H}{\pi\in G}\) evaluates to 
+	Let \(G=S_4\) and \(H=S_3\). Then \(H\) is a subgroup of \(G\).
+	%Now, \(\card G=4!=24\), \(\card H=3!=6\).
+	The set of cosets \(\setdef{\pi H}{\pi\in G}\) evaluates to 
 	\[
-		\left\{\begin{array}{cl}
+		\left\{\begin{array}{l}
 			\set{(\varepsilon,  (1  2  3),  (2  3),  (1  3),  (1  3  2),  (1  2)}\\
 			\set{(1  3  2  4),  (1  4)  (2  3),  (1  2  4),  (1  2  3  4),  (1  3  4),  (1  4)}\\
 			\set{(1  2)  (3  4),  (1  2  4  3),  (1  4  3),  (1  4  3  2),  (3  4),  (2  4  3)}\\
 			\set{(1  4  2),  (1  4  2  3),  (1  3)  (2  4),  (2  4),  (1  3  4  2),  (2  3  4)}
 		\end{array}\right\}
 	\]
-	which has a cardinality of \(\dfrac{24}{6}=4\), as stated by with Lagrange's theorem.
+	which has a cardinality of \(\dfrac{\card G}{\card H}=\dfrac{4!}{3!}=\dfrac{24}{6}=4\), as stated by with Lagrange's theorem.
 \end{example}
 
 \begin{theorem}[Cayley's Theorem]
