@@ -377,7 +377,7 @@ The question arose within me in relation to a long-time fascination with the pro
 \begin{example}
 	The integers \(\mathbb{Z}=\left\{\cdots,-2,-1,0,1,2,\cdots\right\}\) together with \textit{addition} constitutes an Abelian group with \(0\) acting as its identity (since \(\forall a\in \mathbb{Z}\ \left(0+a=a+0=a\right)\)). The negative numbers exist as the inverses of the positives, and vice versa.
 	%The inverse of any element \(x\in\mathbb{Z}\) is \(-x\), since \(x+(-x)=0\).
-	We know addition is associative, and since \(\mathbb{Z}\) is infinite in each direction, we will never find a pair of elements therein whose sum is not also an element therein.
+	We know addition is associative, and since \(\mathbb{Z}\) is infinite in each direction, we will never find a pair of elements therein whose sum is not also an element of \(\mathbb{Z}\).
 \end{example}
 
 \begin{definition}[Generation of a group]
@@ -407,7 +407,7 @@ When the operator is given implicitly, a cyclic group \(G\) with the single gene
 	Let G be a group under \(*\) and \(H\subset G\) be a subgroup thereof. Then a \emph{left coset} \(aH\) of \(H\) in \(G\) is a set \(\setdef{a*h}{h\in H}\), where \(a\in G\). Similarly, a \textit{right coset} \(Ha\) is a set \(\setdef{h*a}{h\in H}\) where \(a\in G\).
 \end{definition}
 
-\begin{lemma}
+\begin{lemma}\label{cardcosetlemma}
 	Let \(G\) be a finite group under \(*\) and let \(H\subset G\) be a subgroup thereof. Then \(\card{aH}=\card{Ha}=\card{H}\).
 \end{lemma}
 
@@ -463,7 +463,7 @@ When the operator is given implicitly, a cyclic group \(G\) with the single gene
 
 \begin{proof}
 	%Let \(G=\set{a_1,a_2,\cdots,a_n}\) and \(L=\setdef{aH}{a\in G}\). Then \(L = a_1H\cup a_2H\cup\cdots\cup a_nH \). Now, \(\foralll{a,b\in G}{aH=bH \lor aH\cap bH=\emptyset}\), since
-	Let \(A = \set{a_1,a_2,\cdots,a_n} \subseteq G\) such that \(G=a_1H\cup a_2H\cup\cdots\cup a_nH\) and \(\foralll{a,b\in A}{aH \cap bH = \emptyset}\). Then \(\card G = \card{a_1H}+ \card{a_2H}+\cdots+\card{a_nH}\) and thus \(\card G = n\cdot\card H\), since \(\foralll{a\in G}{\card{aH}=\card{H}}\). Now, \(n=\card{G:H}\), so by substitution we get \(\card{G:H}=\dfrac{\card G}{\card H}\).
+	Let \(A = \set{a_1,a_2,\cdots,a_n} \subseteq G\) such that \(G=a_1H\cup a_2H\cup\cdots\cup a_nH\) and \(\foralll{a,b\in A}{aH \cap bH = \emptyset}\). Then \(\card G = \card{a_1H}+ \card{a_2H}+\cdots+\card{a_nH}\) and thus \(\card G = n\cdot\card H\), since \(\foralll{a\in G}{\card{aH}=\card{H}}\) by Lemma \ref{cardcosetlemma}. Now, \(n=\card{G:H}\), so by substitution we get \(\card{G:H}=\dfrac{\card G}{\card H}\).
 \end{proof}
 
 \begin{example}
@@ -479,7 +479,9 @@ When the operator is given implicitly, a cyclic group \(G\) with the single gene
 	A \emph{permutation} \(\pi\) on a set \(A\) is a bijective map \(\pi:A\to A\).
 \end{definition}
 
-We write \(\pi^n\) for a permutation \(\pi\) to denote \(\pi\circ\cdots\circ\pi\) where \(\pi\) is composed with itself \(n\in\mathbb{N}\) times. \(\pi^{-n}\) denotes the composition \(\pi\inv\circ\cdots\circ\pi\inv\) where the inverse \(\pi\inv\) is composed with itself \(n\in\mathbb{N}\) times. The permutation \(\pi^0\) always equals the identity.
+We write \(\pi^n\) where \(n\in\mathbb{N}\) for a permutation \(\pi\) on \(A\) to denote \(\overset{n}{\overbrace{\pi\circ\cdots\circ\pi}}\) -- that is, where \(\pi\) is composed with itself \(n\) times.
+\(\pi^{-n}\) where \(n\in\mathbb{N}\) denotes the composition \(\overset{n}{\overbrace{\pi\inv\circ\cdots\circ\pi\inv}}\). The permutation \(\pi^0\) equals the identity \(a\mapsto a\) for \(a\in A\).
+%\(\pi^{-n}\) denotes the composition \(\pi\inv\circ\cdots\circ\pi\inv\) where the inverse \(\pi\inv\) is composed with itself \(n\in\mathbb{N}\) times. The permutation \(\pi^0\) always equals the identity.
 
 %\begin{theorem}
 %	Let \(\pi\) be a permutation of \(A\). Then \(\pi\) commutes with its own inverse \(\pi\inv\); \(\pi\circ\pi\inv=\pi\inv\circ\pi=e\), where \(e\) is the identity.
