@@ -337,6 +337,11 @@ The question arose within me in relation to a long-time fascination with the pro
 
 \(\cdots\)
 
+Think back to when you first learned about recursion -- when you wrote your first recursive function. When I first started learning programming, I at one point tried to emulate a recursive program without knowing what recursion was. For weeks I tried to create a parser for mathematical expressions, and my programs became large and complicated. But no matter how complicated I made it, I could not seem to do it. My teacher back then talked as though it was the simplest thing in the world, and he refused to help me further. When he finally gave in and showed an example of a parser, it baffled me. The functionality which I had spent so much effort on creating -- with long, complex functions -- he had achieved in only a few lines of Python. The solution was not complicated. It wasn't a complex problem, but it was ``hard'' in another sense. The thought wasn't complicated, but I think its implications were so vast and significant that it gave the thought a certain weight -- a heaviness that needed to be seen, mourned and finally accepted by my mind.
+
+I suspect the problem whoose solution I am reaching for herein is difficult in the same sense -- where the solution is not complicated, but very simple, however very hard to arrive to on your own. I think my feeble attempts to in this work approximate a solution -- my constructions and systems -- can be likened to the bloated, complex programs I built as a beginner programmer -- blindy fumbling in the darkness after something that could imitate the principle I shought after.
+
+I apologise, therefore, in advance, to any future reader (hopefully I will be one among them) who grimaces in frustration at this misguided attempt at formulating the system by which methods are found, and problems are solved.
 
 % uncomment the next two lines if you use BiBTeX
 %\bibliographystyle{plain}
@@ -868,9 +873,10 @@ Since (by Theorem \ref{lcycle}) permutations can be represented by sets of cycle
 %}}}
 %{{{PROPERTIES OF PERMUTATION GROUPS
 %\chapter{Properties of Permutation Groups}
-\chapter{The Conjugates and Commutators of Permutations}
+%\chapter{The Conjugates and Commutators of Permutations}
+\chapter{Modeling Examples}
 
-Herein, all lowercase Greek letters are implied to be elements in a permutation group \(G\) on \(A\).
+Herein, all lowercase Greek letters are implied to be elements in a permutation group \(G\) on \(A\), of which \(\varepsilon\) is implied to be the identity.
 %and belong to the same permutation group \(G\).
 Elements of \(A\) are represented by lowercase Latin characters.
 Further, the operator \(\circ\) will henceforth be implicit, and thus omitted from expressions. As an example, take \(\pi\circ\phi=\pi\phi\).
@@ -885,7 +891,22 @@ Further, the operator \(\circ\) will henceforth be implicit, and thus omitted fr
 
 These two constructions -- though they can seem arbitrary at first -- have interesting and useful properties when working within groups -- specifically when the supports of their two permutations share elements.
 
-In the trivial case where they share no element, the permutations commute, so the conjugate of \(\alpha\) and \(\beta\) is \(\beta\), and the commutator thereof is the identity; \(\alpha \cap \beta = \emptyset\) implies that \(\alpha\inv \beta\alpha=\beta \) and \(\beta\inv \alpha\inv \beta\alpha = e\).
+In the trivial case where they share no element, the permutations commute, so the conjugate of \(\alpha\) and \(\beta\) is \(\beta\), and the commutator thereof is the identity;
+\(\alpha \cap \beta = \emptyset\) implies that \(\alpha\inv \beta\alpha=\beta \) and \(\beta\inv \alpha\inv \beta\alpha = \varepsilon\).
+%\(\alpha \cap \beta = \emptyset\iff\alpha\inv \beta\alpha=\beta \land\beta\inv \alpha\inv \beta\alpha = \varepsilon\).
+
+\begin{definition}[\(2\times 3\) Game]
+The \emph{\(2\times 3\) game} is a simple puzzle game with a board composed of a \(2\times 3\) nubered grid, with the upper row being labeled 1, 2 and 3 from left to right, and the lower row being labeled 4, 5 and 6 similarly. The elements in this grid can be moved 
+
+where the upper row of the grid is numbered 1, 2 and 3, and the lower row is numbered 4, 5  and 6. numbers and a set of allowed moves which permute them. The goal of the game is to sort the grid into a ``solved'' state from some scrambled state.
+\[
+	\gameboard[5 4 2 3 6 1]
+	\overset{\text{Move}_1}\gamemovearrow
+	\cdots
+	\overset{\text{Move}_n}\gamemovearrow
+	\gameboard[1 2 3 4 5 6]
+\]
+\end{definition}
 
 \begin{lemma}\label{lmconj}
 	Let 
@@ -1123,7 +1144,10 @@ In the trivial case where they share no element, the permutations commute, so th
 \chapter{The \(2\times 3\) Game}
 
 
-The ``\(2\times 3\) game'' is a simple puzzle with six tiles in a grid of numbers and a set of allowed moves which permute them. The goal of the game is to sort the grid into a ``solved'' state from some scrambled state.
+\begin{definition}[\(2\times 3\) Game]
+The \emph{\(2\times 3\) game} is a simple puzzle game with a board composed of a \(2\times 3\) nubered grid, with the upper row being labeled 1, 2 and 3 from left to right, and the lower row being labeled 4, 5 and 6 similarly.
+
+where the upper row of the grid is numbered 1, 2 and 3, and the lower row is numbered 4, 5  and 6. numbers and a set of allowed moves which permute them. The goal of the game is to sort the grid into a ``solved'' state from some scrambled state.
 \[
 	\gameboard[5 4 2 3 6 1]
 	\overset{\text{Move}_1}\gamemovearrow
@@ -1131,6 +1155,7 @@ The ``\(2\times 3\) game'' is a simple puzzle with six tiles in a grid of number
 	\overset{\text{Move}_n}\gamemovearrow
 	\gameboard[1 2 3 4 5 6]
 \]
+\end{definition}
 
 Formally, the game can and will herein henceforth be modeled as follows. Let \(G:=\left(\langle \mvs\rangle,\circ\right) \) be a group compositionally generated by the set of moves \(\mvs := \left\{ (123), (456), (14) \right\}\), named \(U=(123)\) for \textit{upper row}, \(L=(456)\) for \textit{lower row} and \(S=(14)\) for \textit{side flip}. A \textit{problem} is a permutation \(p\in G\), and a \textit{solution} thereto is a vector \(\solarr\in\mvs^\ast\) such that \[\overset{1}{\underset{i=n}{\bbigcirc}} \solarr_i=\solarr_n\circ \solarr_{n-1}\circ \cdots \circ \solarr_1=p\] where \(n\) denotes the length of \(\solarr\). Note that \(\solarr\) may include the implicitly given inverses of the group generators. Hereafter, \(\overset{1}{\underset{i=n}{\bbigcirc}} \solarr_i\) will be written as \(\solperm\).
 
