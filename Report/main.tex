@@ -953,15 +953,24 @@ Since (by Theorem \ref{lcycle}) permutations can be represented by sets of cycle
 			\end{array}
 		}.
 	\]
-	From \(\grim'''\), then, can a series of the elements \(\set{(12),(23),(34)}\) be found whose product is the element \((24)\), namely, the vector 
+	From \(\grim'''\), then, can a series of the elements \(\set{(12),(23),(34)}\) be found\footnote{By substituting each element \(e\) in the vector to the elements of a vector in the set \(\grim(e)\). The exact function to achieve this has been omitted from this text, and is left as future work.} whose product is the element \((24)\), namely, the vector 
 	\[
 		\begin{array}{ccl}
+			\vect{(24)} \\
+			\Downarrow \\
 			\vect{(132),(34),(123)} \\
+			\Downarrow \\
 			\vect{(123),(123),(34),(12),(23)} \\
+			\Downarrow \\
 			\vect{(12),(23),(12),(23),(34),(12),(23)}. \\
 		\end{array}
 	\]
 	If \(\grim'''\) were to have multiple choices for some entry in \(\spellset{\grim}\), then one could infer therefrom multiple distinct vectors who would satisfy the reqirements -- perhaps even a shorter solution could be found.
+
+\color{orange}
+	!!!!CHANGE \(\grim'''\) to \(\grim_3\) and add multiple choices to example!!!
+\color{black}
+
 
 \end{example}
 %}}}
@@ -1052,12 +1061,63 @@ Note that since \(\spellset{\grim}=\text{dom}(\grim)\), then \(\spellset{\grim'}
 \color{black}
 %}}}
 %}}}
-%{{{PROPERTIES OF PERMUTATION GROUPS
+%{{{MODELING EXAMPLES
 %\chapter{Properties of Permutation Groups}
 %\chapter{The Conjugates and Commutators of Permutations}
 \chapter{Modeling Examples}
 
-Herein, all lowercase Greek letters are implied to be elements in a permutation group \(G\) on \(A\), of which \(\varepsilon\) is implied to be the identity.
+\begin{definition}[\(2\times 3\) Game]
+The \emph{\(2\times 3\) game} is a simple puzzle game with a board composed of a \(2\times 3\) nubered grid, with the upper row being labeled 1, 2 and 3 from left to right, and the lower row being labeled 4, 5 and 6 similarly. The elements in this grid can be moved by permutations in \(S_6\) such that, for example, the permutation \((145)(26)\) moves the element in slot \(1\) to slot \(4\), the element in slot \(4\) to slot \(5\) and so on.
+
+The game, then, consists of finding from a given \textit{moveset} \(\moveset\subseteq S_6\) the right series of moves \(\solarr\in\moveset^*\) such that \(\overset{n}{\underset{i=1}{\bigcirc}} \solarr_i=\solarr_1\circ \cdots \circ \solarr_n=\pi\), where \(\pi\inv\) represents the ``scrambled'' state of the puzzle, and \(\varepsilon\) represents the ``solved'' state of the puzzle.
+
+\[
+	\gameboard[E C A F D B]
+	\overset{\solarr_1}\gamemovearrow
+	\cdots
+	\overset{\solarr_n}\gamemovearrow
+	\gameboard[A B C D E F]
+\]
+\end{definition}
+
+\begin{example}
+	Let \(\phi=(23)(465)\) be the scramble for the \(2\times 3\) game, and let our moveset be \(\set{\alpha,\beta,\gamma}\), where \(\alpha=(145)\), \(\beta=(23)\) and \(\gamma=(56)\). Then 
+	\(
+		\solarr=\vect{\gamma,\alpha,\beta,\alpha,\gamma,\alpha}
+	\)
+	is a solution to \(\phi\), since
+	\[
+		\begin{array}{rcl}
+			  %&\gamma\alpha\beta\alpha\gamma\alpha \\
+			\gamma\circ\alpha\circ\beta\circ\alpha\circ\gamma\circ\alpha &= &(56)(145)(23)(145)(56)(145) \\
+			&= &(56)(145)(23)(145)(1465) \\
+			&= &(56)(145)(23)(1546) \\
+			&= &(56)(23)(46) \\
+			&= &(23)(456) \\
+			&= &\phi\inv.
+		\end{array}
+	\]
+
+	Visualized, the solution looks like this:
+
+\begin{align*}
+	& \gameboard[A C B E F D]
+	\overset{\alpha}\gamemovearrow
+	\gameboard[F C B A E D]
+	\overset{\gamma}\gamemovearrow
+	\gameboard[F C B A D E]
+	\overset{\alpha}\gamemovearrow
+	\gameboard[D C B F A E]\\
+	\overset{\beta}\gamemovearrow\ 
+	&\gameboard[D B C F A E]
+	\overset{\alpha}\gamemovearrow
+	\gameboard[A B C D F E]
+	\overset{\gamma}\gamemovearrow
+	\gameboard[A B C D E F]
+\end{align*}
+\end{example}
+
+Henceforth, all lowercase Greek letters are implied to be elements in a permutation group \(G\) over a set \(A\), of which \(\varepsilon\) is implied to be the identity.
 %and belong to the same permutation group \(G\).
 Elements of \(A\) are represented by lowercase Latin characters.
 Further, the operator \(\circ\) will henceforth be implicit, and thus omitted from expressions. As an example, take \(\pi\circ\phi=\pi\phi\).
@@ -1075,19 +1135,6 @@ These two constructions -- though they can seem arbitrary at first -- have inter
 In the trivial case where they share no element, the permutations commute, so the conjugate of \(\alpha\) and \(\beta\) is \(\beta\), and the commutator thereof is the identity;
 \(\alpha \cap \beta = \emptyset\) implies that \(\alpha\inv \beta\alpha=\beta \) and \(\beta\inv \alpha\inv \beta\alpha = \varepsilon\).
 %\(\alpha \cap \beta = \emptyset\iff\alpha\inv \beta\alpha=\beta \land\beta\inv \alpha\inv \beta\alpha = \varepsilon\).
-
-\begin{definition}[\(2\times 3\) Game]
-The \emph{\(2\times 3\) game} is a simple puzzle game with a board composed of a \(2\times 3\) nubered grid, with the upper row being labeled 1, 2 and 3 from left to right, and the lower row being labeled 4, 5 and 6 similarly. The elements in this grid can be moved 
-
-where the upper row of the grid is numbered 1, 2 and 3, and the lower row is numbered 4, 5  and 6. numbers and a set of allowed moves which permute them. The goal of the game is to sort the grid into a ``solved'' state from some scrambled state.
-\[
-	\gameboard[5 4 2 3 6 1]
-	\overset{\text{Move}_1}\gamemovearrow
-	\cdots
-	\overset{\text{Move}_n}\gamemovearrow
-	\gameboard[1 2 3 4 5 6]
-\]
-\end{definition}
 
 \begin{lemma}\label{lmconj}
 	Let 
