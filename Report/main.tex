@@ -224,7 +224,7 @@
 \vspace{4cm}
 
 % Write your title here
-\centering{\large{\textbf{\textsf{On Permutation Groups}} }}
+\centering{\large{\textbf{\textsf{On Grimoires}} }}
 
 \vspace{1cm}
 
@@ -270,7 +270,7 @@
 \noindent{\small\emph{Project name}:}
 
 % Write your title here
-\noindent{The Title of the Thesis}
+\noindent{On Grimoires}
 
 \bigskip
 
@@ -312,13 +312,13 @@
 %}}}
 %}}}
 %{{{ABSTRACT AND ACKNOWLEDGEMENTS
-\begin{abstract}
-Under construction.
-\end{abstract}
+%\begin{abstract}
+%Under construction.
+%\end{abstract}
 
 \chapter*{Acknowledgements}\addcontentsline{toc}{chapter}{Acknowledgements}
 
-Thank you to Peder Thompson for guiding and encouraging me through the course of this project.
+A big thank you to Peder Thompson for guiding and encouraging me throughout the course of this project.
 
 \tableofcontents
 
@@ -336,13 +336,13 @@ The motivation behind the research whose the results can be found largely within
 The question arose within me in relation to a long-time fascination with the problem-solving process employed when finding methods for solving \textit{twisty puzzles} -- such as the \textit{Rubik's cube}. This focus led me to study \textit{permutation groups}, and initially formulate my thoughts and findings in terms thereof. 
 %In this way, then, is this text not actually about permutations or groups thereof, but instead about 
 
-The first chapter introduces the main concepts upon which the later chapter will build. Such is the case also for the sections within each chapter. The first chapter introduces the concept of \textit{groups} and includes some common terminology and lemmas about them, ending with Lagrange's theorem. The second chapter introduces the concept of \textit{permutations} and, similarly to the chapter before it, explores some facts and properties thereof, ending with Cayley's theorem.
+The second chapter introduces the main concepts upon which the later chapter will build. Such is the case also for the sections within each chapter. The first chapter introduces the concept of \textit{groups} and includes some common terminology and lemmas about them, ending with Lagrange's theorem. The second chapter introduces the concept of \textit{permutations} and, similarly to the chapter before it, explores some facts and properties thereof, ending with Cayley's theorem.
 
-The second chapter\color{orange}................!!!!!!!!!!!!!!!!!!!\color{black}
+The third chapter introduces the concept of \textit{grimoires}, which is used in the fourth chapter to find solutions and proofs to a puzzle which can be described by a permutation group.
 
 Now a word about the context within which this work has been produced.
 
-Think back to when you first learned about recursion -- when you wrote your first recursive function. When I first started learning programming, I at one point tried to emulate a recursive program without knowing what recursion was. For weeks I tried to create a parser for mathematical expressions, and my programs became large and complicated. But no matter how complicated I made it, I could not seem to do it. My teacher back then talked about it as though it was the simplest thing in the world, and he refused, for a time, to show me the solution. When he finally gave in and showed an example of a parser, it baffled me. The functionality which I had spent so much effort on creating with long, complex functions -- and failed at producing -- he had achieved with only a few lines of Python. The solution was not complicated. It wasn't a complex problem, but it was ``hard'' in another sense. The thought wasn't complicated, but I think its implications were so vast and significant that it gave the thought a certain weight -- a heaviness that needed to be seen, mourned and finally accepted by my mind.
+Think back to when you first learned about recursion -- when you wrote your first recursive function. When I first started learning programming, I at one point tried to emulate a recursive program without knowing what recursion was. For weeks I tried to create a parser for mathematical expressions, and my programs became large and complicated. But no matter how complicated I made it, I could not seem to do it. My teacher back then talked about it as though it was the simplest thing in the world, and he refused, for a time, to show me the solution. When he finally gave in and showed an example of a parser, it baffled me. The functionality which I had spent so much effort on -- and failed at -- creating with long, complex functions he had achieved with only a few lines of Python. The solution was not complicated. It wasn't a complex problem, but it was difficult in another sense. %The thought wasn't complicated, but I think its implications were so vast and significant that it gave the thought a certain weight -- a heaviness that needed to be seen, mourned and finally accepted by my mind.
 
 I suspect the problem whoose solution I am herein reaching for is difficult in the same sense -- where the solution is not complicated, but very simple, however very hard to arrive at on your own. I think my feeble attempts to in this work approximate a solution can be likened to the bloated, complex programs I built as a beginner programmer -- blindy fumbling in the darkness after something that could imitate the principle I shought after.
 
@@ -925,7 +925,7 @@ Since (by Theorem \ref{lcycle}) permutations can be represented by sets of cycle
 \end{definition}
 
 
-\color{orange} ADD PROOF THAT \(\koppa\) WILL ALWAYS RETURN FOR A GRIMORE EXPANDED BY \(\triangle\).\color{black}
+\color{orange} ADD PROOF THAT \(\koppa\) WILL ALWAYS RETURN FOR A GRIMOIRE EXPANDED BY \(\triangle\).\color{black}
 \end{comment}
 
 
@@ -967,15 +967,16 @@ Since (by Theorem \ref{lcycle}) permutations can be represented by sets of cycle
 	\]
 	If \(\grim'''\) were to have multiple choices for some entry in \(\spellset{\grim}\), then one could infer therefrom multiple distinct vectors who would satisfy the reqirements -- perhaps even a shorter solution could be found.
 
-\color{orange}
-	!!!!CHANGE \(\grim'''\) to \(\grim_3\) and add multiple choices to example!!!
-\color{black}
+%\color{orange}
+%	!!!!CHANGE \(\grim'''\) to \(\grim_3\) and add multiple choices to example!!!
+%\color{black}
 
 
 \end{example}
 %}}}
+\begin{comment}
 %{{{ABSTRACT GRIMOIRES
-\section{Abstract Grimores}
+\section{Abstract Grimoires}
 
 \begin{definition}[Grimoire]
 	Let \(\gset\) be a set closed under a binary associative operator \(*\). Then a \emph{grimoire} \(\grim\) is an injective map from a set of \textit{spells} \(\spellset{\grim}\subseteq \mathcal{P}(\gset)\) to a set of vectors of spells \(\spellset{\grim}^{<\omega}\) of finite length such that \(\vect{a_1,\cdots,a_n}\in\grim(B) \implies a_1*\cdots*a_n\in B\).
@@ -1060,6 +1061,7 @@ Note that since \(\spellset{\grim}=\text{dom}(\grim)\), then \(\spellset{\grim'}
 	Är gruppen definierad av \textit{likheten} mellan en mängd utforskningar/utökningar av trollformelboken?
 \color{black}
 %}}}
+\end{comment}
 %}}}
 %{{{MODELING EXAMPLES
 %\chapter{Properties of Permutation Groups}
@@ -1119,7 +1121,7 @@ The game, then, consists of finding from a given \textit{moveset} \(\moveset\sub
 
 Henceforth, all lowercase Greek letters are implied to be elements in a permutation group \(G\) over a set \(A\), of which \(\varepsilon\) is implied to be the identity.
 %and belong to the same permutation group \(G\).
-Elements of \(A\) are represented by lowercase Latin characters.
+Elements of \(A\) are represented by lowercase Latin characters. Lowercase Latin characters, if so stated, do not necessarily belong to \(A\), however.
 Further, the operator \(\circ\) will henceforth be implicit, and thus omitted from expressions. As an example, take \(\pi\circ\phi=\pi\phi\).
 
 \begin{definition}[Conjugate]
@@ -1190,7 +1192,8 @@ In the trivial case where they share no element, the permutations commute, so th
 %and the conjugate is the transposition \(\left(\alpha\inv(c),\beta(c)\right)\).
 \end{proof}
 
-
+%{{{
+\begin{comment}
 \begin{lemma}
 	Let 
 	%\(\alpha\) and \(\beta\) where 
@@ -1367,6 +1370,35 @@ In the trivial case where they share no element, the permutations commute, so th
 \end{proof}
 \color{black}
 
+\end{comment}
+%}}}
+
+
+\begin{theorem}\label{t23}
+	Let \(\moveset=\set{\pi,\phi,\psi}\) be a moveset for the \(2\times 3\) game, where \(\pi=(123)\), \(\phi=(456)\) and \(\psi=(14)\). Then \(\prnth{\langle\moveset\rangle,\circ}=S_6\).
+\end{theorem}
+
+To prove this, we will need to first prove the following lemmas.
+
+\begin{lemma}\label{tl1}
+	For each scramble in \(T_1=\setdef{(a,b)}{a\in\set{1,2,3},b\in\set{4,5,6}}\), there is a solution for the moveset provided in Theorem \ref{t23}.
+\end{lemma}
+
+\begin{proof}
+	Let \(\grim\) be an abstract grimoire where \(\spellset{\grim}=S_6\) and \(\foralll{\pi\in\spellset{\grim}}{\grim(\pi)=\set{\vect{\pi} }}\). Now, from Corollary \ref{cor1}, we can expand the grimoire such that \(\grim'=\triangle\prnth{\cdots\triangle\prnth{\triangle\prnth{\grim, e_1}, e_2}\cdots, e_n}\), where \(e=\setdef{\vect{\alpha\inv,\beta,\alpha}}{\alphaset\cap\betaset=\set{c}, \card\beta=2\ \text{for}\ \alpha,\beta\in S_6}\).
+	%Let \(\grim_0\) be a grimoire where \(\spellset{\grim_0}=\moveset\) and \(\foralll{\pi\in\spellset{\grim_0}}{\grim_0(\pi)=\set{\vect{\pi} }}\). Now, from Corollary \ref{cor1}, we can expand
+
+	Let us now try to find a set of solutions to the set of scrambles \(T_1\). Let \(\delta=(a,b)\) for some \(a,b\in\set{1,\cdots,6}\). Then \(\grim_1\prnth{\delta} \ni \vect{\alpha_1\inv, \beta_1,\alpha_1}\), where \(\beta_1=(a,c_1))\) and \(\alpha_1(b)=c_1\). Since \(\beta_1\) is a transposition, we can search for it, too, in our grimoire. So \(\grim_1(\beta_1)\ni\vect{\alpha_2\inv, \beta_2,\alpha_2}\), where \(\beta=(c_1,c_2)\) and \(\alpha_2(a)=c_2\). Now, from \(\moveset\), we do have permutations with these properties, namely \(\beta_2=\psi\), \(\alpha_2\in\langle\pi\rangle\) and \(\alpha_1\in\langle\phi\rangle\).
+\end{proof}
+
+\begin{lemma}
+	For each scramble in \(T_2=\setdef{(a,b)}{a,b\in\set{1,2,3} \oplus a,b\in\set{4,5,6}}\), there is a solution for the moveset provided in Theorem \ref{t23}.
+\end{lemma}
+
+\begin{proof}
+	Let \(\grim'\) be a grimoire like the one defined in the proof for Lemma \ref{rl1}. Then, in a similay way, we can search for 
+\end{proof}
+
 %}}}
 %{{{THE 2x3 GAME
 \chapter{The \(2\times 3\) Game}
@@ -1512,8 +1544,8 @@ Since \(G\) is the symmetric group \(S_6\), there must exist a map
 %\(\zeta_1:\{1,2,3\}\times\{4,5,6\} \to G\)
 \(T_1(x,y)=(x,y)\), where \(x\in\{1,2,3\}\) and \(y\in\{4,5,6\}\).
 
-%From Corrolary \ref{cor1}, we know that since \(\zeta_1(x,y)\) is a transposition, then \(\zeta_1=\conjl {\alpha_1} {\beta_1}\) where \(\beta_1=\left(x,c_1\right)\) and \(\alpha_1=\left(\cdots,y,c_1\right)\). Similarly, from \(\left|\beta_1\right|=2\) follows that \(\beta_1=\conjl {\alpha_2}{\beta_2}\) where \(\beta_2=\left(c_1,c_2\right)\) and \(\alpha_2=\left(\cdots,x,c_2\right)\).
-From Corrolary \ref{cor1}, we know that since \(\zeta_1(x,y)\) is a transposition, then \(\zeta_1=\conjl {\alpha_1} {\beta_1}\) where \(\beta_1=\left(x,c_1\right)\) and \(\alpha_1(y)=c_1\). Similarly, from \(\card{\support{\beta_1}}=2\) follows that \(\beta_1=\conjl {\alpha_2}{\beta_2}\) where \(\beta_2=\left(c_1,c_2\right)\) and \(\alpha_2(x)=c_2\). Now, from \(\mvs\) we can find permutations matching these properties
+%From Corollary \ref{cor1}, we know that since \(\zeta_1(x,y)\) is a transposition, then \(\zeta_1=\conjl {\alpha_1} {\beta_1}\) where \(\beta_1=\left(x,c_1\right)\) and \(\alpha_1=\left(\cdots,y,c_1\right)\). Similarly, from \(\left|\beta_1\right|=2\) follows that \(\beta_1=\conjl {\alpha_2}{\beta_2}\) where \(\beta_2=\left(c_1,c_2\right)\) and \(\alpha_2=\left(\cdots,x,c_2\right)\).
+From Corollary \ref{cor1}, we know that since \(\zeta_1(x,y)\) is a transposition, then \(\zeta_1=\conjl {\alpha_1} {\beta_1}\) where \(\beta_1=\left(x,c_1\right)\) and \(\alpha_1(y)=c_1\). Similarly, from \(\card{\support{\beta_1}}=2\) follows that \(\beta_1=\conjl {\alpha_2}{\beta_2}\) where \(\beta_2=\left(c_1,c_2\right)\) and \(\alpha_2(x)=c_2\). Now, from \(\mvs\) we can find permutations matching these properties
 
 \begin{align*}
 T_1(x,y)
