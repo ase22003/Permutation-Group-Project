@@ -5,7 +5,7 @@
     }
 </style>
 
-# On Grimories
+# On Grimoires
 
 By Adrian Swande
 
@@ -109,7 +109,7 @@ Say that
 
 $b*a=d$
 
-Then we have *two* methods for $d$, namely $\{[a,b,b],[b,a]\}$. If we find that $b*c=a$, then we have an infinite set of solutions for $d$, since $a$ can be expanded from $[b,c]$ to $[b,a,b]$, which can be expanded to $[b,b,c,b]$ and $[b,b,a,b,b]$ and so on.
+Then we have *two* methods for $d$, namely $\{[a,b,b],[b,a]\}$. If we find that $b*c=a$, then we have an infinite set of solutions for $d$, since $a$ can be expanded $a=(b*c)=b*(a*b)=b*(b*c)*b=b*b*(a*b)*b$ and so on.
 
 ---
 
@@ -148,7 +148,7 @@ But instead of defining a grammar, and then generating sentences which follow it
 
 ---
 
-# Grimoires
+# Grimoires (1)
 
 So we want a way to express this self-defining grammatical structure of action and result.
 
@@ -161,3 +161,117 @@ As an example, the grimoire of our previous exploration would be the map:
 $\Phi = \left\{ \begin{array}{rcl} & a & \mapsto & \{[a],[b,c]\}\\ & b & \mapsto & \{[b]\}\\ & c & \mapsto & \{[a,b]\}\\ & d & \mapsto & \{[c,b]\}\end{array} \right\}$
 
 ---
+
+# Grimoires (2)
+
+### Formal definition a grimoire:
+
+Let $G$ be a set closed under a binary associative operator $*$. Then a *grimoire* $\Phi$ is an injective map from a set of *spells* $\mathscr{S}_{\Phi}\subseteq G$ to a set of vectors of spells $\mathscr{S}_{\Phi}^{<\omega}$ of finite length such that $\{a_1,\cdots,a_n\}\in\Phi(b) \implies a_1*\cdots*a_n = b$.
+
+### Formal definition an expansion function:
+
+An *exploration function* is a map $\triangle:\Pi \times G^{<\omega} \to \Pi$ -- where $\Pi$ is the set of all grimoires of $G$ and $*$ -- be defined for some grimoire $\Phi$ by $\Phi'(b) = \Phi(b)$ for all $b\in \mathscr{S}_{\Phi} \setminus\{a_1*\cdots*a_n\}$ as well as $\Phi'(a_1*\cdots*a_n) = \Phi(a_1*\cdots*a_n)\cup\{[a_1,\cdots,a_n]\}$ if $a_1*\cdots*a_n\in \mathscr{S}_{\Phi}$, and $\Phi'(a_1*\cdots*a_n) = \{[a_1,\cdots,a_n]\}$ if not -- where $\Phi' = \triangle(\Phi, [a_1,\cdots,a_n])$ and $a_1,\cdots, a_n \in \mathscr{S}_\Phi$.
+
+<!--
+Let a map $\triangle:\Pi \times \mathcal{P}\left(G^{<\omega}\right) \to \Pi$ -- where $\Pi$ is the set of all grimoires of $G$ and $*$ -- be defined for some grimoire $\Phi$ by $\forall B\in \mathscr{S}_{\Phi} \setminus \set{R}\ \left(\Phi'(B) = \Phi(B)\right)$ and $\Phi'(R) = \Phi(R)\cup A$, where $R=\left\{\overset{ |\mathbf{a}| }{\underset{i=1}{*} }\mathbf{a}_i  \ |\   \mathbf{a}\in A\right\}$, if $R \in \mathscr{S}_{\Phi}$, and $\Phi'(R) = A$ otherwise -- where $\Phi' = \triangle(\Phi, A)$.
+-->
+
+---
+
+How do we go further?
+
+We can now predict specific outcomes from specific actions in our world -- how do we now produce *generalized* methods?
+
+For that, we need a generalizable world!
+
+We need substance to out group elements.
+
+---
+
+# Permutations (1)
+
+A permutation on a set $A$ is a bijective map in $A\to A$. That is, a permutation maps each element in $A$ to a unique element in $A$, so all permutations are invertible.
+
+A common notation for permutations is a collection of parenthesized list $(a_1,a_2,a_3,\cdots)(b_1,b_2,b_3,\cdots)\cdots$, where each element maps to its successor within its parenthesis, save for the last one, which maps to the first.
+
+### Examples:
+
+$(a,b,c)(d,e)$
+$(a,c,d,h)(e,b,f)(g,j,i)$
+$(\cdots, -2, -1,0,1,2,\cdots)$
+$(a,b,c)$ -- *cycle*
+$(a,b)$ -- *transposition*
+
+---
+
+# Permutations (2)
+
+*$(356)$ short for $(3,5,6)$*
+*$(356)(2467)$ short for $(356)\circ (2467)$*
+
+### Composition Examples:
+
+$(123)(23) = (12)$
+$(123)(123) = (123)^{-1} = (132)$
+$(15)(14)(13)(12) = (12345)$
+
+Let $\pi = (\cdots, -2, -1,0,1,2,\cdots)$, then $\pi^3=\pi\pi\pi=(\cdots, -6, -3,0,3,6,\cdots)(\cdots, -5, -2,1,4,7,\cdots)(\cdots, -4, -1,2,5,8,\cdots)$
+$=x\mapsto x+3$, for $x\in\mathbb{Z}$.
+
+---
+
+# Permutation Groups
+
+A *permutation group* is a group of permutations under composition.
+
+<!--
+Permutations under function composition are:
+
+- *Associative:* $\Big((142)(57)\Big)(24)=(14)(57)=(142)\Big((57)(24)\Big)$
+- *Associative:* $\Big((142)(57)\Big)(24)=(14)(57)=(142)\Big((57)(24)\Big)$
+-->
+
+<br>
+
+*Is this a "generalizable group"?*
+
+---
+
+# Grimoires of Permuation Groups (1)
+
+Let $M=\{\alpha,\beta\}$, where $\alpha=(23)$ and $\beta=(123)$, and let $\Phi_0$ be an "empty" grimoire of $M$. Now let $\Phi_1=\triangle(\Phi_0, [\alpha, \beta])$. Now $\alpha\beta=(23)(123)=(13)$, so $\mathscr{S}_{\Phi_1}\ni (13)$.
+
+Now, let $\Phi_2=\triangle(\Phi_1, [(13),\beta])$ and $\Phi_3=\triangle(\triangle(\Phi_2, [\beta,(13)]), [\beta,\alpha])$. Then 
+
+<br>
+
+$\Phi_3 = \left\{ \begin{array}{rcl} & \alpha & \mapsto & \{[(23)],[\beta,(13)]\}\\ & \beta & \mapsto & \{[(123)]\}\\ & (13) & \mapsto & \{[\alpha,\beta]\}\\ & (12) & \mapsto & \{[(13),\beta]\}\end{array} \right\}$
+
+---
+
+# Grimoires of Permuation Groups (2)
+
+Now, since $\Phi_3((12))\ni [(13),\beta]$ and $\Phi_3((13))\ni [\alpha,\beta]$, we can derive a *solution* to $(12)$ using $M$:
+
+$(12)=(13)\beta = \beta\alpha\beta = (123)(23)(123)$
+
+---
+
+This is all fine and dandy, but can we now, with our new fancy permutation group, *generalize* methods over elements in the group?
+
+![bg right:50% 100%](frieren_pumpkin.png)
+
+---
+
+# Generalizations (1)
+
+Let $\Phi$ be a grimoire of a permutation group defined by
+
+$\Phi_3 = \left\{
+    \begin{array}{rcl}
+        & \alpha & \mapsto & \{[(23)],[\beta,(13)]\}\\
+        & \beta & \mapsto & \{[(123)]\}\\
+        & (13) & \mapsto & \{[\alpha,\beta]\}\\
+        & (12) & \mapsto & \{[(13),\beta]\}
+    \end{array} 
+\right\}$
