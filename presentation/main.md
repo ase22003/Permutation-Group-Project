@@ -18,9 +18,9 @@ By Adrian Swande
 > "What is the process by which methods (for solving problems) are found?"
 
 - *Problems* are solved by finding their *solutions*.
-- *Solutions* are found by employing *methods*.
+- *Solutions* are most effectively found by employing *methods*.
 - *Methods* exist within *predictable universes*.
-- *general methods* exist within *generalizable universes*.
+- *General methods* exist within *generalizable universes*.
 
 So we need, firstly, a predictable world in which our problems can be represented.
 
@@ -97,7 +97,7 @@ And now we know $[a,b]$ is a solution to $c$. We can now add $c$ to our repertoi
 
 $c*b=d$
 
-and get the solution for $d$, since we can just expand $c$ like this: $c*a=a*b*b=d$. So the solution for $d$ becomes $[a,b,b]$.
+and get the solution for $d$, since we can just expand $c$ like this: $c*b=a*b*b=d$. So the solution for $d$ becomes $[a,b,b]$.
 
 ---
 
@@ -263,15 +263,91 @@ This is all fine and dandy, but can we now, with our new fancy permutation group
 
 ---
 
-# Generalizations (1)
+# Abstractions (1)
 
 Let $\Phi$ be a grimoire of a permutation group defined by
 
-$\Phi_3 = \left\{
-    \begin{array}{rcl}
-        & \alpha & \mapsto & \{[(23)],[\beta,(13)]\}\\
-        & \beta & \mapsto & \{[(123)]\}\\
-        & (13) & \mapsto & \{[\alpha,\beta]\}\\
-        & (12) & \mapsto & \{[(13),\beta]\}
-    \end{array} 
+$\Phi = \left\{
+    \begin{array}{rrl}
+        & (789) & \mapsto & \{[(79),(78)],\cdots\}\\
+        & (153) & \mapsto & \{[(13),(15)],\cdots\}\\
+        & & \vdots \\
+        & (14)(57) & \mapsto & \{[(142),(57),(24)],\cdots\}\\
+        & (38)(49) & \mapsto & \{[(385),(49),(28)],\cdots\}\\
+    \end{array}
 \right\}$
+
+<br>
+
+*Do you see a pattern here?*
+
+---
+
+# Abstractions (2)
+
+Say we know the specific elements of permutations (on A) doesn't matter during composition, that only their equivalences to each other do -- then we can generalize permutation composition over elements.
+
+<!--
+So if $(137)(423)=(13427)$, then $(a,b,c)(d,e,b)=(a,b,d,e,c)$
+-->
+So if $(13)(12)=(123)$, then $(a,c)(a,b)=(a,b,c)$ for all elements $a,b,c\in A$.
+
+We can then define for a grimoire $\Phi$ of a permutation group $G$ some *abstraction* $\mathscr{K}:\mathscr{S}_\Phi\times{\mathscr{S}_\Phi}^{<\omega}\to\mathcal{P}\big(\mathscr{S}_\Phi\times{\mathscr{S}_\Phi}^{<\omega}\big)$ whereby multiple distinct pairs of spells $\pi\in\mathcal{S}_{\Phi}$ methods $\mathbf{s}\in\Phi(\pi)$ can be mapped to the same set of pairs of spells and methods -- that is, a map from a specific spell and its method a "type" spell and method whereto they belong.
+
+---
+
+Let's try it on a grimoire!
+
+---
+
+# Abstractions (3)
+
+$\Phi = \left\{
+    \begin{array}{rrl}
+        & (789) & \mapsto & \{[(79),(78)],\cdots\}\\
+        & (153) & \mapsto & \{[(13),(15)],\cdots\}\\
+        & & \vdots \\
+        & (14)(57) & \mapsto & \{[(142),(57),(24)],\cdots\}\\
+        & (38)(49) & \mapsto & \{[(385),(49),(28)],\cdots\}\\
+    \end{array}
+\right\}$
+
+---
+
+# Abstractions (4)
+
+<!--
+$\Phi = \left\{
+    \begin{array}{rrl}
+        & \{(a,b,c)\ |\ a,b,c\in A\} & \mapsto & \Big\{\big\{[(a,c),(a,b)]\ |\ \big\},\cdots\Big\}\\
+        & & \vdots \\
+        & (14)(57) & \mapsto & \{[(142),(57),(24)],\cdots\}\\
+        & (38)(49) & \mapsto & \{[(385),(49),(28)],\cdots\}\\
+    \end{array}
+\right\}$
+-->
+
+<!--
+$\Phi_1=\triangle(\Phi, )
+
+$\Phi_1 = \left\{
+    \begin{array}{rrl}
+        & \{(a,b,c)\ |\ a,b,c\in A\} & \mapsto & \Big\{\big\{[(a,c),(a,b)]\ |\ \big\},\cdots\Big\}\\
+        & & \vdots \\
+        & (14)(57) & \mapsto & \{[(142),(57),(24)],\cdots\}\\
+        & (38)(49) & \mapsto & \{[(385),(49),(28)],\cdots\}\\
+    \end{array}
+\right\}$
+-->
+
+$\Phi_1 = \left\{
+    \begin{array}{rrl}
+        & \{(a,b,c)\} & \mapsto & \big\{[(a,c),(a,b)],\cdots\big\}\\
+        & & \vdots \\
+        & \{(a,b)(c,d)\} & \mapsto & \big\{[(a,b,x_1),(c,d),(x_1,b)],\cdots\big\}\\
+    \end{array}
+\right\}$
+
+---
+
+Future work...
